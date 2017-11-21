@@ -1,0 +1,132 @@
+14/11/17
+Projectdag
+Aanwezig: Timo van der Steenhoven
+ 	  Tycho Meijering
+ 	  Niels Turenhout
+
+- Niels doet LaTeX -> in TeXstudio
+
+
+- We nemen de projecthandleiding even door, daar komen de volgende 
+onderwerpen uit: 
+
+-- in week 2 moet er een PVA opgesteld worden
+-- in week 2 moet er een samenwerkingsovereenkomst gemaakt en getekend zijn.
+-- in week 4 moet er een PVA ingeleverd worden
+-- in week 4 vindt ook het ontwerp plaats van verschillende
+onderdelen
+-- in week 8 vindt de afronding plaats van het project en de rapportage
+-- in week 10 is er projectassessment. Daarbij moet het volgende op Blackboard staan:
+1 Samenwerkingsovereenkomst
+2 Plan van Aanpak
+3 ontwerpmodellen (ERD's en PSD's)
+4 Source code van de Webapplicatie
+5 De SQL-create statements voor de Database
+6 Onderzoeksrapport
+
+Alles is terug te vinden in de Projecthandleiding op BlackBoard.
+
+Het project moet ook aan de volgende eisen voldoen:
+- Er dient een webdashboard gerealiseerd te zijn.
+(Vb Symbaloo)
+- Koppeling tussen de applicatie en domotica back-end dient te 
+worden gedemonstreerd.
+- Het webdashboard bevat een inlog en authenticatie van 
+gebruikers, waarbij de beveiliging dient toegelicht te worden.
+- Als het webdashboard op meerdere platformen toegepast kan 
+worden dan worden er extra punten toegekend.
+
+Het rapport dient te voldoen aan de richtlijnen gegeven in de vakken 
+"Onderzoeken 1" en "Onderzoeken 2".
+
+-----------------------------------------------------------------------------------------------------
+Beslismoment
+
+- Stelling: We moeten ergens onze project bestanden kwijt
+Opties:
+1 Dropbox 
+2 google drive
+3 github
+4 Visual studio Source Control
+
+Niels : Ervaring met google drive / dropbox, nog nooit github
+of VSSC gebruikt. we weten niet hoe het werkt, maar ik denk dat als 
+we het snappen dat het makkelijker werkt. 
+
+Tycho : ik heb meerdere accounts, dus google drive slaat soms in andere 
+accounts op, onoverzichtelijk. Github is een goede optie omdat het al ingebouwd 
+is in Visual studio en ik er een paar keer mee gewerkt heb. Stemt voor om 
+github uit te zoeken.
+
+Timo : dropbox / google drive is ok, nadeel is dat je er niet tegelijk in kan 
+werken, je krijgt dan conflicten. Na een brainstorm sessie in VSSC, stem ik voor github 
+want VSSC is op het oog erg ingewikkeld. 
+
+Conclusie: Na een stemronde is er unaniem voro github gekozen. 
+
+p.s. mocht er een plek nodig zijn om plaatjes of textbestanden op te slaan dan is 
+blackboard/dropbox/google drive een optie.
+
+- stelling : Wat vinden we belangrijk in het projectgroepje (SAMENWERKINGSCONTRACT)
+
+Niels: goede communicatie, werk eerlijk verdelen, LaTeX is voor mij
+Tycho: dat er geluisterd wordt, afspraken nakomen
+Timo: dat er gereageerd wordt ook als is het alleen maar "ok","k.", 
+als je er niet bent op projectdag geef het even aan, als je iets niet 
+red of snapt geef het aan,
+
+-----------------------------------------------------------------------------------------------------------
+ACTIELIJST:
+- Samenwerkingscontract opstellen in LaTeX (Niels) 
+- PVA beginselen maken in LateX(Timo)
+- Github uitzoeken (Tycho)
+- Samenwerkingscontract tekenen en uploaden (Niels,Timo,Tycho)
+- Projecthandleiding Lezen (Niels,Timo,Tycho)
+- nadenken over probleemstelling (Niels,Timo,Tycho)
+- klaar maken ontwikkelstation (Niels,Timo,Tycho)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
