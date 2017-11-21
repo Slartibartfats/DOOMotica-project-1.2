@@ -13,5 +13,10 @@ namespace DOOMotica_1._2
         {
 
         }
+
+        protected void btn_DrukHierop_Click(object sender, EventArgs e)
+        {
+            lblInfo.Text = "GOEDZO!";
+        }
     }
 }
