@@ -6,6 +6,7 @@
 \usepackage{a4wide}          % papierformaat en marges
 \usepackage{graphicx} 		 % Invoegen van plaatjes , ref: https://nl.sharelatex.com/learn/Inserting_Images
 \usepackage{listings}
+\usepackage{adjustbox}		 % als table verder gaat dan textwidth
 \usepackage{wrapfig}
 \graphicspath{ {images/} }   % zet het pad voor de plaatjes
 \pagestyle{plain}            % zet alleen paginanummering aan
@@ -51,6 +52,27 @@
 \section{De Opdracht}
 \newpage
 \section{Projectactiviteiten}
+
+\begin{flushleft}
+	
+	In dit project komen de volgende activiteiten naar voren:
+	
+	
+	\begin{itemize}
+		
+		\item Uitzoeken github
+		\item Maken Samenwerkingsovereenkomst
+		\item Maken PvA
+		\item Maken ERD, PSD's
+		\item Realisiatie webdaschboard
+		\item Maken onderzoeksrapport
+	\end{itemize}
+	
+\end{flushleft}
+
+	
+	
+
 \newpage
 \section[Grenzen] {Grenzen van het project}
 \newpage
@@ -61,6 +83,25 @@
 \section{De Projectorganisatie}
 \newpage
 \section{Planning}
+
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{|l | c | r |}
+	\hline
+	Lesweek & Deliverable & Activiteiten \\ \hline
+	1 & -	& Projectgroep formeren en opstellen samenwerkingsovereenkomst \\ \hline
+	2 & Samenwerkingsovereenkomst & Plan van Aanpak\\ \hline
+	3 & - & PvA bijschaven en begin maken aan ontwerpmodellen
+	(PSD’s, ERD)\\ \hline
+	4 & PvA & Ontwerpmodellen opstellen\\ \hline
+	5 & ERD en PSD's & Realisatie van het webdashboard\\ \hline
+	6 & - & Realisatie voortzetten\\ \hline
+	7 & - & Lesluwe week (feestdagen): Begin maken aan rapportage.\\ \hline
+	8 & - & Afronden rapportage en realisatie.\\ \hline
+	9 & - & Voorbereiden op projectassessment en demonstratie.\\ \hline
+	10 & Definitieve versie van	het rapport, demonstratie.&Projectassessment.\\ \hline
+	
+\end{tabular}
+\end{adjustbox}
 \newpage
 \section{Kosten en baten}
 \newpage
