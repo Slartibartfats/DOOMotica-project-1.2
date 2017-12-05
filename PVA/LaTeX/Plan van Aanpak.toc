@@ -1,6 +1,14 @@
 \select@language {dutch}
-\contentsline {section}{\numberline {1}Voorkennis}{3}{section.1}
+\contentsline {section}{\numberline {1}Achtergrond}{3}{section.1}
+\contentsline {paragraph}{}{3}{section*.2}
+\contentsline {paragraph}{'Doomotica'}{3}{section*.3}
+\contentsline {paragraph}{Setting}{3}{section*.4}
 \contentsline {section}{\numberline {2}De Opdracht}{4}{section.2}
+\contentsline {paragraph}{}{4}{section*.5}
+\contentsline {paragraph}{Verslaglegging en Opslag}{4}{section*.6}
+\contentsline {paragraph}{Modellen}{4}{section*.7}
+\contentsline {paragraph}{Web-applicatie}{4}{section*.8}
+\contentsline {paragraph}{Database}{4}{section*.9}
 \contentsline {section}{\numberline {3}Projectactiviteiten}{5}{section.3}
 \contentsline {section}{\numberline {4}Grenzen}{6}{section.4}
 \contentsline {section}{\numberline {5}Deelproducten}{7}{section.5}
