@@ -3,18 +3,19 @@
 \contentsline {paragraph}{}{3}{section*.2}
 \contentsline {paragraph}{'Doomotica'}{3}{section*.3}
 \contentsline {paragraph}{Setting}{3}{section*.4}
-\contentsline {section}{\numberline {2}De Opdracht}{4}{section.2}
-\contentsline {paragraph}{}{4}{section*.5}
-\contentsline {paragraph}{Verslaglegging en Opslag}{4}{section*.6}
-\contentsline {paragraph}{Modellen}{4}{section*.7}
-\contentsline {paragraph}{Web-applicatie}{4}{section*.8}
-\contentsline {paragraph}{Database}{4}{section*.9}
-\contentsline {section}{\numberline {3}Projectactiviteiten}{5}{section.3}
-\contentsline {section}{\numberline {4}Grenzen}{6}{section.4}
-\contentsline {section}{\numberline {5}Deelproducten}{7}{section.5}
-\contentsline {section}{\numberline {6}Kwaliteitsbewaking}{8}{section.6}
-\contentsline {section}{\numberline {7}De Projectorganisatie}{9}{section.7}
-\contentsline {section}{\numberline {8}Planning}{10}{section.8}
-\contentsline {section}{\numberline {9}Kosten en baten}{11}{section.9}
-\contentsline {section}{\numberline {10}Risico's}{12}{section.10}
-\contentsline {section}{\numberline {11}Bronnen}{13}{section.11}
+\contentsline {section}{\numberline {2}De Opdracht}{5}{section.2}
+\contentsline {paragraph}{Doelstelling}{5}{section*.5}
+\contentsline {paragraph}{Projectresultaat}{5}{section*.6}
+\contentsline {section}{\numberline {3}Projectactiviteiten}{7}{section.3}
+\contentsline {section}{\numberline {4}Grenzen}{8}{section.4}
+\contentsline {section}{\numberline {5}Deelproducten}{9}{section.5}
+\contentsline {section}{\numberline {6}Kwaliteitsbewaking}{10}{section.6}
+\contentsline {paragraph}{Communicatie}{10}{section*.7}
+\contentsline {paragraph}{Controle}{10}{section*.8}
+\contentsline {paragraph}{Softwaregebruik}{10}{section*.9}
+\contentsline {section}{\numberline {7}De Projectorganisatie}{11}{section.7}
+\contentsline {section}{\numberline {8}Planning}{12}{section.8}
+\contentsline {section}{\numberline {9}Kosten en baten}{13}{section.9}
+\contentsline {section}{\numberline {10}Risico's}{14}{section.10}
+\contentsline {section}{\numberline {11}Bronnen}{15}{section.11}
+\contentsline {section}{\numberline {12}Bijlagen}{15}{section.12}
