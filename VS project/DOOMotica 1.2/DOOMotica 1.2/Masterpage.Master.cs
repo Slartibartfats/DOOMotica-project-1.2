@@ -13,5 +13,10 @@ namespace DOOMotica_1._2
         {
 
         }
+
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+
+        }
     }
 }
