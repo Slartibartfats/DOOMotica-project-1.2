@@ -44,6 +44,36 @@ een T op N-relatie is en aan de rechterkant zich een O op 1-relatie bevindt).
 
 SQL statement voor het maken van de database:
 
+Tabel gebruikers:
+CREATE TABLE Gebruikers
+(
+Gebruikersnaam Text(20) PRIMARY KEY ,
+Wachtwoord Text(128) NOT NULL
+);
+
+Tabel Website:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRON:
+Hulp met CREATE SQL https://stackoverflow.com/questions/6000278/ms-access-create-table-with-autoincrement-and-default-date
+
+
+
 
 
 
