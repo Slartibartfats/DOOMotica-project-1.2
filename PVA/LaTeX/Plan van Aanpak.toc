@@ -1,21 +1,32 @@
 \select@language {dutch}
-\contentsline {section}{\numberline {1}Achtergrond}{3}{section.1}
-\contentsline {paragraph}{}{3}{section*.2}
-\contentsline {paragraph}{'Doomotica'}{3}{section*.3}
-\contentsline {paragraph}{Setting}{3}{section*.4}
+\contentsline {section}{\numberline {1}Voorkennis}{4}{section.1}
 \contentsline {section}{\numberline {2}De Opdracht}{5}{section.2}
-\contentsline {paragraph}{Doelstelling}{5}{section*.5}
-\contentsline {paragraph}{Projectresultaat}{5}{section*.6}
-\contentsline {section}{\numberline {3}Projectactiviteiten}{7}{section.3}
-\contentsline {section}{\numberline {4}Grenzen}{8}{section.4}
-\contentsline {section}{\numberline {5}Deelproducten}{9}{section.5}
-\contentsline {section}{\numberline {6}Kwaliteitsbewaking}{10}{section.6}
-\contentsline {paragraph}{Communicatie}{10}{section*.7}
-\contentsline {paragraph}{Controle}{10}{section*.8}
-\contentsline {paragraph}{Softwaregebruik}{10}{section*.9}
-\contentsline {section}{\numberline {7}De Projectorganisatie}{11}{section.7}
-\contentsline {section}{\numberline {8}Planning}{12}{section.8}
-\contentsline {section}{\numberline {9}Kosten en baten}{13}{section.9}
-\contentsline {section}{\numberline {10}Risico's}{14}{section.10}
-\contentsline {section}{\numberline {11}Bronnen}{15}{section.11}
-\contentsline {section}{\numberline {12}Bijlagen}{15}{section.12}
+\contentsline {section}{\numberline {3}Projectactiviteiten}{6}{section.3}
+\contentsline {section}{\numberline {4}Grenzen}{7}{section.4}
+\contentsline {section}{\numberline {5}Deelproducten}{8}{section.5}
+\contentsline {section}{\numberline {6}Kwaliteitsbewaking}{9}{section.6}
+\contentsline {section}{\numberline {7}De Projectorganisatie}{10}{section.7}
+\contentsline {section}{\numberline {8}Planning}{11}{section.8}
+\contentsline {section}{\numberline {9}Kosten en baten}{12}{section.9}
+\contentsline {section}{\numberline {10}Risico's}{13}{section.10}
+\contentsline {section}{\numberline {11}Bronnen}{14}{section.11}
+\contentsline {section}{\numberline {12}Achtergrond}{17}{section.12}
+\contentsline {paragraph}{}{17}{section*.3}
+\contentsline {paragraph}{'Doomotica'}{17}{section*.4}
+\contentsline {paragraph}{Setting}{17}{section*.5}
+\contentsline {section}{\numberline {13}De Opdracht}{19}{section.13}
+\contentsline {paragraph}{Doelstelling}{19}{section*.6}
+\contentsline {paragraph}{Projectresultaat}{19}{section*.7}
+\contentsline {section}{\numberline {14}Projectactiviteiten}{21}{section.14}
+\contentsline {section}{\numberline {15}Grenzen}{22}{section.15}
+\contentsline {section}{\numberline {16}Deelproducten}{23}{section.16}
+\contentsline {section}{\numberline {17}Kwaliteitsbewaking}{24}{section.17}
+\contentsline {paragraph}{Communicatie}{24}{section*.8}
+\contentsline {paragraph}{Controle}{24}{section*.9}
+\contentsline {paragraph}{Softwaregebruik}{24}{section*.10}
+\contentsline {section}{\numberline {18}De Projectorganisatie}{25}{section.18}
+\contentsline {section}{\numberline {19}Planning}{26}{section.19}
+\contentsline {section}{\numberline {20}Kosten en baten}{27}{section.20}
+\contentsline {section}{\numberline {21}Risico's}{28}{section.21}
+\contentsline {section}{\numberline {22}Bronnen}{29}{section.22}
+\contentsline {section}{\numberline {23}Bijlagen}{29}{section.23}
