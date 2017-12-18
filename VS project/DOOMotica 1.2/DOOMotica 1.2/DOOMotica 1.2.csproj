@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ADMIN\AdminHome.aspx" />
+    <Content Include="App_Data\Web-Applicatie Database.accdb" />
     <Content Include="Login.aspx" />
     <Content Include="MEMBERS\Home.aspx" />
     <Content Include="Web.config" />
@@ -103,9 +104,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
