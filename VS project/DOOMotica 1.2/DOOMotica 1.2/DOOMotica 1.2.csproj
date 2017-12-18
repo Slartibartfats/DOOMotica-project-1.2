@@ -67,12 +67,20 @@
   <ItemGroup>
     <Compile Include="ADMIN\AdminHome.aspx.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
+<<<<<<< HEAD
+=======
+      <SubType>ASPXCodeBehind</SubType>
+>>>>>>> parent of 0601926... reverse, VS project doet moeilijk
     </Compile>
     <Compile Include="ADMIN\AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+<<<<<<< HEAD
+=======
+      <SubType>ASPXCodeBehind</SubType>
+>>>>>>> parent of 0601926... reverse, VS project doet moeilijk
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -101,7 +109,17 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+<<<<<<< HEAD
   <ItemGroup />
+=======
+<<<<<<< HEAD
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+=======
+  <ItemGroup />
+>>>>>>> Timo's-kutdingen
+>>>>>>> parent of 0601926... reverse, VS project doet moeilijk
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
