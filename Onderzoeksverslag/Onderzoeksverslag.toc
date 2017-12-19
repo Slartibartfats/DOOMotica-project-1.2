@@ -1,0 +1,14 @@
+\select@language {dutch}
+\contentsline {section}{\numberline {1}inleiding}{3}{section.1}
+\contentsline {section}{\numberline {2}Opdracht}{4}{section.2}
+\contentsline {section}{\numberline {3}Probleemstelling}{5}{section.3}
+\contentsline {section}{\numberline {4}Centrale vraag}{6}{section.4}
+\contentsline {section}{\numberline {5}Deelvragen en onderzoeksvragen}{7}{section.5}
+\contentsline {section}{\numberline {6}Verantwoording gebruikte methodes}{8}{section.6}
+\contentsline {section}{\numberline {7}Analyse van de gegevens}{9}{section.7}
+\contentsline {subsection}{\numberline {7.1}Dataverzameling}{9}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Analyse}{9}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}Deelconclusie/ aanbeveling}{9}{subsection.7.3}
+\contentsline {section}{\numberline {8}Eindconclusie}{10}{section.8}
+\contentsline {section}{\numberline {9}Aanbeveling}{11}{section.9}
+\contentsline {section}{\numberline {10}Literatuurlijst}{12}{section.10}
