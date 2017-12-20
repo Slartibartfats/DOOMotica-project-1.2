@@ -1,0 +1,28 @@
+het aanmaken van gebruikers
+
+Inleiding
+In dit hoofdstuk wordt het aanmaken van een gebruiker besproken.
+Als een gebruiker nog niet is ingeschreven, wordt hij/zij doorverwezen naar 
+de Login-pagina. Op deze manier kunnen gebruikers niet zomaar bij elke 
+pagina komen door simpelweg de naam van de pagina in de URL te tikken.
+
+Omdat in de web.config staat aangegeven dat met elke request wordt gecheckt of 
+de gebruiker is ingelogd, is het niet handig een aparte pagina te maken. Daarom maakt 
+de projectgroep het aanmaken van een user in een andere viewstate. 
+
+Gebruikers
+Door de viewstate te benutten kunnen we het gehele inlogproces schrijven op één pagina en 
+hoeft de Web.Config file niet aangepast te worden. Ook hoeft er dan niet voor één pagina
+(de 'Create User'-pagina) een uitzondering hierop gemaakt te worden.
+
+Als eerste probeert de projectgroep vloeiend te wisselen tussen de login en de create-user view 
+door een paar regels code <zie figuur 1>. Dat werkt!
+
+Als tweede gaat de projectgroep proberen alle informatie in de acces database te plaatsen door middel 
+van een INSERT-Query (SQL). <ZIE CODE PLAIN TEXT>
+
+ALs derde gaat de projectgroep alle textboxen valideren en in 
+
+
+
+Admins

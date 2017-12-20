@@ -4,14 +4,40 @@
 
 <html>
 <head runat="server">
-    <title></title>
+    <title></title>   
+    <!-- Script voor het plaatsen van de huidige datum en tijd-->
+            <script language="JavaScript">
+                function GrabTheDateFunction() {
+                    // Get a the current date, then format it for display
+                    var thisDate = new Date();
+
+                    document.write("<p>The current date is: ");
+                    document.write(thisDate.toDateString());
+                    document.write("</p>");
+                }
+
+                // other values to use to display date:
+                // thisDate.toDateString() --> Thu Mar 17 2016
+                // thisDate.toISOString()  --> 2016-03-17T13:12:18.519Z
+                // thisDate.toGMTString()  --> Thu, 17 Mar 2016 13:12:18 GMT
+                // thisDate.toUTCString()  --> Thu, 17 Mar 2016 13:12:18 GMT
+                // thisDate.toTimeString() --> 09:12:18 GMT-0400 (Eastern Daylight 
+                </script>
+    <!-- http://www.javascriptsource.com/time-date/show-current-datetime-on-web-page-by-zyvxn-160317062714.html                                                     -->        
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
+        <script  lang="JavaScript">
+            GrabTheDateFunction();
+           </script>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                
+
+
+
             </asp:ContentPlaceHolder>
         </div>
     </form>

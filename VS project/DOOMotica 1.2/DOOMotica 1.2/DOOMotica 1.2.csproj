@@ -58,6 +58,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ADMIN\Admincreate.aspx" />
     <Content Include="ADMIN\AdminHome.aspx" />
     <Content Include="App_Data\Web-Applicatie Database.accdb" />
     <Content Include="Login.aspx" />
@@ -65,6 +66,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADMIN\Admincreate.aspx.cs">
+      <DependentUpon>Admincreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMIN\Admincreate.aspx.designer.cs">
+      <DependentUpon>Admincreate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ADMIN\AdminHome.aspx.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -97,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Masterpage.Master" />
+    <Content Include="MEMBERS\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

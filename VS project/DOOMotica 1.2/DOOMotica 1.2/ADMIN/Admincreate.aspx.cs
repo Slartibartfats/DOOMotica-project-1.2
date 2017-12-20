@@ -5,13 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace DOOMotica_1._2
+namespace DOOMotica_1._2.ADMIN
 {
-    public partial class Masterpage : System.Web.UI.MasterPage
+    public partial class Admincreate : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
     }
 }
