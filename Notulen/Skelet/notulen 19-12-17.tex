@@ -1,0 +1,105 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}  % gebruik de juiste 'character encoding'
+\usepackage[dutch]{babel}    % definitie van de taal (Engels is de standaard)
+\usepackage{hyperref}        % geef URLs netjes weer
+\usepackage{booktabs}		 % mooiere tabellen
+\usepackage{a4wide}          % papierformaat en marges
+\usepackage{graphicx} 		 % Invoegen van plaatjes , ref: https://nl.sharelatex.com/learn/Inserting_Images
+\usepackage{listings}
+\usepackage{wrapfig}
+\graphicspath{ {image/} }   % zet het pad voor de plaatjes
+\pagestyle{plain}            % zet alleen paginanummering aan
+% titel en auteur van het document
+\title{Notulen Project Domotica 1.2}
+\date{\today} %dit laat de datum zien
+ %BIJ NIEUWE NOTULEN DIT AANZETTEN
+ 
+% einde definities; start van de tekst
+\begin{document}
+\thispagestyle{empty}
+\maketitle %Maak het titelblad
+\begin{figure}[h]
+	\includegraphics[width=\textwidth]{notulen}
+	\date{} % de datum van het document 
+\end{figure}
+\newpage
+\paragraph{Aanwezigen}
+\begin{itemize}
+	\item Timo van der Steenhoven
+	\item Tycho Meijering
+	\item Niels Turenhout
+\end{itemize}
+\textbf{Deze vergadering zal via Discord plaatsvinden.}
+
+
+
+\paragraph{Actielijst vorige notulen}
+\begin{itemize}
+\item Onderzoeksverslag (NIELS) \\
+\textbf{net gecommit.}
+\item bronverwijzing \LaTeX (TIMO)\\
+\textbf{verzaakt komt een dezer dagen aan de orde}
+\item ERD databases 12-12-17 (TIMO)\\
+\textbf{Timo: Versie 0.6 staat samen met het ERD op de
+Github en alle documentatie staat erbij. Meer info in de map 
+op Github.}
+\item Indeling (CSS?) (TYCHO)\\
+\textbf{Tycho: Vanwege DaHause nog niet mee bezig geweest.}
+\item beveiliging, login enzo... \\\textbf{Niels: naar de nieuwe actielijst}
+\item Communiceren met server? (NIELS)\\
+\textbf{Niels: Ga ik vanmiddag mee aan de slag.}
+\item Tegeltjes indeling/schalen? (TYCHO)\\
+\textbf{Tycho: Vanwege DaHause nog niet mee bezig geweest.}
+\item Communicatie en besturing DaHause (TYCHO)\\
+\textbf{Tycho: Er is een verbinding maar die crasht telkens, ik ga het proberen wat Timo van de week aangaf, tussen de commando's een tijdsinterval waardoor de DaHause niet ineens overladen wordt. }
+\item Muziekbot/Muziekspeler (NIELS)\\
+\textbf{ALLEMAAL: Zijn we vergeten. }
+\item Creditcounter + unlocken spelletjes (TIMO)\\
+\textbf{Timo: Ik ben hier nog niet mee bezig geweest, vanwege de database en de het juist documenteren van de SQL statements daarvan.}
+\end{itemize}
+
+\newpage
+\paragraph{Planning}
+\begin{itemize}
+	\item Begin\\ \textbf{\today , om 10:15.\\
+	NIELS: Goedemorgen.}
+	\item Oude actielijst \\\textbf{Gedaan}
+	\item Planning vergadering, iemand nog toevoegingen?\\
+	\textbf{Niels: Aanpak onderzoeksverslag, kijken hoe het verslag in elkaar moet.}
+	\item PVA op BB \\ \textbf{Niels: Die is volgens mij nog steeds verkloot.
+	Timo: Op het moment dat je de documenten samenvoegd neemt hij ook instellingen mee die de compiler als een error ziet, want die staan er dan 2x in. }
+	\item Database
+	\textbf{Timo: er staat nu een database op Github , versie 0.6. Met deze database kunnen we een aantal spellen, websites en gebruikers toevoegen zodat we ook daadwerkelijk met de applicatie kunnen beginnen. De uiteindelijke versie zal ook referentiële integriteits regels bevatten.}
+	\item Vakantie\\
+	\textbf{Tycho: Ik ga hard aan de slag in de vakantie. 27 tot 31dec ben ik niet thuis.  \\ Timo: Ik ben thuis in de vakantie en ben alleen niet bereikbaar met kerst en oud en nieuw. \\ Niels: Vanwege kerst gaat de vergadering niet door.\\Timo: Een idee dat ik een planning maak en dat we die invullen? Lijkt mij niet handig een vergadering over te slaan 2 weken voor het assessment. }
+	\item Hoe staan we er nu in? \\
+	\textbf{Niels: ik ga even een lijstje met Deliverables af: Samenwerkingscontract (AF), PVA (KINDA AF), ERD's (worden gemaakt), PSD's (worden gemaakt.), definitieve versie van het rapport + demonstratie (komt met het assessment)}
+	\item Aanpak onderzoeksverslag\\
+	\textbf{Niels: We hebben redelijk wat dingen te doen voor het onderzoeksverslag. Het skelet van het onderzoeksverslag maak ik gebaseerd op wat Inge heeft verteld. Inleiding, Opdracht,Probleemstelling, Centrale vraag, deelvragen en onderzoeksvragen, verantwoording gebruikte methodes , analyse van de gegevens, eindconclusies, aanbeveling en bronvermelding.\\ Timo: Per deelproduct moet je al de onderzoekscyclus doorlopen en vergeet niet PRINTSCREEN.  }
+	\item WVTTK \\
+	\textbf{Timo: Niks\\
+	Niels: Niks\\
+	Tycho: nee}
+    \item Afsluiting \\ \textbf{\today , 10:50}
+
+\end{itemize}
+
+\paragraph{NIEUWE ACTIELIJST}
+\begin{itemize}
+\item beveiliging, login enzo... 
+\item referentiële integriteits regels (TIMO)
+\item Een planning maken voor 26 dec (TIMO)
+\item bronverwijzing \LaTeX (TIMO)
+\item Indeling Masterpagina(CSS?) (TYCHO)
+\item Communiceren met server? (NIELS)
+\item CREATE USER pagina's (TIMO)
+\item Creditcounter + unlocken spelletjes (TIMO)
+\item Muziekbot/Muziekspeler (NIELS)
+\item Communicatie en besturing DaHause (TYCHO)
+\item Login control maken (NIELS)
+
+
+
+\end{itemize}
+
+\end{document}
