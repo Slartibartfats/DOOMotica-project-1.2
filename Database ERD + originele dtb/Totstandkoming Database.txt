@@ -158,6 +158,27 @@ NOTITIE: In deze SQL's zijn de 'ON CASCADE' en 'ON DELETE' constraints nog niet 
 een werkende database nodig om de web-applicatie te kunnen testen.
 
 
+---------------------------------------------------------------------------------------------------------------------------
+VERSIE 0.7
+---------------------------------------------------------------------------------------------------------------------------
+In deze versie wordt de database gemaakt zoals in de vorige versie (0.6) maar met de regerentiële integriteit. Dat betekent
+dat als bijvoorbeeld een spel wordt verwijderd van de web-applicatie + database dat de gebruiker er zonder foutmelding 
+geen toegang meer tot heeft, hetgeen de gebruikerservaring verbeterd.
+
+Vanuit versie 0.6 is de database na herstructurering hetzelfde gebleven. De projectgroep geeft bij de relaties uitleg waarom in 
+sommige gevallen de database wel records mag verwijderen en in andere gevallen niet.
+
+De projectgroep probeert de relaties in te voegen, maar dat lukt niet met de CREATE TABLE statement in MS Acces want 
+(volgens deze forum post:
+https://stackoverflow.com/questions/23028884/syntax-error-when-defining-table-with-on-delete-cascade?answertab=active#tab-top
+)
+Dus de projectgroep probeert het met de ALTER TABLE-statement.
+
+
+
+
+
+
 BRON:
 Hulp met CREATE SQL https://stackoverflow.com/questions/6000278/ms-access-create-table-with-autoincrement-and-default-date
 Hulp met Foreign KEYS https://www.w3schools.com/sql/sql_foreignkey.asp
@@ -165,8 +186,8 @@ Hulp bij maken ERD : Syllabus Gegevens modelleren
 
 
 
-
-
+Deze forumpost legt uit waarom ON DELETE CASCADE in Acces SQL-designer niet werkt met CREATE table.
+https://stackoverflow.com/questions/23028884/syntax-error-when-defining-table-with-on-delete-cascade?answertab=active#tab-top
 
 
 
