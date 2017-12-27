@@ -103,6 +103,15 @@ namespace DOOMotica_1._2 {
         protected global::System.Web.UI.WebControls.TextBox txt_User;
         
         /// <summary>
+        /// rqrdvldtr_User control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqrdvldtr_User;
+        
+        /// <summary>
         /// regex_User control.
         /// </summary>
         /// <remarks>
@@ -128,6 +137,15 @@ namespace DOOMotica_1._2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_Pass;
+        
+        /// <summary>
+        /// rqrdvldtr_Pass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqrdvldtr_Pass;
         
         /// <summary>
         /// regex_Password control.
@@ -184,6 +202,15 @@ namespace DOOMotica_1._2 {
         protected global::System.Web.UI.WebControls.TextBox txt_Email;
         
         /// <summary>
+        /// rqrdvldtr_Email control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqrdvldtr_Email;
+        
+        /// <summary>
         /// regex_Email control.
         /// </summary>
         /// <remarks>
@@ -236,5 +263,32 @@ namespace DOOMotica_1._2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_gelukt;
+        
+        /// <summary>
+        /// vw_gebruiker control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View vw_gebruiker;
+        
+        /// <summary>
+        /// lbl_Appeltjeeitje control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_Appeltjeeitje;
+        
+        /// <summary>
+        /// btn_TerugLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_TerugLogin;
     }
 }

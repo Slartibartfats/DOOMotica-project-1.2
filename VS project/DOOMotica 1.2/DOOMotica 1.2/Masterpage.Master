@@ -38,6 +38,9 @@
 
 
 
+                <asp:LoginName ID="lgnnm_User" runat="server" FormatString="Welcome, {0}" />
+                
+
             </asp:ContentPlaceHolder>
         </div>
     </form>
