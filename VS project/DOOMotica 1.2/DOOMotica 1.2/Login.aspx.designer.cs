@@ -112,6 +112,15 @@ namespace DOOMotica_1._2 {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqrdvldtr_User;
         
         /// <summary>
+        /// regex_User control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regex_User;
+        
+        /// <summary>
         /// lbl_User control.
         /// </summary>
         /// <remarks>
@@ -137,6 +146,15 @@ namespace DOOMotica_1._2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqrdvldtr_Pass;
+        
+        /// <summary>
+        /// regex_Password control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regex_Password;
         
         /// <summary>
         /// lbl_Pass control.
@@ -166,15 +184,6 @@ namespace DOOMotica_1._2 {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqrdvldtr_ConfirmPass;
         
         /// <summary>
-        /// lbl_ConformPass control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_ConformPass;
-        
-        /// <summary>
         /// cmprvldtr_Pass control.
         /// </summary>
         /// <remarks>
@@ -182,6 +191,15 @@ namespace DOOMotica_1._2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CompareValidator cmprvldtr_Pass;
+        
+        /// <summary>
+        /// lbl_ConformPass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_ConformPass;
         
         /// <summary>
         /// txt_Email control.
@@ -202,6 +220,15 @@ namespace DOOMotica_1._2 {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqrdvldtr_Email;
         
         /// <summary>
+        /// regex_Email control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regex_Email;
+        
+        /// <summary>
         /// lbl_email control.
         /// </summary>
         /// <remarks>
@@ -209,6 +236,15 @@ namespace DOOMotica_1._2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_email;
+        
+        /// <summary>
+        /// vldtnsmmr_CreateUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary vldtnsmmr_CreateUser;
         
         /// <summary>
         /// btn_Create control.

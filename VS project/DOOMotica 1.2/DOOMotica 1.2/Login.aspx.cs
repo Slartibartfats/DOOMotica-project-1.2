@@ -13,7 +13,6 @@ namespace DOOMotica_1._2
     {
         //aanmaken connectie object, query opbject en 3 parameters voor het aanmaken account
         OleDbConnection Connectie = new OleDbConnection();
-        
         OleDbCommand Query = new OleDbCommand();
         OleDbParameter Param1 = new OleDbParameter();
         OleDbParameter Param2 = new OleDbParameter(); // deze heet express 2, ivm MS-veiligheid enzo
@@ -29,7 +28,7 @@ namespace DOOMotica_1._2
 
         protected void btn_Terug_Click(object sender, EventArgs e)
         {
-            mltvw_Login.ActiveViewIndex = 0;
+            mltvw_Login.SetActiveView(vw_login);   
         }
 
         protected void btn_Create_Click(object sender, EventArgs e)
