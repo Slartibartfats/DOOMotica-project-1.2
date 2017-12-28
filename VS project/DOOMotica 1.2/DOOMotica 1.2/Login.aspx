@@ -40,10 +40,10 @@
             <asp:ValidationSummary ID="vldtnsmmr_CreateUser" runat="server" DisplayMode="List" Font-Bold="True" />
             <br />
             <br />
-            <asp:Button ID="btn_Create" runat="server" Text="Create" OnClick="btn_Create_Click" /><asp:Button ID="btn_Terug" runat="server" Text="Terug naar het inlogscherm" OnClick="btn_Terug_Click"/><asp:Label ID="lbl_gelukt" runat="server" Text=""></asp:Label>
+            <asp:Button ID="btn_Create" runat="server" Text="Create" OnClick="btn_Create_Click" /><asp:Button ID="btn_Terug" runat="server" Text="Terug naar het inlogscherm" OnClick="btn_Terug_Click" CausesValidation="False"/><asp:Label ID="lbl_gelukt" runat="server" Text=""></asp:Label>
         </asp:View>
         <asp:View ID="vw_gebruiker" runat="server">
-            <asp:Label ID="lbl_Appeltjeeitje" runat="server" Font-Bold="True" Text="Alles is netjes weggeschreven, druk op de knop om in te loggen. :)"></asp:Label>
+            <asp:Label ID="lbl_Appeltjeeitje" runat="server" Font-Bold="True" Text="Alles is netjes weggeschreven, druk op de knop om verder te gaan met inloggen. :)"></asp:Label>
             <br />
             <br />
             <asp:Button ID="btn_TerugLogin" runat="server" Text="Terug" OnClick="btn_TerugLogin_Click" Width="133px" />

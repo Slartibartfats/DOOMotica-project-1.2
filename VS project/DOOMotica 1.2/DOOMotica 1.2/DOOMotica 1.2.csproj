@@ -60,8 +60,13 @@
   <ItemGroup>
     <Content Include="ADMIN\AdminHome.aspx" />
     <Content Include="App_Data\Web-Applicatie Database.accdb" />
+    <Content Include="MEMBERS\App_LocalResources\thee-spelletjes.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Login.aspx" />
+    <Content Include="MEMBERS\BounceBall.aspx" />
     <Content Include="MEMBERS\Home.aspx" />
+    <Content Include="MEMBERS\Spelletjes.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -86,12 +91,26 @@
     <Compile Include="Masterpage.Master.designer.cs">
       <DependentUpon>Masterpage.Master</DependentUpon>
     </Compile>
+    <Compile Include="MEMBERS\BounceBall.aspx.cs">
+      <DependentUpon>BounceBall.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MEMBERS\BounceBall.aspx.designer.cs">
+      <DependentUpon>BounceBall.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MEMBERS\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MEMBERS\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MEMBERS\Spelletjes.aspx.cs">
+      <DependentUpon>Spelletjes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MEMBERS\Spelletjes.aspx.designer.cs">
+      <DependentUpon>Spelletjes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -106,7 +125,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_GlobalResources\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

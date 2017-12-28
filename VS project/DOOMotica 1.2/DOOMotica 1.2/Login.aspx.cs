@@ -23,7 +23,7 @@ namespace DOOMotica_1._2
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
         protected void btn_CreateUser_Click1(object sender, EventArgs e)
         {
@@ -32,7 +32,10 @@ namespace DOOMotica_1._2
 
         protected void btn_Terug_Click(object sender, EventArgs e)
         {
-
+           
+           
+            
+            mltvw_Login.ActiveViewIndex = 0;
         }
 
       

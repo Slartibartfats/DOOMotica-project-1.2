@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>   
     <!-- Script voor het plaatsen van de huidige datum en tijd-->
-            <script language="JavaScript">
+            <script lang="JavaScript">
                 function GrabTheDateFunction() {
                     // Get a the current date, then format it for display
                     var thisDate = new Date();
@@ -24,6 +24,7 @@
                 // thisDate.toTimeString() --> 09:12:18 GMT-0400 (Eastern Daylight 
                 </script>
     <!-- http://www.javascriptsource.com/time-date/show-current-datetime-on-web-page-by-zyvxn-160317062714.html                                                     -->        
+   
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -34,13 +35,6 @@
             GrabTheDateFunction();
            </script>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                
-
-
-
-                <asp:LoginName ID="lgnnm_User" runat="server" FormatString="Welcome, {0}" />
-                
-
             </asp:ContentPlaceHolder>
         </div>
     </form>
