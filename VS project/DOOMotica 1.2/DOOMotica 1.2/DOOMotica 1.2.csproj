@@ -67,6 +67,7 @@
     <Content Include="MEMBERS\BounceBall.aspx" />
     <Content Include="MEMBERS\Home.aspx" />
     <Content Include="MEMBERS\Spelletjes.aspx" />
+    <Content Include="Default.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

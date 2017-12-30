@@ -3,6 +3,16 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/MEMBERS/App_LocalResources/thee-spelletjes.png" PostBackUrl="~/MEMBERS/BounceBall.aspx" />
+   <div id='container'>
+             <div id='button1'>image</div>
+             <div id='button2'>image</div>
+             <div id='button3'>image</div>
+             <div id='button4'>image</div>
+             <div id='button5'>image</div>
+             <div id='button6'>image</div>
+             <div id='button7'>image</div>
+             <div id='button8'>image</div>
+             <div id='button9'>image</div>
+       </div>
     
 </asp:Content>
