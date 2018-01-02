@@ -5,7 +5,7 @@
 <html>
 <head runat="server">
     <!-- De regel hieronder is een referentie naar de algemene stylesheet -->
-    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <link rel="stylesheet" type="text/css" href="default.css">
     <title></title>   
     <!-- Script voor het plaatsen van de huidige datum en tijd-->
             <script lang="JavaScript">
@@ -27,18 +27,35 @@
                 </script>
     <!-- http://www.javascriptsource.com/time-date/show-current-datetime-on-web-page-by-zyvxn-160317062714.html                                                     -->        
    
-    <asp:ContentPlaceHolder ID="head" runat="server">
+    <asp:ContentPlaceHolder ID="cntnt_Head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
+   <div class="header" runat="server"></div> 
     <form id="form1" runat="server">
         <div>
         <script  lang="JavaScript">
             GrabTheDateFunction();
            </script>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </div>
+    <!-- Hieronder volgt de algemene opbouw van de webpagina. -->
+        
+        <div class="topnavigation" runat="server"></div>
+
+            
+        
+    
+    <div class="LeftColumn" runat="server"></div>
+    <div class="MiddleColumn" runat="server">
+<asp:ContentPlaceHolder ID="cntnt_Body" runat="server">
             </asp:ContentPlaceHolder>
         </div>
+    <div class="RightColumn" runat="server"></div>
+
+
+
+    <div class="footer" runat="server"></div>
+
     </form>
 </body>
 </html>

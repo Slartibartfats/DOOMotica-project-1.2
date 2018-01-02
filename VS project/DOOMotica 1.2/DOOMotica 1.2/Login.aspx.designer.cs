@@ -31,15 +31,6 @@ namespace DOOMotica_1._2 {
         protected global::System.Web.UI.WebControls.View vw_login;
         
         /// <summary>
-        /// txt_Username control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Username;
-        
-        /// <summary>
         /// lbl_Username control.
         /// </summary>
         /// <remarks>
@@ -49,13 +40,13 @@ namespace DOOMotica_1._2 {
         protected global::System.Web.UI.WebControls.Label lbl_Username;
         
         /// <summary>
-        /// txt_Password control.
+        /// txt_Username control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Password;
+        protected global::System.Web.UI.WebControls.TextBox txt_Username;
         
         /// <summary>
         /// lbl_Password control.
@@ -65,6 +56,15 @@ namespace DOOMotica_1._2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_Password;
+        
+        /// <summary>
+        /// txt_Password control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_Password;
         
         /// <summary>
         /// btn_CreateUser control.
@@ -94,6 +94,15 @@ namespace DOOMotica_1._2 {
         protected global::System.Web.UI.WebControls.View vw_createuser;
         
         /// <summary>
+        /// lbl_User control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_User;
+        
+        /// <summary>
         /// txt_User control.
         /// </summary>
         /// <remarks>
@@ -121,13 +130,13 @@ namespace DOOMotica_1._2 {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator regex_User;
         
         /// <summary>
-        /// lbl_User control.
+        /// lbl_Pass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_User;
+        protected global::System.Web.UI.WebControls.Label lbl_Pass;
         
         /// <summary>
         /// txt_Pass control.
@@ -157,13 +166,13 @@ namespace DOOMotica_1._2 {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator regex_Password;
         
         /// <summary>
-        /// lbl_Pass control.
+        /// lbl_ConformPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Pass;
+        protected global::System.Web.UI.WebControls.Label lbl_ConformPass;
         
         /// <summary>
         /// txt_ConfirmPass control.
@@ -184,13 +193,13 @@ namespace DOOMotica_1._2 {
         protected global::System.Web.UI.WebControls.CompareValidator cmprvldtr_Pass;
         
         /// <summary>
-        /// lbl_ConformPass control.
+        /// lbl_email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_ConformPass;
+        protected global::System.Web.UI.WebControls.Label lbl_email;
         
         /// <summary>
         /// txt_Email control.
@@ -218,15 +227,6 @@ namespace DOOMotica_1._2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator regex_Email;
-        
-        /// <summary>
-        /// lbl_email control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_email;
         
         /// <summary>
         /// vldtnsmmr_CreateUser control.

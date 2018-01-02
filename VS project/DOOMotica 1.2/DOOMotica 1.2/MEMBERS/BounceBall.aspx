@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masterpage.Master" AutoEventWireup="true" CodeBehind="BounceBall.aspx.cs" Inherits="DOOMotica_1._2.MEMBERS.BounceBall" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="cntnt_Head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+<asp:Content ID="Content2" ContentPlaceHolderID="cntnt_Body" runat="server">
+    
     <div id="game">
         <div id="square0"></div>
         <div id="square1"></div>
@@ -12,8 +12,8 @@
     </div>
 
     <script lang="javascript">
-        var gameHeight = 320
-        var gameWidth = 360
+        var gameHeight = 640
+        var gameWidth = 720
 
         var intervalOne, intervalTwo, timeoutOne, x
         var angle = 2
@@ -36,6 +36,7 @@
 
         document.body.style.margin = "0px"
         document.body.style.padding = "0px"
+        
 
         function setupGame() {
             document.getElementById("game").style.borderRight = "1px solid #aaa"
@@ -84,8 +85,8 @@
         function demoGame() {
             angle = 2
             clearTimeout(timeoutOne)
-            document.getElementById("square0").style.display = "block"
-            document.getElementById("square1").style.display = "block"
+            document.getElementById("square0").style.display = "inline"
+            document.getElementById("square1").style.display = "inline"
 
             if (square == 0) {
                 x = document.getElementById("square0")
@@ -120,10 +121,10 @@
             clearInterval(intervalTwo)
             document.getElementById("square0").style.left = "0px"
             document.getElementById("square0").style.top = "0px"
-            document.getElementById("square0").style.display = "block"
+            document.getElementById("square0").style.display = "inline"
             document.getElementById("square1").style.left = "0px"
             document.getElementById("square1").style.top = "0px"
-            document.getElementById("square1").style.display = "block"
+            document.getElementById("square1").style.display = "inline"
             document.getElementById("pad").style.top = (gameHeight - 40) + "px"
             document.getElementById("pad").innerHTML = ""
             document.getElementById("notepad").innerHTML = ""
@@ -413,6 +414,6 @@
         setupGame()
 
     </script>
-
+        
 
 </asp:Content>
