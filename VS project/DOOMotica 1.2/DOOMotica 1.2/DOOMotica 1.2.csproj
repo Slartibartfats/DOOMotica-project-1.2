@@ -66,7 +66,6 @@
     <Content Include="Login.aspx" />
     <Content Include="MEMBERS\BounceBall.aspx" />
     <Content Include="MEMBERS\Home.aspx" />
-    <Content Include="MEMBERS\Spelletjes.aspx" />
     <Content Include="Default.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -105,13 +104,6 @@
     </Compile>
     <Compile Include="MEMBERS\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MEMBERS\Spelletjes.aspx.cs">
-      <DependentUpon>Spelletjes.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MEMBERS\Spelletjes.aspx.designer.cs">
-      <DependentUpon>Spelletjes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

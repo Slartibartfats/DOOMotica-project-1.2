@@ -30,17 +30,25 @@
     <asp:ContentPlaceHolder ID="cntnt_Head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
-   <div class="header" runat="server"></div> 
+<body>   
     <form id="form1" runat="server">
-        <div>
+        <div class="header" runat="server">
+       <asp:ImageButton ID="mgbtn_Hlogo" runat="server" Imageurl="/images/Hlogo.jpg" BackColor="Black" BorderStyle="None" CausesValidation="False" PostBackUrl="~/Login.aspx" CssClass="Hlogo" />
+<div class="Datum">
         <script  lang="JavaScript">
             GrabTheDateFunction();
            </script>
         </div>
+   </div> 
+        
     <!-- Hieronder volgt de algemene opbouw van de webpagina. -->
         
-        <div class="topnavigation" runat="server"></div>
+        <div class="topnavigation" runat="server">
+            <ul>
+                <li ><a href="/MEMBERS/Home.aspx">Home</a></li>
+                
+            </ul>
+        </div>
 
             
         
