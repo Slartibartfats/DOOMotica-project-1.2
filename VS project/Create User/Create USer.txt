@@ -1,0 +1,147 @@
+het aanmaken van gebruikers
+
+Inleiding
+In dit hoofdstuk wordt het aanmaken van een gebruiker besproken.
+Als een gebruiker nog niet is ingeschreven, wordt hij/zij doorverwezen naar 
+de Login-pagina. Op deze manier kunnen gebruikers niet zomaar bij elke 
+pagina komen door simpelweg de naam van de pagina in de URL te tikken.
+
+Omdat in de web.config staat aangegeven dat met elke request wordt gecheckt of 
+de gebruiker is ingelogd, is het niet handig een aparte pagina te maken. Daarom maakt 
+de projectgroep het aanmaken van een user in een andere viewstate. 
+
+Gebruikers
+Door de viewstate te benutten kunnen we het gehele inlogproces schrijven op één pagina en 
+hoeft de Web.Config file niet aangepast te worden. Ook hoeft er dan niet voor één pagina
+(de 'Create User'-pagina) een uitzondering hierop gemaakt te worden.
+
+Als eerste probeert de projectgroep vloeiend te wisselen tussen de login en de create-user view 
+door een paar regels code <zie figuur 1>. Dat werkt!
+
+Als tweede gaat de projectgroep proberen alle informatie in de acces database te plaatsen door middel 
+van een INSERT-Query (SQL). <ZIE CODE PLAIN TEXT>
+
+ALs derde gaat de projectgroep alle textboxen valideren door middel van RequiredValidators om ervoor te 
+zorgen dat de gebruiker geen lege velden naar de database kan sturen. Nadat deze waren ingevoegd kon de 
+projectgroep niet zomaar terugschakelen naar de inlogpagina, voor is er afgesproken dat de projectgroep
+het even laat zoals het is en zich focust op een juiste validatie van de toe te laten informatie.
+
+Voor de username vonden wij een minimum van 6 characters en een maximum van 18 characters een prima 
+lengte om een unieke gebruikersnaam te creëeren. Het wachtwoord moet wat moeilijker ook al wordt hij gehasht,
+om te voorkomen dat kwaadwillenden met een dicitonary-attack alsnog het wachtwoord kunnen raden. 
+Het wachtwoord moet tussen de 6-15 tekens zijn waarvan minimaal 1 hoofdletter en 1 cijfer. Om er zeker van 
+te zijn dat de gebruiker zijn wachtwoord onthoudt, moet hij/zij deze nog een keer invoeren. Dit wordt 
+gecontroleerd door middel van een CompareValidator. Het Emailadres wordt, net als bij de username en wachtwoord, 
+gecontroleerd door een RegularExpressionValidator. (ZIE REGEXEXPRESSIES HIERONDER)
+
+USERNAME    : (^[A-Z|a-z|0-9|_]{6,18}$)
+PASSWORD    : (^(?=.*\d)(?=.*[A-Z])(.{6,15})$)
+EMAIL       : ([A-Z|a-z|0-9](\.|_){0,1})+[A-Z|a-z|0-9]\@([A-Z|a-z|0-9])+((\.){0,1}[A-Z|a-z|0-9]){2}\.[a-z]{2,3} 
+              (Met dank aan de communnity van https://Regexr.com voor de basis van de bovenstaande expressies, 
+                De projectgroep heeft bestaande expressies aangepast, zodat ze voldeden aan onze eisen.)
+ 		(Met dank aan https://regex101.com, voor het hebben van een complete simulator voor het 
+ 		testen en opzetten van een regular expression)
+
+Dan hebben we nu nog 1 probleem met het invoegen van het wachtwoord. <ZIE FOTO> Het is nog in plain text!
+Dat gaat de projectgroep beveiligen door middel van het 'hashen' en het toevoegen van 'salt' aan het 
+wachtwoord. 
+
+<FOTO CODE>
+<FOTO RESULTAAT DTB>
+
+Dat ziet er al beter uit. Het probleem is alleen dat er nog geen rollen worden gegeven aan de gebruikers.
+En dat zien we ook terug in de Database, er is wel een lid toegevoegd, maar die staat nog niet in de 
+tabel Gebruikers of Admin (D'OH). Dit lost de projectgroep op door na de INSERT query bij het maken van een gebruiker
+direct nog twee query te sturen. Één met een SELECT-query (die het nieuwe Lidnr teruggeeft) en de ander met een 
+INSERT query.
+
+Dit geeft in het begin problemen aangezien het programma de error: "Datareader already open" geeft. Blijkbaar vindt 
+asp.net of c# of de Acces-database het niet leuk als je meerdere query's achter elkaar probeert uit te voeren.
+Eerst wordt de volgende oplossing gebruikt. We gebruiken een 'using' statement, zodat de reader automatisch gesloten 
+wordt. 
+
+<FOTO CODE>
+https://blogs.msdn.microsoft.com/spike/2009/08/20/there-is-already-an-open-datareader-associated-with-this-command-which-must-be-closed-first-explained/
+<FOTO ERROR>
+
+Weer dezelfde error. In de error wordt er gesproken over de 'ExecuteReader', dat is interessant. Dat zou betekenen dat ipv
+de query's achter elkaar te willen schrijven er in de code per query een aparte 'try-catch-finally' gemaakt moet worden.
+Bij het proberen van deze optie zijn al de volgende aanpassingen gedaan:
+- In de acces database is de datatype mismatch verholpen door het uitgelezen lidnr (van de SELECT query) te converteren naar 
+  een long integer.
+- De Reader gaf een 'null' value aan (het is een boolean) dus ik ben op pad gegaan om te kijken wat de oorzaak daarvan kon zijn.
+  Na wat speuren kwam ik erachter dat ik de eerste query als 'ExecuteReader' had aangegeven ipv 'ExecuteNonQuery'. Hierdoor werd 
+  er een reader aangemaakt die verder geen taak toegewezen kreeg en daardoor bleef het op 'null' value staan.
+- Na wat nadenken denk ik dat het ligt aan het feit dat ik in de dezelfde cyclus informatie probeer op te vragen die nog weggeschreven moet worden.  
+  Hierdoor is alles wat ik aan de database vraag een "0", terwijl ik na het uitvoeren van de code zie dat de informatie wel goed is weggeschreven.
+
+Als volgende optie gaat de projectgroep een query in een query proberen (zodat er geen reader aan te pas hoeft te komen).
+Dit is ook zonder restultaat. De query klopt (gecontroleerd via acces), maar de database kan niet na elkaar de informatie wegschrijven.
+
+Volgende optie is een View toevoegen, dan is de informatie als weggeschreven en kan het makkelijk opgehaald worden en opnieuw weggeschreven.
+Tenminste dat dacht ik. Na het opzetten van weer een query en weer meerdere keren proberen lijkt er elke keer niks uit de query te 
+komen op het moment dat hij uitgevoerd wordt door de web-applicatie, terwijl die in access uitgevoerd kan worden.
+
+De volgende optie is om het invoeren van gegevens op te splitsen in 2 momenten. Als er op de knop 'Create' gedrukt wordt, dan moet de gebruiker nog 
+op de knop 'terug naar login scherm' drukken. Dit veroorzaakt een postback en zorgt ervoor dat ook de gebruiker wordt weggeschreven in de tabel.
+
+Achteraf gezien is het makkelijk om de database om te bouwen in V1.0 naar een database waarbij alleen een rollencode in het tabel 'Lid' staat,
+dan hoeft de projectgroep ook niet de gebruiker in 2 tabellen te schrijven.
+
+
+
+
+
+Verder met het hashen en salten van het wachtwoord. Zoals eerder te zien was, werden de wachtwoorden wel gesalt en gehasht, maar leverde dat 
+telkens dezelfde salt extensie op: "AAAAAAAAAAAAAAAA". Om dit op te lossen duiken we dieper in op het salten en hashen en wat er belangrijk is 
+aan de volgorde ervan. 
+
+De website van Crackstation (16/01/18, https://crackstation.net/hashing-security.htm#normalhashing) geeft naast een duidelijke uitleg ook een 
+goede beeldvorming van het belang van salt toevoegen aan een hash. Deze website heeft ook een "Hash Cracker", die gelinkt is aan een tabel 
+van een paar honderd GB aan gehashte termen, die bijna alle gehashde woorden kent. Het motto van de "Hash Cracker" is dan ook : 
+"Als wij het weten, dan weten mensen met slechte bedoelingen het ook.".
+
+voorbeeld gebruiker
+Gebruiker, Gebruiker1 , Gebruiker1@hotmail.nl
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+Admins

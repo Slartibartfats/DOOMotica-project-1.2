@@ -7,19 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace DOOMotica_1._2
 {
-    public partial class Masterpage : System.Web.UI.MasterPage
+    public partial class CreateUser : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-        }
-
-        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
-        {
 
         }
-=======
-      
->>>>>>> Timo's-kutdingen
     }
 }

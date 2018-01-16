@@ -1,0 +1,166 @@
+﻿
+
+
+/*Opzetten Header, lint bovenaan de pagina*/
+.header {
+    padding: 20px;
+    margin: 20px;
+    font-size: 40px;
+    text-align: center;
+    background: space;
+    width: 90%;
+    height: 1em;
+}
+
+.Hlogo { /*logo locatie aanpassen + hoogte en breedte vastzetten*/
+    height: 40px;
+    display: inline;
+    float: left;
+    border-style: solid;
+    border-width: 5px;
+    border-color: white;
+}
+
+.Datum {
+    height: auto;
+    width: auto;
+    float: right;
+    font-size: 0.5em;
+}
+
+/*navigatie balk bovenaan de pagina onder de header*/
+.topnavigation {
+    overflow: hidden;
+    background-color: black;
+    margin-bottom: 20px;
+}
+
+
+    .topnavigation ul {
+        list-style-type: none;
+    }
+
+    .topnavigation li {
+        float: left;
+        margin: 5px 2px;
+    }
+
+    .topnavigation a {
+        float: none;
+        display: block;
+        background-color: lightslategray;
+        color: white;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+    }
+
+        .topnavigation a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnavigation a:active {
+            background-color: lime;
+            color: white;
+        }
+
+/*box rechtsbovenin met Inlognaam + uitlogknop*/
+
+/*Footer met disclaimer, contact enz.*/
+.footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+    margin-top: 20px;
+    position: relative;
+    margin-bottom: 0px;
+}
+/*Algemene opmaak inlogscherm*/
+
+
+
+/*Algemene input txtbox + passwordbox*/
+input[type=text], input[type=password] {
+    outline: none;
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    -webkit-transition: width 1.0s ease-in-out;
+    transition: width 1.0s ease-in-out;
+}
+
+    input[type=text]:focus, input[type=password]:focus {
+        border: 4px solid #111;
+        width: 90%;
+    }
+
+/*Opmaak van alle hokjes met links*/
+.Tegelwerk {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 50px;
+    grid-row-gap: 50px;
+}
+
+.tegeltje .imagebutton {
+    background-color: rgba(59, 106, 187,0.5);
+    height: 130px;
+    width: 100%;
+}
+
+
+
+.tegeltje a {
+    float: none;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+
+/*Opmaak pagina*/
+.LeftColumn { /*<-- deze is leeg maar bestaat wel zodat het inlogscherm in het midden komt.*/
+    display: inline-block;
+    width: 20%;
+    visibility: hidden;
+    margin: 10px;
+}
+
+.MiddleColumn {
+    display: inline-block;
+    width: 50%;
+    margin: 10px;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.RightColumn {
+    display: inline-block;
+    width: 20%;
+    visibility: hidden;
+    margin: 10px;
+}
+
+/*Opmaak achtergrond, in 4k want pixels*/
+body {
+    background-image: url(images/default-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+    /* En een beetje text opmaak*/
+    font-family: 'Times New Roman';
+    font-variant-caps: unicase;
+    color: white;
+}
+
+
+
+
+
+/*Opmaak veranderen als het scherm minder groot is dan 800px*/
+
+/*Opmaak veranderen als het scherm kleiner is dan 400px*/
+
