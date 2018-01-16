@@ -48,6 +48,7 @@
     .topnavigation a {
         float: none;
         display: block;
+        background-color: lightslategray;
         color: white;
         text-align: center;
         padding: 14px 20px;

@@ -82,7 +82,27 @@ Volgende optie is een View toevoegen, dan is de informatie als weggeschreven en 
 Tenminste dat dacht ik. Na het opzetten van weer een query en weer meerdere keren proberen lijkt er elke keer niks uit de query te 
 komen op het moment dat hij uitgevoerd wordt door de web-applicatie, terwijl die in access uitgevoerd kan worden.
 
+De volgende optie is om het invoeren van gegevens op te splitsen in 2 momenten. Als er op de knop 'Create' gedrukt wordt, dan moet de gebruiker nog 
+op de knop 'terug naar login scherm' drukken. Dit veroorzaakt een postback en zorgt ervoor dat ook de gebruiker wordt weggeschreven in de tabel.
 
+Achteraf gezien is het makkelijk om de database om te bouwen in V1.0 naar een database waarbij alleen een rollencode in het tabel 'Lid' staat,
+dan hoeft de projectgroep ook niet de gebruiker in 2 tabellen te schrijven.
+
+
+
+
+
+Verder met het hashen en salten van het wachtwoord. Zoals eerder te zien was, werden de wachtwoorden wel gesalt en gehasht, maar leverde dat 
+telkens dezelfde salt extensie op: "AAAAAAAAAAAAAAAA". Om dit op te lossen duiken we dieper in op het salten en hashen en wat er belangrijk is 
+aan de volgorde ervan. 
+
+De website van Crackstation (16/01/18, https://crackstation.net/hashing-security.htm#normalhashing) geeft naast een duidelijke uitleg ook een 
+goede beeldvorming van het belang van salt toevoegen aan een hash. Deze website heeft ook een "Hash Cracker", die gelinkt is aan een tabel 
+van een paar honderd GB aan gehashte termen, die bijna alle gehashde woorden kent. Het motto van de "Hash Cracker" is dan ook : 
+"Als wij het weten, dan weten mensen met slechte bedoelingen het ook.".
+
+voorbeeld gebruiker
+Gebruiker, Gebruiker1 , Gebruiker1@hotmail.nl
 
 
 
