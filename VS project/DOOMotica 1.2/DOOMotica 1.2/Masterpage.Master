@@ -32,7 +32,7 @@
 </head>
 <body>   
     <form id="form1" runat="server">
-        <div class="header" runat="server">
+        <div id="Header" class="header" runat="server">
        <asp:ImageButton ID="mgbtn_Hlogo" runat="server" Imageurl="/images/Hlogo.jpg" BackColor="Black" BorderStyle="None" CausesValidation="False" PostBackUrl="~/Login.aspx" CssClass="Hlogo" />
 <div class="Datum">
         <script  lang="JavaScript">
@@ -43,9 +43,10 @@
         
     <!-- Hieronder volgt de algemene opbouw van de webpagina. -->
         
-        <div class="topnavigation" runat="server" id="Navigatie">
+        <div class="topnavigation" runat="server" id="Navigatie" >
             <ul>
-                <li ><a href="/MEMBERS/Home.aspx">Home</a></li>
+                <li ><a href="/MEMBERS/Home.aspx" runat="server" id="HomeKnop">Home</a></li>
+                <li ><a href="/MEMBERS/AddWebsite.aspx" runat="server" id ="AddSite">Add website</a></li>
                 
             </ul>
         </div>
@@ -62,7 +63,9 @@
 
 
 
-    <div class="footer" runat="server"></div>
+    <div id="footer" class="footer" runat="server">
+        <asp:Label ID="lbl_error" runat="server"></asp:Label>
+        </div>
 
     </form>
 </body>

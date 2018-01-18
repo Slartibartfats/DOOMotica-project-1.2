@@ -31,6 +31,15 @@ namespace DOOMotica_1._2 {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// Header control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Header;
+        
+        /// <summary>
         /// mgbtn_Hlogo control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,24 @@ namespace DOOMotica_1._2 {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Navigatie;
         
         /// <summary>
+        /// HomeKnop control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor HomeKnop;
+        
+        /// <summary>
+        /// AddSite control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor AddSite;
+        
+        /// <summary>
         /// cntnt_Body control.
         /// </summary>
         /// <remarks>
@@ -56,5 +83,23 @@ namespace DOOMotica_1._2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder cntnt_Body;
+        
+        /// <summary>
+        /// footer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl footer;
+        
+        /// <summary>
+        /// lbl_error control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_error;
     }
 }

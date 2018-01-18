@@ -34,7 +34,7 @@ namespace DOOMotica_1._2.MEMBERS
         //      }
         //  //-------------------------//https://stackoverflow.com/questions/11061872/dynamically-create-an-imagebutton-------------------------
 
-        public void Aanmaken_Knopjes(string Usern)
+        public void Aanmaken_Tegeltjes(string Usern)
         {
             Conn.ConnectionString = ConfigurationManager.ConnectionStrings["Harry"].ToString();
             Query.Connection = Conn;
@@ -50,38 +50,54 @@ namespace DOOMotica_1._2.MEMBERS
                 OleDbDataReader Reader = Query.ExecuteReader();
                 while (Reader.Read())
                 {
-                    var button = new ImageButton();
+                    ImageButton button = new ImageButton();
                     button.ImageUrl = Reader["Logo_Url"].ToString();
                     button.ID = "mgbtn_Tegeltje" + Aantal.ToString();
-                    button.CssClass = "imagebutton";
+                    button.CssClass = "Imagebutton";
                     Aantal++;
                     button.PostBackUrl = Reader["Hyperlink"].ToString();
                     button.ToolTip = Reader["Website_naam"].ToString();
-                    button.Height = 100;
-                    button.Width = 100;
+                    button.Height = 150;
+                    button.Width = 150;
 
-                    Page.Form.Controls.Add(button);
+
+                    Raamwerk.Controls.Add(button);
+
+                    //  Page.Form.Controls.Add(button);  <-- deze code 
                 }
             }
-            catch (Exception exc) { TextBox1.Text = exc.ToString(); }
+            catch (Exception exc)
+            {
+                Aanmaken_lblFooter(exc.ToString());
+            }
             finally { Conn.Close(); }
 
         }
+
+        public void Aanmaken_lblFooter(string text)
+        {
+            Label lbl = new Label();
+            lbl.Text = text;
+
+            Master.Controls.Add(lbl);
+
+        }
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                Conn.ConnectionString = ConfigurationManager.ConnectionStrings["Harry"].ToString();
-                Query.Connection = Conn;
+
                 // Gebruiker uitlezen van Cookie
                 string Usern = "Gebruiker";                    //voor het voorbeeld gebruiken we Gebruiker
 
-                Aanmaken_Knopjes(Usern);
-                
+                Aanmaken_Tegeltjes(Usern);
 
 
-                // Lege tegels disabelen
-                Checktegels();
+
+
+                //Checktegels(); <-- hoeft niet meer gebruikt te worden ivm dat er geen onnodige tegels meer ingeladen worden.
 
             }
         }
@@ -145,9 +161,6 @@ namespace DOOMotica_1._2.MEMBERS
 
         }
 
-        protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
-        {
 
-        }
     }
 }

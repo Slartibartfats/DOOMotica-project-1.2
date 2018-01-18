@@ -67,6 +67,7 @@
     <Content Include="MEMBERS\BounceBall.aspx" />
     <Content Include="MEMBERS\Home.aspx" />
     <Content Include="Default.css" />
+    <Content Include="MEMBERS\AddWebsite.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +105,13 @@
     </Compile>
     <Compile Include="MEMBERS\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MEMBERS\AddWebsite.aspx.cs">
+      <DependentUpon>AddWebsite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MEMBERS\AddWebsite.aspx.designer.cs">
+      <DependentUpon>AddWebsite.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
