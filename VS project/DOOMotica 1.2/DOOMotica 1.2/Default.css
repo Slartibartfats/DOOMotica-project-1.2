@@ -102,15 +102,34 @@ input[type=text], input[type=password] {
     grid-template-columns: auto auto auto;
     grid-column-gap: 50px;
     grid-row-gap: 50px;
+    padding: 10px;
+    
 }
 
-.tegeltje .imagebutton {
+.tegeltje .Imagebutton {
     background-color: rgba(59, 106, 187,0.5);
-    height: 130px;
+    height: 100%;
     width: 100%;
+    background-size: 100%;
+    
 }
 
+/* Test Test TEst*/
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #2196F3;
+    padding: 10px;
+}
 
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+/* Test Test TEst*/
 
 .tegeltje a {
     float: none;
@@ -125,21 +144,21 @@ input[type=text], input[type=password] {
 /*Opmaak pagina*/
 .LeftColumn { /*<-- deze is leeg maar bestaat wel zodat het inlogscherm in het midden komt.*/
     display: inline-block;
-    width: 20%;
+    width: 5%;
     visibility: hidden;
     margin: 10px;
 }
 
 .MiddleColumn {
     display: inline-block;
-    width: 50%;
+    width: 90%;
     margin: 10px;
     background-color: rgba(0,0,0,0.5);
 }
 
-.RightColumn {
+.RightColumn { /*<-- deze is leeg maar bestaat wel zodat het inlogscherm in het midden komt.*/
     display: inline-block;
-    width: 20%;
+    width: 5%;
     visibility: hidden;
     margin: 10px;
 }

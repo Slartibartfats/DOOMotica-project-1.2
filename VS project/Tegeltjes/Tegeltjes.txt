@@ -1,0 +1,33 @@
+De tegeltjes worden in de vorm van een vaste vierkant op de webpagina gepresenteerd. 
+In het default.css bestand wordt de middenkolom in een 'grid' veranderd van minimaal 3 
+kolommen en die worden elk opgevuld met een standaard plaatje. Op het moment zijn er standaard 
+9 tegeltjes en deze moeten opgevuld worden met een plaatje en een hyperlink op basis van 
+de ingelogde persoon.
+
+===
+
+zie tegeltjes V1 en code css tegeltjes
+
+===
+
+De projectgroep heeft daar de volgende stappen voor bedacht:
+1 de tegeltjes opvullen met een image en een URL on Page_Load
+2 De tegeltjes opvullen met een imageurl vanuit de database, 
+  dan kan de projectgroep websites makkelijk toevoegen (Admins 
+  kunnen dit ook makkelijk doen in de Admin pagina).
+3 De tegelstjes opvullen met een URL vanuit de database die 
+  een defaultwaarde teruggeeft als er nog geen image is ingesteld.
+
+Eerst gaat de projectgroep de imageURLS vullen op de Page_Load door middel van C#.
+De bedoeling hiervan is het plaatsen van tegeltjes op basis van het aantal tegeltjes 
+die de gebruiker op zijn account heeft ingesteld.
+Dus als er 5 verschillende URL's zijn ingesteld dan worden er ook 5 tegeltjes gevuld.
+
+===
+
+zie stap1.code
+zie stap1.resultaat
+
+===
+
+
