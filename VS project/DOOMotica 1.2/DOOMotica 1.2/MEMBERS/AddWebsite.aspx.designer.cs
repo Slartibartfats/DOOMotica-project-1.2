@@ -76,6 +76,15 @@ namespace DOOMotica_1._2.MEMBERS {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqrdfldvldtr_Hyperlink;
         
         /// <summary>
+        /// regex_hyperlink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regex_hyperlink;
+        
+        /// <summary>
         /// lbl_NaamWebsite control.
         /// </summary>
         /// <remarks>
@@ -119,6 +128,15 @@ namespace DOOMotica_1._2.MEMBERS {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_URLplaatje;
+        
+        /// <summary>
+        /// regex_ImageURL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regex_ImageURL;
         
         /// <summary>
         /// vldtnsmmr_ErrorAddSite control.

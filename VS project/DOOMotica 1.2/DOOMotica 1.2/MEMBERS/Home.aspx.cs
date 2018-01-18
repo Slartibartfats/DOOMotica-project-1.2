@@ -63,7 +63,8 @@ namespace DOOMotica_1._2.MEMBERS
 
                     Raamwerk.Controls.Add(button);
 
-                    //  Page.Form.Controls.Add(button);  <-- deze code 
+                    //  Page.Form.Controls.Add(button);  <-- deze code zorgde ervoor dat de tegels onder de webpagina 
+                    //  terecht kwamen
                 }
             }
             catch (Exception exc)

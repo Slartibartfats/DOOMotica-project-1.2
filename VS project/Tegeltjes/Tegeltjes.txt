@@ -30,4 +30,25 @@ zie stap1.resultaat
 
 ===
 
+Nu de projectgroep een vast aantal tegeltjes tevoorschijn kan toveren vanuit de Page_Load, 
+is de volgende stap informatie vanuit de database toe te voegen aan de tegeltjes die 
+worden gemaakt. Drie eigenschappen zijn belangrijk: 
+1 ImageURL : Dit is de URL die de web-applicatie kan volgen voor een plaatje, het liefste 
+  	     300px bij 300px, dit is namelijk een veelvoorkomende grootte van iconen en is 
+  	     voor het programma door middel van CSS makkelijk te schalen. 
+2 PostbackURL : De URL waar de imagebutton naartoe moet verwijzen nadat erop gedrukt is.
+3 Tooltip : Als de gebruiker met zijn muis over de knop gaat dan ziet de gebruiker naar 
+ 	    welke website hij/zij gestuurd wordt.
+
+
+
+
+
+
+
+
+
+
+
+
 

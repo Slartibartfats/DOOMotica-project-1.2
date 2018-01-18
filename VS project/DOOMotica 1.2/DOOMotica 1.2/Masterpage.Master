@@ -14,7 +14,7 @@
                     var thisDate = new Date();
 
                     document.write("<p>The current date is: ");
-                    document.write(thisDate.toDateString());
+                    document.write(thisDate.toGMTString());
                     document.write("</p>");
                 }
 

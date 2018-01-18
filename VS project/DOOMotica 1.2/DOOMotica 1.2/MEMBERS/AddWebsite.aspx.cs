@@ -12,8 +12,8 @@ namespace DOOMotica_1._2.MEMBERS
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        OleDbConnection Conn = new OleDbConnection();
-        OleDbCommand Query = new OleDbCommand();
+        //  OleDbConnection Conn = new OleDbConnection(); --> De connectie en query dienen elke keer opnieuw aangegeven te worden
+        //   OleDbCommand Query = new OleDbCommand();          als ik meerdere keren een connectie wil openen met een postback.
 
         OleDbParameter Param1 = new OleDbParameter();
         OleDbParameter Param2 = new OleDbParameter();
@@ -39,39 +39,42 @@ namespace DOOMotica_1._2.MEMBERS
 
         public void SelecteerInvullen(int Urlnr)
         {
-            Conn.ConnectionString = Conn.ConnectionString = ConfigurationManager.ConnectionStrings["Harry"].ToString();
-            Query.Connection = Conn;
-
-            Query.CommandText = "SELECT * FROM WEBSITES WHERE URLnr = ?";
-
-            OleDbParameter Param1 = new OleDbParameter();
-            Param1.Value = Urlnr;
-
-            Query.Parameters.Add(Param1);
-
-            try
+            using (OleDbConnection Conn = new OleDbConnection())
+            using (OleDbCommand Query = new OleDbCommand())
             {
-                Conn.Open();
-                OleDbDataReader Leesding = Query.ExecuteReader();
+                Conn.ConnectionString = Conn.ConnectionString = ConfigurationManager.ConnectionStrings["Harry"].ToString();
+                Query.Connection = Conn;
 
+                Query.CommandText = "SELECT * FROM WEBSITES WHERE URLnr = ?";
 
-                while (Leesding.Read())
+                OleDbParameter Param1 = new OleDbParameter();
+                Param1.Value = Urlnr;
+
+                Query.Parameters.Add(Param1);
+
+                try
                 {
-                    txt_Hyperlink.Text = Leesding["Hyperlink"].ToString();
-                    txt_NaamWebsite.Text = Leesding["Website_naam"].ToString();
-                    txt_URLplaatje.Text = Leesding["Logo_Url"].ToString();
+                    Conn.Open();
+                    OleDbDataReader Leesding = Query.ExecuteReader();
+
+
+                    while (Leesding.Read())
+                    {
+                        txt_Hyperlink.Text = Leesding["Hyperlink"].ToString();
+                        txt_NaamWebsite.Text = Leesding["Website_naam"].ToString();
+                        txt_URLplaatje.Text = Leesding["Logo_Url"].ToString();
+                    }
+
+
+
+
                 }
-
-
-
+                catch (Exception exc)
+                { Aanmaken_lblFooter(exc.ToString()); }
+                finally
+                { Conn.Close(); }
 
             }
-            catch (Exception exc)
-            { Aanmaken_lblFooter(exc.ToString()); }
-            finally
-            { Conn.Close(); }
-
-
         }
 
         protected void ddl_Voorbeeldlinkjes_SelectedIndexChanged(object sender, EventArgs e)
@@ -85,65 +88,113 @@ namespace DOOMotica_1._2.MEMBERS
 
         protected void btn_terug_Click(object sender, EventArgs e)
         {
+            using (OleDbConnection Conn = new OleDbConnection())
+            using (OleDbCommand Query = new OleDbCommand())
+            {
+                Conn.ConnectionString = ConfigurationManager.ConnectionStrings["Harry"].ToString();
+                Query.Connection = Conn;
 
-            Server.Transfer("Home.aspx");
+                int Lidnr = 26, URLnr = 7;
+                string User = "Gebruiker";
+                
+
+                Query.CommandText = "INSERT INTO Geeft_weer1 (Lidnr,     ";
 
 
+
+                Server.Transfer("Home.aspx");
+
+            }
         }
 
-        public void InsertUpdateDelete(OleDbCommand q)
+
+
+        public bool ControleAddWebsite(string ControleHL)
         {
-            Conn.ConnectionString = Conn.ConnectionString = ConfigurationManager.ConnectionStrings["Harry"].ToString();
-            Query.Connection = Conn;
-
-            try
+            using (OleDbConnection Conn = new OleDbConnection())
+            using (OleDbCommand Query = new OleDbCommand())
             {
-                Conn.Open();
-                Query.ExecuteNonQuery();
-                mltvw_AddSite.ActiveViewIndex = 1;
+                //opzetten connectie
+                Conn.ConnectionString = ConfigurationManager.ConnectionStrings["Harry"].ToString();
+                Query.Connection = Conn;
 
+                //aanmaken terug te sturen boolean
+                bool TF = false;
+
+                Query.CommandText = "SELECT Hyperlink FROM WEBSITES WHERE Hyperlink LIKE ?";
+
+                Query.Parameters.Clear();
+                Param1.Value = ControleHL;
+                Query.Parameters.Add(Param1);
+
+                //query uitvoeren en kijken of de URL al bestaat.
+                try
+                {
+                    Conn.Open();
+                    OleDbDataReader Leesding = Query.ExecuteReader();
+                    if (!Leesding.HasRows)
+                    { TF = true; }
+
+                }
+                finally { Conn.Close(); }
+
+                return TF;
             }
-            catch (Exception exc) { vldtnsmmr_ErrorAddSite.HeaderText = exc.ToString(); }
-            finally
-            {
-                Conn.Close();
-            }
-        }
-
-
+        } //Dit is een opgeschorte functie
 
 
         public void InsertOpzet(string HL, string WNaam, string LogoUrl)
         {
-
-
-            Query.CommandText = "INSERT INTO WEBSITES (Hyperlink, Website_naam, Logo_Url) VALUES (?, ?, ?)";
-
-            Param1.Value = HL;
-            Param2.Value = WNaam;
-            //Als er geen url is ingevuld, dan wordt de default URL ingevuld.
-            if (LogoUrl == "")
+            using (OleDbConnection Conn = new OleDbConnection())
+            using (OleDbCommand Query = new OleDbCommand())
             {
-                Param3.Value = "~/images/hyperlink.jpg";
+                Conn.ConnectionString = ConfigurationManager.ConnectionStrings["Harry"].ToString();
+                Query.Connection = Conn;
+
+                Param1.Value = HL;
+                Param2.Value = WNaam;
+
+                //Als er geen url is ingevuld, dan wordt de default URL ingevuld.
+                if (LogoUrl == "")
+                {
+                    Param3.Value = "~/images/hyperlink.jpg";
+                }
+                else
+                { Param3.Value = LogoUrl; }
+
+                Query.CommandText = "INSERT INTO WEBSITES (Hyperlink, Website_naam, Logo_Url) VALUES (?, ?, ?)";
+                Query.Parameters.Clear();
+                Query.Parameters.Add(Param1);
+                Query.Parameters.Add(Param2);
+                Query.Parameters.Add(Param3);
+
+
+                try
+                {
+                    Conn.Open();
+                    Query.ExecuteNonQuery();
+                    mltvw_AddSite.ActiveViewIndex = 1;
+
+                }
+                catch (Exception exc) { vldtnsmmr_ErrorAddSite.HeaderText = exc.ToString(); }
+                finally
+                {
+                    Conn.Close();
+                }
+
             }
-            else
-            { Param3.Value = LogoUrl; }
-
-            Query.Parameters.Add(Param1);
-            Query.Parameters.Add(Param2);
-            Query.Parameters.Add(Param3);
-
-            InsertUpdateDelete(Query);
-
-                    
-
         }
 
         protected void btn_VoegToe_Click(object sender, EventArgs e)
         {
-
+            //Variabelen declareren en textboxen uitlezen
             string HyperLink = txt_Hyperlink.Text, Website_Naam = txt_NaamWebsite.Text, Logo_Url = txt_URLplaatje.Text;
-            InsertOpzet(HyperLink, Website_Naam, Logo_Url);
+
+            
+                InsertOpzet(HyperLink, Website_Naam, Logo_Url);
+                vldtnsmmr_ErrorAddSite.HeaderText = "Gelukt!";
+            
+
 
         }
     }

@@ -11,15 +11,18 @@
             <br />
             <br />
             <asp:Label ID="lbl_Hyperlink"  runat="server" Text="Hyperlink: "></asp:Label><br /><asp:TextBox ID="txt_Hyperlink" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="rqrdfldvldtr_Hyperlink" runat="server" ControlToValidate="txt_Hyperlink" ErrorMessage="Je moet een Hyperlink opgeven"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rqrdfldvldtr_Hyperlink" runat="server" ControlToValidate="txt_Hyperlink" ErrorMessage="Je moet een Hyperlink opgeven">*</asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="regex_hyperlink" runat="server" ControlToValidate="txt_Hyperlink" ErrorMessage="vul een geldige url in (vergeet niet de HTTPS://) ">*</asp:RegularExpressionValidator>
             <br />
             <asp:Label ID="lbl_NaamWebsite" runat="server" Text="Naam Website: "></asp:Label><br /><asp:TextBox ID="txt_NaamWebsite" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="rqrdfldvldtr_NaamWebsite" runat="server" ErrorMessage="Je moet een naam geven invullen" ControlToValidate="txt_NaamWebsite"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rqrdfldvldtr_NaamWebsite" runat="server" ErrorMessage="Je moet een naam geven invullen" ControlToValidate="txt_NaamWebsite">*</asp:RequiredFieldValidator>
             <br />
             <asp:Label ID="lbl_URLPlaatje" runat="server" Text="URL plaatje: "></asp:Label><br /><asp:TextBox ID="txt_URLplaatje" runat="server"></asp:TextBox>
             
+            <asp:RegularExpressionValidator ID="regex_ImageURL" runat="server" ControlToValidate="txt_URLplaatje" ErrorMessage="Vul een URL in naar een icoon. (het liefste 300px*300px">*</asp:RegularExpressionValidator>
+            
             <br />
-            <asp:ValidationSummary ID="vldtnsmmr_ErrorAddSite" runat="server" />
+            <asp:ValidationSummary ID="vldtnsmmr_ErrorAddSite" runat="server" EnableTheming="True" HeaderText="  " />
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="btn_Home" runat="server" Text="Terug" CausesValidation="False" OnClick="btn_terug_Click" />
