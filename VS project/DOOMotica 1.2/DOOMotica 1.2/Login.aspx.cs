@@ -80,7 +80,7 @@ namespace DOOMotica_1._2
             // het genereren van de salt, 16 'random' cijfers
             new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
             // hashen van het salt + de inhoud van de textbox
-            var pbkdf2 = new Rfc2898DeriveBytes(txt_Pass.Text, salt, 10000);
+            Rfc2898DeriveBytes pbkdf2 = new Rfc2898DeriveBytes(txt_Pass.Text, salt, 10000);
 
             // bovenstaande hash wordt in een array geplaatst
             byte[] hash = pbkdf2.GetBytes(20);

@@ -84,24 +84,6 @@ namespace DOOMotica_1._2.MEMBERS
 
         }
 
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (!IsPostBack)
-            {
-
-                // Gebruiker uitlezen van Cookie
-                string Usern = "Gebruiker";                    //voor het voorbeeld gebruiken we Gebruiker
-
-                Aanmaken_Tegeltjes(Usern);
-
-
-
-
-                //Checktegels(); <-- hoeft niet meer gebruikt te worden ivm dat er geen onnodige tegels meer ingeladen worden.
-
-            }
-        }
         private void ButtonClick(object sender, ImageClickEventArgs e)
         {
 
@@ -162,6 +144,22 @@ namespace DOOMotica_1._2.MEMBERS
 
         }
 
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
 
+                // Gebruiker uitlezen van Cookie
+                string Usern = "Gebruiker";                    //voor het voorbeeld gebruiken we Gebruiker
+
+                Aanmaken_Tegeltjes(Usern);
+
+
+
+
+                //Checktegels(); <-- hoeft niet meer gebruikt te worden ivm dat er geen onnodige tegels meer ingeladen worden.
+
+            }
+        }
     }
 }

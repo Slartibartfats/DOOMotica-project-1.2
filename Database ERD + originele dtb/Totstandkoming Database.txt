@@ -158,6 +158,20 @@ NOTITIE: In deze SQL's zijn de 'ON CASCADE' en 'ON DELETE' constraints nog niet 
 een werkende database nodig om de web-applicatie te kunnen testen.
 
 
+
+--------------------------------------------------------------------------------------------------------------------------------
+VERSIE 1.0
+--------------------------------------------------------------------------------------------------------------------------------
+
+<ZIE ERD Versie 1.0>
+entiteiten + attributen
+LID: 
+WEBSITE:   
+SPEL: 
+ROL: 
+
+Toevoegen relaties + sleutels (!x! = primaire sleutel, %x% = verwijssleutel)
+
 BRON:
 Hulp met CREATE SQL https://stackoverflow.com/questions/6000278/ms-access-create-table-with-autoincrement-and-default-date
 Hulp met Foreign KEYS https://www.w3schools.com/sql/sql_foreignkey.asp
