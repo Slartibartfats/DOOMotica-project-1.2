@@ -14,10 +14,10 @@ namespace DOOMotica_1._2
         OleDbConnection Conn = new OleDbConnection();
         OleDbCommand cmd = new OleDbCommand();
         byte[] salt;
-
+        OleDbParameter Param1 = new OleDbParameter();
         
 
-        string Username, Password, Wachtwoord, Param1;
+        string Username, Password, Wachtwoord;
 
 
 
@@ -32,29 +32,22 @@ namespace DOOMotica_1._2
         protected void btn_Login_Click(object sender, EventArgs e)
         {
 
-            Username =txt_Username.Text;
+            Username = txt_Username.Text;
             cmd.CommandText = "SELECT Wachtwoord FROM LID WHERE Gebruikersnaam = ? ";
             cmd.Parameters.Clear(); //verwijderen eerdere parameters
-            Param1 = Username;
+            Param1.Value = Username;
             cmd.Parameters.Add(Param1);
 
-            var pbkdf2 = new Rfc2898DeriveBytes(txt_Password.Text, salt, 10000);
-
-            byte[] hash = pbkdf2.GetBytes(20);
-
-            byte[] hashBytes = new byte[36];
-
-            Array.Copy(salt, 0, hashBytes, 0, 16);
-            Array.Copy(hash, 0, hashBytes, 16, 20);
-
-
+           
+ //ophalen DB
 
             try
             {
+               
                 Conn.Open();
                 OleDbDataReader Reader = cmd.ExecuteReader();
                 
-                if(Reader == null)
+                if(Reader.Read() == false)
                 {
                     lbl_ConnFeedBack.Text = "Er is een fout opgetreden";
                 }
@@ -62,23 +55,12 @@ namespace DOOMotica_1._2
                 {
                     while(Reader.Read())
                     {
-                        Wachtwoord += string.Format("{0}: {1}<br />\n", Reader["Wachtwoord"].ToString());
+                        Wachtwoord += string.Format("{0}: <br />\n", Reader["Wachtwoord"].ToString());
                     }
                 }
 
-                Wachtwoord = Reader.ToString();
-
-                if(Password == Wachtwoord)
-                {
-                    //ga naar begin pagina
-                }
-                else
-                {
-                    //foutmelding
-                }
-                
-
-
+                               
+              
             }
             catch (Exception exc)
             {
@@ -90,6 +72,22 @@ namespace DOOMotica_1._2
                 Conn.Close();
                 
             }
+            //Opsplitsen
+
+            string DBSalt = Wachtwoord.Substring(0, 16);
+            string DBHash = Wachtwoord.Substring(15, 20);
+
+            //Salt en Password aanelkaar zetten
+            string ConWachtwoord = DBSalt + txt_Password.Text;
+
+            //Controle wachtwoord hashen
+
+
+
+            //vergelijken
+            
+
+           
 
         }
     }
