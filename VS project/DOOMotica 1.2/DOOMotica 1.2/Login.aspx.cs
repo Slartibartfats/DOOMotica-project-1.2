@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.OleDb;
 using System.Configuration;
 using System.Security.Cryptography; // --> Deze library wordt gebruikt voor het beveiligen van het wachtwoord
+using System.Text; //voor het omzetten van string naar byte
 
 
 
@@ -19,10 +20,14 @@ namespace DOOMotica_1._2
         //aanmaken connectie object, query opbject en 3 parameters voor het aanmaken account
         OleDbConnection Connectie = new OleDbConnection();
         OleDbCommand Query = new OleDbCommand();
+        OleDbCommand cmd = new OleDbCommand();
         OleDbParameter Param1 = new OleDbParameter();
         OleDbParameter Param2 = new OleDbParameter(); // deze heet express 2, ivm MS-veiligheid enzo
         OleDbParameter Param3 = new OleDbParameter();
+        OleDbParameter Param4 = new OleDbParameter();
 
+
+        string Username, Wachtwoord;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -136,7 +141,7 @@ namespace DOOMotica_1._2
                 else
                 {
                     mltvw_Login.ActiveViewIndex = 2;
-                }                
+                }
                 /*           //tweede query
                              try
                              {
@@ -173,6 +178,91 @@ namespace DOOMotica_1._2
         }
         protected void btn_Login_Click(object sender, EventArgs e)
         {
+            Username = txt_Username.Text;
+            cmd.CommandText = "SELECT Wachtwoord FROM LID WHERE Gebruikersnaam = ? ";
+            cmd.Parameters.Clear(); //verwijderen eerdere parameters
+            Param4.Value = Username;
+            cmd.Parameters.Add(Param4);
+            Connectie.ConnectionString = ConfigurationManager.ConnectionStrings["Harry"].ToString();
+            cmd.Connection = Connectie;
+
+            //ophalen DB
+
+            try
+            {
+
+                Connectie.Open();
+                OleDbDataReader Reader = cmd.ExecuteReader();
+
+                if (Reader.HasRows == false)
+                {
+                    lbl_Foutmelding.Text = "Er is een fout opgetreden";
+                }
+                else
+
+                    while (Reader.Read())
+                    {
+                        Wachtwoord += string.Format("{0}: <br />\n", Reader["Wachtwoord"].ToString());
+                    }
+
+
+
+
+            }
+            catch (Exception exc)
+            {
+                lbl_Foutmelding.Text = exc.Message;
+            }
+            finally
+            {
+
+                Connectie.Close();
+
+            }
+
+
+
+
+            //Opsplitsen
+
+            byte[] DBSalt = Encoding.ASCII.GetBytes(Wachtwoord.Substring(0, 16));
+
+            string DBHash = Wachtwoord.Substring(16, 20);
+
+            //Salt en Password aanelkaar zetten
+
+            string ConWachtwoord = DBSalt + txt_Password.Text;
+
+            //Controle wachtwoord hashen
+
+            var pbkdf2 = new Rfc2898DeriveBytes(ConWachtwoord, DBSalt, 10000);
+
+            byte[] hash = pbkdf2.GetBytes(20);
+
+            byte[] hashbytes = new byte[36];
+
+            Array.Copy(DBSalt, 0, hashbytes, 0, 16);
+            Array.Copy(hash, 0, hashbytes, 16, 20);
+
+            string SavedPassWordHash = Convert.ToBase64String(hashbytes);
+            //vergelijken
+
+            if (DBHash == SavedPassWordHash)
+            {
+                HttpCookie koekje = new HttpCookie("AuthenticationCookie");
+                DateTime Now = DateTime.Now;
+
+                koekje.Values.Add("Time", Now.ToString());
+                koekje.Values.Add("Username", Username);
+                Response.Cookies.Add(koekje);
+
+                Server.Transfer("~/ MEMBERS / Home.aspx");
+            }
+
+            else
+            {
+                lbl_Foutmelding.Text = "Wachtwoord is niet juist";
+            }
 
         }
 

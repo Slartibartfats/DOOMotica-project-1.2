@@ -22,13 +22,13 @@ namespace DOOMotica_1._2 {
         protected global::System.Web.UI.WebControls.MultiView mltvw_Login;
         
         /// <summary>
-        /// vw_login control.
+        /// lbl_login control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.View vw_login;
+        protected global::System.Web.UI.WebControls.View lbl_login;
         
         /// <summary>
         /// lbl_Username control.
@@ -56,6 +56,15 @@ namespace DOOMotica_1._2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_Password;
+        
+        /// <summary>
+        /// lbl_Foutmelding control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_Foutmelding;
         
         /// <summary>
         /// txt_Password control.

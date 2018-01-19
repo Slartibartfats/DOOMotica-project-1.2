@@ -32,11 +32,10 @@
 </head>
 <body>   
     <form id="form1" runat="server">
-<<<<<<< HEAD
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
 
-=======
+        
+
+
         <div class="header" runat="server">
        <asp:ImageButton ID="mgbtn_Hlogo" runat="server" Imageurl="/images/Hlogo.jpg" BackColor="Black" BorderStyle="None" CausesValidation="False" PostBackUrl="~/Login.aspx" CssClass="Hlogo" />
 <div class="Datum">
@@ -44,6 +43,7 @@
             GrabTheDateFunction();
            </script>
         </div>
+            <asp:Label ID="lbl_GebruikerNaam" runat="server"></asp:Label>
    </div> 
         
     <!-- Hieronder volgt de algemene opbouw van de webpagina. -->
@@ -61,7 +61,7 @@
     <div class="LeftColumn" runat="server"></div>
     <div class="MiddleColumn" runat="server">
 <asp:ContentPlaceHolder ID="cntnt_Body" runat="server">
->>>>>>> Timo's-kutdingen
+
             </asp:ContentPlaceHolder>
         </div>
     <div class="RightColumn" runat="server"></div>

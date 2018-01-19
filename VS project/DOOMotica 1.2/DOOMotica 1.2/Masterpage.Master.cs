@@ -11,16 +11,23 @@ namespace DOOMotica_1._2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            //is het de eerste keer
+            if(!IsPostBack)
+            {
+                //bestaat het koekje
+                if (HttpContext.Current.Request.Cookies["AuthenticationCookie"] != null)
+                {
+                    //bestaat de waarde Username
+                    lbl_GebruikerNaam.Text = HttpContext.Current.Request.Cookies["AuthenticationCookie"]["Username"];
+                    Server.Transfer("~/ MEMBERS / Home.aspx");
+                }
+            }
         }
-
-<<<<<<< HEAD
+        
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
         {
 
         }
-=======
-      
->>>>>>> Timo's-kutdingen
+
     }
 }

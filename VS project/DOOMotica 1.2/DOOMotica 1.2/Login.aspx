@@ -9,10 +9,14 @@
 
 <asp:MultiView ID="mltvw_Login" runat="server" ActiveViewIndex="0">
     <!-- Hier wordt een de Login control geplaatst in een view. -->
-        <asp:View ID="vw_login" runat="server">
-            <asp:Label ID="lbl_Username" runat="server" Text="USERNAME"></asp:Label><br /><asp:TextBox ID="txt_Username" runat="server"> </asp:TextBox> 
+        <asp:View ID="lbl_login" runat="server">
+            <asp:Label ID="lbl_Username" runat="server" Text="USERNAME"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <br /><asp:TextBox ID="txt_Username" runat="server"> </asp:TextBox> 
             <br />
-            <asp:Label ID="lbl_Password" runat="server" Text="PASSWORD"></asp:Label><br /><asp:TextBox ID="txt_Password" runat="server" TextMode="Password"></asp:TextBox>
+            <asp:Label ID="lbl_Password" runat="server" Text="PASSWORD"></asp:Label>
+            <br />
+            <asp:Label ID="lbl_Foutmelding" runat="server"></asp:Label>
+            <br /><asp:TextBox ID="txt_Password" runat="server" TextMode="Password"></asp:TextBox>
             <br />
             <asp:Button ID="btn_CreateUser" runat="server" Text="Create a new user" OnClick="btn_CreateUser_Click1" /><asp:Button ID="btn_Login" runat="server" Text="Login" OnClick="btn_Login_Click" />
         </asp:View>
