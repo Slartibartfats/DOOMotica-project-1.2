@@ -4,6 +4,9 @@
 \contentsline {section}{\numberline {3}Probleemstelling}{5}{section.3}
 \contentsline {section}{\numberline {4}Centrale vraag}{6}{section.4}
 \contentsline {section}{\numberline {5}Deelvragen en onderzoeksvragen}{7}{section.5}
+\contentsline {subsection}{\numberline {5.1}Dahaus}{7}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}spelltjes}{7}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Tegeltjes}{7}{subsection.5.3}
 \contentsline {section}{\numberline {6}Verantwoording gebruikte methodes}{8}{section.6}
 \contentsline {section}{\numberline {7}Analyse van de gegevens}{9}{section.7}
 \contentsline {subsection}{\numberline {7.1}Dataverzameling}{9}{subsection.7.1}
