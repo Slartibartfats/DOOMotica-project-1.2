@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.OleDb;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace DOOMotica_1._2
 {
@@ -13,11 +14,11 @@ namespace DOOMotica_1._2
     {
         OleDbConnection Conn = new OleDbConnection();
         OleDbCommand cmd = new OleDbCommand();
-        byte[] salt;
+    
         OleDbParameter Param1 = new OleDbParameter();
-        
 
-        string Username, Password, Wachtwoord;
+
+        string Username, Wachtwoord;
 
 
 
@@ -25,7 +26,7 @@ namespace DOOMotica_1._2
         {
             Conn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=" + Server.MapPath(@"\App_data") + @"\Web-Applicatie Database.accdb";
             cmd.Connection = Conn;
-            new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
+           
             
         }
 
@@ -72,21 +73,44 @@ namespace DOOMotica_1._2
                 Conn.Close();
                 
             }
+
+
+
+
             //Opsplitsen
 
-            string DBSalt = Wachtwoord.Substring(0, 16);
-            string DBHash = Wachtwoord.Substring(15, 20);
+            byte[] DBSalt = Encoding.ASCII.GetBytes(Wachtwoord.Substring(0, 16));
+            
+            string DBHash = Wachtwoord.Substring(16, 20);
 
             //Salt en Password aanelkaar zetten
+
             string ConWachtwoord = DBSalt + txt_Password.Text;
 
             //Controle wachtwoord hashen
 
+            var pbkdf2 = new Rfc2898DeriveBytes(ConWachtwoord, DBSalt, 10000);
 
+            byte[] hash = pbkdf2.GetBytes(20);
 
+            byte[] hashbytes = new byte[36];
+
+            Array.Copy(DBSalt, 0, hashbytes, 0, 16);
+            Array.Copy(hash, 0, hashbytes, 16, 20);
+
+            string SavedPassWordHash = Convert.ToBase64String(hashbytes);
             //vergelijken
             
+            if(Wachtwoord == SavedPassWordHash)
+            {
+                HttpCookie AuthenticationCookie = new HttpCookie("koekje");
+                DateTime Now = DateTime.Now;
 
+                AuthenticationCookie.Values.Add("Time", Now.ToString());
+                AuthenticationCookie.Values.Add("Username", Username);
+
+                Server.Transfer(home.aspx);
+            }
            
 
         }
