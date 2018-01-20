@@ -62,6 +62,7 @@ namespace DOOMotica_1._2
             string User = "Gebruiker";
             //als de persoon en gebruiker is ADD WEBSITE KNOP laten zien
 
+            
             Bepalen_Gebruiker(User);
         }
 

@@ -40,10 +40,15 @@ worden gemaakt. Drie eigenschappen zijn belangrijk:
 3 Tooltip : Als de gebruiker met zijn muis over de knop gaat dan ziet de gebruiker naar 
  	    welke website hij/zij gestuurd wordt.
 
+Om ervoor te zorgen dat de ImageURL en PostbackURL ook daadwerkelijk internet links zijn wordt 
+de standaard Regex gebruikt vanuit Visual Studio, deze is ontdekt nadat de projectgroep de 
+volgende Regex heeft gebouwd:
 
+^(http(s)?:\/\/www\.)(\w|\W){2,15}\.([a-z]){2,4}\/(\w|\W){0,20}$
 
+Een goede les: eerst opzoeken of het niet al standaard bestaat in het programma.
 
-
+Verder wordt er nog een RequiredValidator op de PostbackURL- en Tooltip-textbox
 
 
 

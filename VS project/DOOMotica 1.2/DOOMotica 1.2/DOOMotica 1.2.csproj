@@ -64,7 +64,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Login.aspx" />
-    <Content Include="MEMBERS\BounceBall.aspx" />
     <Content Include="MEMBERS\Home.aspx" />
     <Content Include="Default.css" />
     <Content Include="MEMBERS\AddWebsite.aspx" />
@@ -91,13 +90,6 @@
     </Compile>
     <Compile Include="Masterpage.Master.designer.cs">
       <DependentUpon>Masterpage.Master</DependentUpon>
-    </Compile>
-    <Compile Include="MEMBERS\BounceBall.aspx.cs">
-      <DependentUpon>BounceBall.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MEMBERS\BounceBall.aspx.designer.cs">
-      <DependentUpon>BounceBall.aspx</DependentUpon>
     </Compile>
     <Compile Include="MEMBERS\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
