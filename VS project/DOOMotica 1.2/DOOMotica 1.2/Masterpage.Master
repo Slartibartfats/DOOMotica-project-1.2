@@ -5,7 +5,7 @@
 <html>
 <head runat="server">
     <!-- De regel hieronder is een referentie naar de algemene stylesheet -->
-    <link rel="stylesheet" type="text/css" href="default.css">
+    <link rel="stylesheet" type="text/css" href="default.css"> 
     <title></title>   
     <!-- Script voor het plaatsen van de huidige datum en tijd-->
             <script lang="JavaScript">

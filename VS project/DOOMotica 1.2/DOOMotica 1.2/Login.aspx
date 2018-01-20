@@ -24,17 +24,19 @@
         <!-- Hier wordt de Create User view geplaats -->
         <asp:View ID="vw_createuser" runat="server">
             <asp:Label ID="lbl_User" runat="server" Text="Username (6-18 tekens)"></asp:Label>
-            &nbsp;&nbsp;
+            <br />            &nbsp;&nbsp;
             <asp:TextBox ID="txt_User" runat="server"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rqrdvldtr_User" runat="server" ControlToValidate="txt_User" ErrorMessage="Vul een username in!" Font-Bold="True">*</asp:RequiredFieldValidator>
             <asp:RegularExpressionValidator ID="regex_User" runat="server" ControlToValidate="txt_User" ErrorMessage="  Username invalide (Moet tussen 6-18 letters/cijfers zijn en alleen '_'-teken mag)" Font-Bold="True" ValidationExpression="([A-Z|a-z|0-9|_]{6,18})">*</asp:RegularExpressionValidator>
             <br />
-            <asp:Label ID="lbl_Pass" runat="server" Text="Password (6-15 tekens waarvan 1 hoofdletter en 1 cijfer)"></asp:Label><br />
+            <asp:Label ID="lbl_Pass" runat="server" Text="Password (6-15 tekens waarvan 1 hoofdletter en 1 cijfer)"></asp:Label>
+            <br />
             <asp:TextBox ID="txt_Pass" runat="server" TextMode="Password"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rqrdvldtr_Pass" runat="server" ControlToValidate="txt_Pass" ErrorMessage="Vul een wachtwoord in!" Font-Bold="True">*</asp:RequiredFieldValidator>
             <asp:RegularExpressionValidator ID="regex_Password" runat="server" ControlToValidate="txt_Pass" ErrorMessage="Password invalide (6-15 cijfers/letters waarvan minimaal 1 hoofdletter)" Font-Bold="True" ValidationExpression="^(?=.*\d)(?=.*[A-Z])(.{6,15})$">*</asp:RegularExpressionValidator>
             <br />
             <asp:Label ID="lbl_ConformPass" runat="server" Text="Confirm Password"></asp:Label>
+            <br /> 
             &nbsp;<asp:TextBox ID="txt_ConfirmPass" runat="server" TextMode="Password"></asp:TextBox>
 &nbsp;
             <asp:CompareValidator ID="cmprvldtr_Pass" runat="server" ControlToCompare="txt_ConfirmPass" ControlToValidate="txt_Pass" ErrorMessage="User did not give equal passwords" Font-Bold="True">*</asp:CompareValidator>

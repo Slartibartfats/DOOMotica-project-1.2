@@ -26,9 +26,6 @@ namespace DOOMotica_1._2
         OleDbParameter Param3 = new OleDbParameter();
         OleDbParameter Param4 = new OleDbParameter();
 
-
-        string Username, Wachtwoord;
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -82,6 +79,7 @@ namespace DOOMotica_1._2
 
             //in deze array komt de salt
             byte[] salt;
+
             // het genereren van de salt, 16 'random' cijfers
             new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
             // hashen van het salt + de inhoud van de textbox
@@ -98,7 +96,7 @@ namespace DOOMotica_1._2
 
             //nu nog de salthasharray converteren naar een string
             string SavedHash = Convert.ToBase64String(hashBytes);
-            int Lengte = SavedHash.Length;
+            
             //opzetten query
             Query.CommandText = "INSERT INTO LID (Gebruikersnaam, Wachtwoord, E_mail) VALUES (?,?,?)";
             //parameters invoeren
@@ -178,91 +176,140 @@ namespace DOOMotica_1._2
         }
         protected void btn_Login_Click(object sender, EventArgs e)
         {
-            Username = txt_Username.Text;
-            cmd.CommandText = "SELECT Wachtwoord FROM LID WHERE Gebruikersnaam = ? ";
-            cmd.Parameters.Clear(); //verwijderen eerdere parameters
-            Param4.Value = Username;
-            cmd.Parameters.Add(Param4);
+            /*   //uphalen WW uit DB
+               Connectie.ConnectionString = ConfigurationManager.ConnectionStrings["Harry"].ToString();
+               cmd.Connection = Connectie;
+               string Username = txt_Username.Text;
+               byte[] Wachtwoord = new byte[36];
+
+               cmd.CommandText = "SELECT Wachtwoord FROM LID WHERE Gebruikersnaam = ? ";
+               cmd.Parameters.Clear(); //verwijderen eerdere parameters
+               Param4.Value = Username;
+               cmd.Parameters.Add(Param4);
+
+               try
+               {
+
+                   Connectie.Open();
+                   OleDbDataReader Reader = cmd.ExecuteReader();
+                   if (Reader.HasRows == false)
+                   {
+                       lbl_Foutmelding.Text = "Er is een fout opgetreden";
+                   }
+                   else
+                   {
+                       while (Reader.Read())
+                       {
+                           Wachtwoord = Encoding.ASCII.GetBytes(Reader["Wachtwoord"].ToString());
+                       }
+                   }
+               }
+               catch (Exception exc)
+               {
+                   lbl_Foutmelding.Text = exc.Message;
+               }
+               finally
+               {
+                   Connectie.Close();
+               }
+
+               //Opsplitsen opgehaalde WW van DB
+               byte[] DBSalt = new byte[16];
+               byte[] DBHash = new byte[20];
+               Array.Copy(Wachtwoord, 0,DBSalt,0,16 );
+               Array.Copy(Wachtwoord, 16, DBHash, 0, 20);
+
+               //Salt en Password aanelkaar zetten
+               string ControleHash = Convert.ToBase64String(DBHash);
+               string ConWachtwoord = DBSalt + txt_Password.Text;
+
+               //Controle wachtwoord hashen
+
+               var pbkdf2 = new Rfc2898DeriveBytes(ConWachtwoord, DBSalt, 10000);
+
+               byte[] hash = pbkdf2.GetBytes(20);
+
+               byte[] hashbytes = new byte[36];
+
+               Array.Copy(DBSalt, 0, hashbytes, 0, 16);
+               Array.Copy(hash, 0, hashbytes, 16, 20);
+
+               string SavedPassWordHash = Convert.ToBase64String(hashbytes);
+               //vergelijken
+
+               if (ControleHash == SavedPassWordHash)
+               {
+                   HttpCookie koekje = new HttpCookie("AuthenticationCookie");
+                   DateTime Now = DateTime.Now;
+
+                   koekje.Values.Add("Time", Now.ToString());
+                   koekje.Values.Add("Username", Username);
+                   Response.Cookies.Add(koekje);
+
+                   Server.Transfer("~/ MEMBERS / Home.aspx");
+               }
+
+               else
+               {
+                   lbl_Foutmelding.Text = "Wachtwoord is niet juist";
+               }
+   */
+
+
+            //ophalen db
+
+
+            string Wachtwoord = "";
             Connectie.ConnectionString = ConfigurationManager.ConnectionStrings["Harry"].ToString();
             cmd.Connection = Connectie;
 
-            //ophalen DB
+            cmd.CommandText = "SELECT Wachtwoord FROM LID WHERE Gebruikersnaam = ? ";
+            OleDbParameter Param1 = new OleDbParameter();
+            Param1.Value = txt_Username.Text;
+            cmd.Parameters.Add(Param1);
 
             try
             {
-
                 Connectie.Open();
-                OleDbDataReader Reader = cmd.ExecuteReader();
-
-                if (Reader.HasRows == false)
+                OleDbDataReader Leesding = cmd.ExecuteReader();
+                while (Leesding.Read())
                 {
-                    lbl_Foutmelding.Text = "Er is een fout opgetreden";
+                    Wachtwoord = Leesding["Wachtwoord"].ToString();
                 }
-                else
-
-                    while (Reader.Read())
-                    {
-                        Wachtwoord += string.Format("{0}: <br />\n", Reader["Wachtwoord"].ToString());
-                    }
-
-
-
-
             }
             catch (Exception exc)
             {
-                lbl_Foutmelding.Text = exc.Message;
+                lbl_gelukt.Text = exc.ToString();
             }
-            finally
+            finally { Connectie.Close(); }
+
+            //converteren string naar bytes
+            byte[] DBhash = Convert.FromBase64String(Wachtwoord);
+
+
+            //AANMAKEN SALT VAN DBHASH
+            byte[] DBsalt = new byte[16];
+            Array.Copy(DBhash, 0, DBsalt, 0, 16);
+            //Aanmaken en converten hash uit ww
+            byte[] Controle_DBhash = new byte[20];
+            Array.Copy(DBhash, 16, Controle_DBhash, 0, 20);
+            string DBww = Convert.ToBase64String(Controle_DBhash);
+
+            //HASHEN
+            var pbkdf2 = new Rfc2898DeriveBytes(txt_Password.Text, DBsalt, 10000);
+            byte[] CtHash = pbkdf2.GetBytes(20);
+            string ControlePass = Convert.ToBase64String(CtHash);
+
+            if (ControlePass == DBww)
             {
-
-                Connectie.Close();
-
+                txt_Username.Text = "FUCK YEAH HET LUKTE!";
             }
 
+            
+               
 
 
 
-            //Opsplitsen
-
-            byte[] DBSalt = Encoding.ASCII.GetBytes(Wachtwoord.Substring(0, 16));
-
-            string DBHash = Wachtwoord.Substring(16, 20);
-
-            //Salt en Password aanelkaar zetten
-
-            string ConWachtwoord = DBSalt + txt_Password.Text;
-
-            //Controle wachtwoord hashen
-
-            var pbkdf2 = new Rfc2898DeriveBytes(ConWachtwoord, DBSalt, 10000);
-
-            byte[] hash = pbkdf2.GetBytes(20);
-
-            byte[] hashbytes = new byte[36];
-
-            Array.Copy(DBSalt, 0, hashbytes, 0, 16);
-            Array.Copy(hash, 0, hashbytes, 16, 20);
-
-            string SavedPassWordHash = Convert.ToBase64String(hashbytes);
-            //vergelijken
-
-            if (DBHash == SavedPassWordHash)
-            {
-                HttpCookie koekje = new HttpCookie("AuthenticationCookie");
-                DateTime Now = DateTime.Now;
-
-                koekje.Values.Add("Time", Now.ToString());
-                koekje.Values.Add("Username", Username);
-                Response.Cookies.Add(koekje);
-
-                Server.Transfer("~/ MEMBERS / Home.aspx");
-            }
-
-            else
-            {
-                lbl_Foutmelding.Text = "Wachtwoord is niet juist";
-            }
 
         }
 
