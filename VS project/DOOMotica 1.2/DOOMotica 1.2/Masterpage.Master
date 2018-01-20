@@ -39,15 +39,21 @@
             GrabTheDateFunction();
            </script>
         </div>
+            <asp:Label ID="lbl_welkom" runat="server" Text="Welkom, "></asp:Label>
+            <asp:Label ID="lbl_Username" runat="server" Text=" "></asp:Label>
+            <asp:Label ID="lbl_Titel" runat="server" Text="bezoeker"></asp:Label>
    </div> 
         
     <!-- Hieronder volgt de algemene opbouw van de webpagina. -->
         
         <div class="topnavigation" runat="server" id="Navigatie" >
             <ul>
-                <li ><a href="/MEMBERS/Home.aspx" runat="server" id="HomeKnop">Home</a></li>
-                <li ><a href="/MEMBERS/AddWebsite.aspx" runat="server" id ="AddSite">Add website</a></li>
-                
+                <li ><a href="~/Login.aspx" runat="server" id="HomeKnop">Home</a></li>
+                <li ><a href="~/MEMBERS/AddWebsite.aspx" runat="server" id ="AddSite" visible="False">Tegeltje maken</a></li>
+                <li ><a href="~/MEMBERS/DeleteSite.aspx" runat="server" id="DeleteSite" visible="False">Tegeltje verwijderen</a></li>
+                <li ><a href="~/ADMIN/DBDelSite.aspx" runat="server" id="AdminDeleteSite" visible="False">Website verwijderen(admin)</a></li>
+                <li ><a href="~/ADMIN/AddAdmin.aspx" runat="server" id="CreateAdmin" visible="False">Admin toevoegen(admin)</a></li>   
+                <li ><asp:LinkButton ID="lnkbtn_Logout" runat="server" Enabled="False" OnClick="lnkbtn_Logout_Click" PostBackUrl="~/Login.aspx" Visible="False" CausesValidation="false">Logout</asp:LinkButton></li>
             </ul>
         </div>
 

@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.OleDb;
 using System.Configuration;
+using System.Threading;
 
 namespace DOOMotica_1._2
 {
@@ -14,6 +15,7 @@ namespace DOOMotica_1._2
         OleDbCommand Query = new OleDbCommand();
         OleDbConnection Conn = new OleDbConnection();
 
+        const string ROL1 = "(ADMIN)", ROL2 = "(Gebruiker)";
         public void Aanmaken_lblFooter(string text)
         {
             Label lbl = new Label();
@@ -23,49 +25,112 @@ namespace DOOMotica_1._2
 
         }
 
-        public void Bepalen_Gebruiker(string Usern)
-            {
-                Conn.ConnectionString = ConfigurationManager.ConnectionStrings["Harry"].ToString();
-                Query.Connection = Conn;
-                OleDbParameter Param1 = new OleDbParameter();
+        public void Navigatiecontrols(string Usern)
+        {
+            //ophalen rolnr
+            int Rolnr = 0;
 
-                Param1.Value = Usern;
+            Conn.ConnectionString = ConfigurationManager.ConnectionStrings["Harry"].ToString();
+            Query.Connection = Conn;
+            OleDbParameter Param1 = new OleDbParameter();
 
-                Query.CommandText = "SELECT Lidnr FROM LID WHERE Gebruikersnaam = ?";
+            Param1.Value = Usern;
+
+            Query.CommandText = "SELECT Lidnr,Rolnr FROM LID WHERE Gebruikersnaam = ?";
             Query.Parameters.Add(Param1);
-                try
+            try
+            {
+                Conn.Open();
+                OleDbDataReader Leesding = Query.ExecuteReader();
+                if (!Leesding.HasRows)
                 {
-                    Conn.Open();
-                    OleDbDataReader Leesding = Query.ExecuteReader();
+                    lbl_error.Text = "Je staat niet in de DTB, neem contact op met de ICT. Ga terug naar het inlogscherm.";
+                    AddSite.Visible = false;
+                    AddSite.Disabled = true;
+                }
+                else
+                {
                     while (Leesding.Read())
                     {
-                        if (Convert.ToInt32((Leesding["Lidnr"])) != 26)
-                        {
-                        AddSite.Visible = false;
-                        AddSite.Disabled = true;
-                        }
+                        Rolnr = Convert.ToInt32(Leesding["Rolnr"]);
                     }
-
                 }
-                catch (Exception exc) { Aanmaken_lblFooter(exc.ToString()); }
-                finally { Conn.Close(); }
+            }
+            catch (Exception exc) { Aanmaken_lblFooter(exc.ToString()); }
+            finally { Conn.Close(); }
+
+            //Bepalen welke knoppen aanmogen en welke niet.
+            switch (Rolnr)
+            {
+                case 1:
+                    AddSite.Visible = true; AddSite.Disabled = false;
+                    DeleteSite.Visible = true; DeleteSite.Disabled = false;
+                    AdminDeleteSite.Visible = true; AdminDeleteSite.Disabled = false;
+                    CreateAdmin.Visible = true; CreateAdmin.Disabled = false;
+                    lnkbtn_Logout.Visible = true; lnkbtn_Logout.Enabled = true;
+
+                    lbl_Titel.Text = ROL1;
+                    lbl_Username.Text = Usern;
+                    break;
+                case 2:
+                    AddSite.Visible = true; AddSite.Disabled = false;
+                    DeleteSite.Visible = true; DeleteSite.Disabled = false;
+                    lnkbtn_Logout.Visible = true; lnkbtn_Logout.Enabled = true;
+                    lbl_Titel.Text = ROL2;
+                    lbl_Username.Text = Usern;
+                    break;
+                default:
+                    lbl_error.Text = ROL2;
+                    break;
+            }
+        }
+
+        protected void lnkbtn_Logout_Click(object sender, EventArgs e)
+        {
+            if (Request.Cookies["AuthenticationCookie"] != null)
+            {
+                HttpCookie Koekje = new HttpCookie("AuthenticationCookie");
+                Koekje.Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies.Add(Koekje);
+            }
+          /*  Session.Clear();
+            Session.Abandon();
+
+            Response.Redirect("~/Login.aspx");            //   <--    https://stackoverflow.com/questions/19652021/how-to-really-logout-in-asp-net
+            */
+        }
+        /* protected void Logout_ServerClick(object sender, EventArgs e) //opgeschorte functie
+         {
+             // https://forums.asp.net/t/2059637.aspx?how+to+a+href+OnClick+event+in+asp+net+C+ -----------------------------------
+
+             if (Request.Cookies["AuthenticationCookie"] != null)
+             {
+                 HttpCookie Koekje = new HttpCookie("AuthenticationCookie");
+                 Koekje.Expires = DateTime.Now.AddDays(-1D);
+                 Response.Cookies.Add(Koekje);
+                 Server.Transfer("~/Login.aspx");
+             }
 
 
 
+
+         }*/
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                if (Request.Cookies["AuthenticationCookie"] != null)
+                {
+                    HttpCookie Koekje = Request.Cookies["AuthenticationCookie"];
+                    string User = Koekje["Username"];
+                    Navigatiecontrols(User);
+                }
 
 
             }
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-            //cookie uitlezen voor de gebruiker, als dit leeg is doorverwijzen naar Login.aspx
-            string User = "Gebruiker";
-            //als de persoon een gebruiker is ADD WEBSITE KNOP laten zien
-
-            
-            Bepalen_Gebruiker(User);
         }
 
-      
+
     }
 }

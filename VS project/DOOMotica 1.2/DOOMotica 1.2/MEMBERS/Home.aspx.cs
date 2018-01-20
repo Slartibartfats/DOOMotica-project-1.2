@@ -41,7 +41,7 @@ namespace DOOMotica_1._2.MEMBERS
             OleDbParameter Param1 = new OleDbParameter();
             Param1.Value = Usern;
 
-            Query.CommandText = "SELECT W.Hyperlink, W.Website_naam, W.Logo_Url, L.Lidnr FROM WEBSITES AS W INNER JOIN(LID AS L INNER JOIN Geeft_weer1 AS GW ON L.Lidnr = GW.Lidnr) ON W.URLnr = GW.URLnr WHERE L.Gebruikersnaam = ?";
+            Query.CommandText = "SELECT W.Hyperlink, W.W_Omschrijving, W.Logo_URL, L.Lidnr FROM WEBSITE AS W INNER JOIN(LID AS L INNER JOIN toegevoegd AS T ON L.Lidnr = T.Lidnr) ON W.Webnr = T.Webnr WHERE L.Gebruikersnaam = ?";
             Query.Parameters.Add(Param1);
 
             try
@@ -51,12 +51,12 @@ namespace DOOMotica_1._2.MEMBERS
                 while (Reader.Read())
                 {
                     ImageButton button = new ImageButton();
-                    button.ImageUrl = Reader["Logo_Url"].ToString();
+                    button.ImageUrl = Reader["Logo_URL"].ToString();
                     button.ID = "mgbtn_Tegeltje" + Aantal.ToString();
                     button.CssClass = "Imagebutton";
                     Aantal++;
                     button.PostBackUrl = Reader["Hyperlink"].ToString();
-                    button.ToolTip = Reader["Website_naam"].ToString();
+                    button.ToolTip = Reader["W_Omschrijving"].ToString();
                     button.Height = 150;
                     button.Width = 150;
 
@@ -144,19 +144,30 @@ namespace DOOMotica_1._2.MEMBERS
 
         }
 
+        public string OphalenUsern()
+        {
+            HttpCookie koekje = Request.Cookies["AuthenticationCookie"];
+            string Username = koekje["Username"];
+
+            return Username;
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-
+                //Dit stukje code wordt ook uitgevoerd door de <authentication> in het Web.config bestand.
                 // Gebruiker uitlezen van Cookie
-                string Usern = "Gebruiker";                    //voor het voorbeeld gebruiken we Gebruiker
+                if (Request.Cookies["AuthenticationCookie"] == null)
+                {
+                    Server.Transfer("~/Login.aspx");
+                }
+                else
+                {
+                    string Username = OphalenUsern();
 
-                Aanmaken_Tegeltjes(Usern);
-
-
-
-
+                    Aanmaken_Tegeltjes(Username);
+                }
                 //Checktegels(); <-- hoeft niet meer gebruikt te worden ivm dat er geen onnodige tegels meer ingeladen worden.
 
             }

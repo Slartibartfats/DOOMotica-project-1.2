@@ -90,9 +90,10 @@
 
 /*Footer met disclaimer, contact enz.*/
 .footer {
+    color:white;
     padding: 20px;
     text-align: center;
-    background: #ddd;
+    background-color:slategray;
     margin-top: 20px;
     position: relative;
     margin-bottom: 0px;
@@ -192,7 +193,7 @@ body {
     background-position: top;
     background-attachment: fixed;
     /* En een beetje text opmaak*/
-    font-family: 'Times New Roman';
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-variant-caps: unicase;
     color: white;
 }
