@@ -60,7 +60,7 @@ namespace DOOMotica_1._2
 
             //cookie uitlezen voor de gebruiker, als dit leeg is doorverwijzen naar Login.aspx
             string User = "Gebruiker";
-            //als de persoon en gebruiker is ADD WEBSITE KNOP laten zien
+            //als de persoon een gebruiker is ADD WEBSITE KNOP laten zien
 
             
             Bepalen_Gebruiker(User);
