@@ -1,0 +1,7 @@
+C:\Users\laker\source\repos\DaHausConsole\DaHausConsole\bin\Debug\DaHausConsole.exe.config
+C:\Users\laker\source\repos\DaHausConsole\DaHausConsole\bin\Debug\DaHausConsole.exe
+C:\Users\laker\source\repos\DaHausConsole\DaHausConsole\bin\Debug\DaHausConsole.pdb
+C:\Users\laker\source\repos\DaHausConsole\DaHausConsole\obj\Debug\DaHausConsole.csproj.CoreCompileInputs.cache
+C:\Users\laker\source\repos\DaHausConsole\DaHausConsole\obj\Debug\DaHausConsole.exe
+C:\Users\laker\source\repos\DaHausConsole\DaHausConsole\obj\Debug\DaHausConsole.pdb
+C:\Users\laker\source\repos\DaHausConsole\DaHausConsole\obj\Debug\DaHausConsole.csprojResolveAssemblyReference.cache
