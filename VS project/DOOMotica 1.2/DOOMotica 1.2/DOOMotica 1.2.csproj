@@ -67,6 +67,10 @@
     <Content Include="MEMBERS\BounceBall.aspx" />
     <Content Include="MEMBERS\Home.aspx" />
     <Content Include="Default.css" />
+    <Content Include="Spelletjes\BrickBreaker.aspx" />
+    <Content Include="Spelletjes\SnakeEasy.aspx" />
+    <Content Include="Spelletjes\SnakeHard.aspx" />
+    <Content Include="Spelletjes\SnakeImpossible.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +110,22 @@
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Spelletjes\BrickBreaker.aspx.cs">
+      <DependentUpon>BrickBreaker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Spelletjes\SnakeEasy.aspx.cs">
+      <DependentUpon>SnakeEasy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Spelletjes\SnakeHard.aspx.cs">
+      <DependentUpon>SnakeHard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Spelletjes\SnakeImpossible.aspx.cs">
+      <DependentUpon>SnakeImpossible.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Masterpage.Master" />
