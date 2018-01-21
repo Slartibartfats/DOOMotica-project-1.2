@@ -14,12 +14,15 @@
 }
 
 .Hlogo { /*logo locatie aanpassen + hoogte en breedte vastzetten*/
-    height: 40px;
     display: inline;
     float: left;
     border-style: solid;
     border-width: 5px;
     border-color: white;
+    width: 15%;
+    height: 15%;
+    max-height: 50px;
+    max-width: 50px;
 }
 
 .Datum {
@@ -220,7 +223,30 @@ body {
 
 
 
-/*Opmaak veranderen als het scherm minder groot is dan 800px*/
+/*Opmaak veranderen als het scherm minder groot is dan 600px*/
+@media only screen and (max-width: 600px) {
+    * {
+        width: 100%;
+        font-family: 'Comic Sans MS';
+    }
 
-/*Opmaak veranderen als het scherm kleiner is dan 400px*/
+    .Tegelwerk {
+        display: table;
+    }
 
+    .Listbox {
+        width: 100%;
+    }
+
+    input[type=text], input[type=password] {
+        width: 100%;
+    }
+
+        input[type=text]:focus, input[type=password]:focus {
+            width: 100%;
+        }
+
+    .topnavigation ul {
+        padding: 0px;
+    }
+}

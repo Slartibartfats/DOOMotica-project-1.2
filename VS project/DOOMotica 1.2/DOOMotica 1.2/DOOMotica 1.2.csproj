@@ -62,6 +62,7 @@
     <Content Include="ADMIN\DBDelSite.aspx" />
     <Content Include="ADMIN\AddAdmin.aspx" />
     <Content Include="App_Data\Web-Applicatie Database.accdb" />
+    <Content Include="Global.asax" />
     <Content Include="MEMBERS\App_LocalResources\thee-spelletjes.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -93,6 +94,9 @@
     </Compile>
     <Compile Include="ADMIN\AddAdmin.aspx.designer.cs">
       <DependentUpon>AddAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
