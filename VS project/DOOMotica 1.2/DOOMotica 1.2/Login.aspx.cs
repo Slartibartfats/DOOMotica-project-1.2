@@ -68,7 +68,7 @@ namespace DOOMotica_1._2
                     Server.Transfer("~/MEMBERS/Home.aspx");
                     break;
                 default:
-                    lbl_gelukt.Text = "FUCKED";
+                    Server.Transfer("~/Login.aspx");
                     break;
             }
         }

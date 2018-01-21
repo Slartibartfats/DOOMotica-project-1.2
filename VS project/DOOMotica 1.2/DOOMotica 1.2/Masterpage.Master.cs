@@ -25,6 +25,21 @@ namespace DOOMotica_1._2
 
         }
 
+        public void Doorverwijzen(int Rol)
+        {
+            switch (Rol)
+            {
+                case 1:
+                    Server.Transfer("~/ADMIN/AdminHome.aspx");
+                    break;
+                case 2:
+                    Server.Transfer("~/MEMBERS/Home.aspx");
+                    break;
+                default:
+                   
+                    break;
+            }
+        }
         public void Navigatiecontrols(string Usern)
         {
             //ophalen rolnr
@@ -84,20 +99,40 @@ namespace DOOMotica_1._2
                     break;
             }
         }
+        //  ----------------------https://stackoverflow.com/questions/6635349/how-to-delete-cookies-on-an-asp-net-website door Pixelbits----------------------------------
+        public void ExpireAllCookies() //kill all cookies
+        {
+            if (HttpContext.Current != null)
+            {
+                int cookieCount = HttpContext.Current.Request.Cookies.Count;
+                for (var i = 0; i < cookieCount; i++)
+                {
+                    var cookie = HttpContext.Current.Request.Cookies[i];
+                    if (cookie != null)
+                    {
+                        var cookieName = cookie.Name;
+                        var expiredCookie = new HttpCookie(cookieName) { Expires = DateTime.Now.AddDays(-1) };
+                        HttpContext.Current.Response.Cookies.Add(expiredCookie); // overwrite it
+                    }
+                }
 
+                // clear cookies server side
+                HttpContext.Current.Request.Cookies.Clear();
+            }
+        }
+        //  ----------------------https://stackoverflow.com/questions/6635349/how-to-delete-cookies-on-an-asp-net-website door Pixelbits----------------------------------
         protected void lnkbtn_Logout_Click(object sender, EventArgs e)
         {
+            
             if (Request.Cookies["AuthenticationCookie"] != null)
             {
-                HttpCookie Koekje = new HttpCookie("AuthenticationCookie");
-                Koekje.Expires = DateTime.Now.AddDays(-1);
-                Response.Cookies.Add(Koekje);
+                ExpireAllCookies();
             }
-          /*  Session.Clear();
+            Session.Clear();
             Session.Abandon();
 
             Response.Redirect("~/Login.aspx");            //   <--    https://stackoverflow.com/questions/19652021/how-to-really-logout-in-asp-net
-            */
+
         }
         /* protected void Logout_ServerClick(object sender, EventArgs e) //opgeschorte functie
          {
@@ -125,6 +160,12 @@ namespace DOOMotica_1._2
                     HttpCookie Koekje = Request.Cookies["AuthenticationCookie"];
                     string User = Koekje["Username"];
                     Navigatiecontrols(User);
+                }
+                else
+                {
+                    int Rol = 0;
+
+                    Doorverwijzen(Rol);
                 }
 
 

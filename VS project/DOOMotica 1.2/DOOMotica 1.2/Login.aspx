@@ -14,7 +14,7 @@
             <br />
             <asp:Label ID="lbl_Password" runat="server" Text="PASSWORD"></asp:Label><br /><asp:TextBox ID="txt_Password" runat="server" TextMode="Password"></asp:TextBox>
             <br />
-            <asp:Button ID="btn_CreateUser" runat="server" Text="Create a new user" OnClick="btn_CreateUser_Click1" /><asp:Button ID="btn_Login" runat="server" Text="Login" OnClick="btn_Login_Click" />
+            <asp:Button ID="btn_CreateUser" runat="server" Text="Create a new user" OnClick="btn_CreateUser_Click1" CssClass="Button" /><asp:Button ID="btn_Login" runat="server" Text="Login" OnClick="btn_Login_Click" CssClass="Button" />
         </asp:View>
 
         <!-- Hier wordt de Create User view geplaats -->
@@ -44,13 +44,13 @@
             <asp:ValidationSummary ID="vldtnsmmr_CreateUser" runat="server" DisplayMode="List" Font-Bold="True" />
             <br />
             <br />
-            <asp:Button ID="btn_Create" runat="server" Text="Create" OnClick="btn_Create_Click" /><asp:Button ID="btn_Terug" runat="server" Text="Terug naar het inlogscherm" OnClick="btn_Terug_Click" CausesValidation="False"/><asp:Label ID="lbl_gelukt" runat="server" Text=""></asp:Label>
+            <asp:Button ID="btn_Create" runat="server" Text="Create" OnClick="btn_Create_Click" CssClass="Button" /><asp:Button ID="btn_Terug" runat="server" Text="Terug naar het inlogscherm" OnClick="btn_Terug_Click" CausesValidation="False" CssClass="Button"/><asp:Label ID="lbl_gelukt" runat="server" Text=""></asp:Label>
         </asp:View>
         <asp:View ID="vw_gebruiker" runat="server">
             <asp:Label ID="lbl_Appeltjeeitje" runat="server" Font-Bold="True" Text="Alles is netjes weggeschreven, druk op de knop om verder te gaan met inloggen. :)"></asp:Label>
             <br />
             <br />
-            <asp:Button ID="btn_TerugLogin" runat="server" Text="Terug" OnClick="btn_TerugLogin_Click" Width="133px" />
+            <asp:Button ID="btn_TerugLogin" runat="server" Text="Terug" OnClick="btn_TerugLogin_Click" Width="133px" CssClass="Button" />
 
         </asp:View>
     </asp:MultiView>

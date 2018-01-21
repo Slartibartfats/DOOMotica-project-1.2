@@ -25,6 +25,7 @@ namespace DOOMotica_1._2.MEMBERS
             {
                 Server.Transfer("~/Login.aspx");
             }
+            
         }
 
         protected void btn_Home_Click(object sender, EventArgs e)
@@ -79,7 +80,7 @@ namespace DOOMotica_1._2.MEMBERS
         {
 
             int URLnr = int.Parse(ddl_Voorbeeldlinkjes.SelectedValue);
-
+            
             SelecteerInvullen(URLnr);
 
         }
@@ -225,6 +226,42 @@ namespace DOOMotica_1._2.MEMBERS
 
             InsertOpzet(HyperLink, Website_Naam, Logo_Url);
             vldtnsmmr_ErrorAddSite.HeaderText = "Gelukt!";
+
+
+
+        }
+
+        protected void btn_VoegToeConn_Click(object sender, EventArgs e)
+        {
+            OleDbConnection Conn = new OleDbConnection();
+            OleDbCommand Query = new OleDbCommand();
+            Conn.ConnectionString = ConfigurationManager.ConnectionStrings["Harry"].ToString();
+
+            Query.Connection = Conn;
+
+            Query.CommandText = "INSERT INTO toegevoegd(Lidnr, Webnr) SELECT LID.Lidnr, WEBSITE.Webnr FROM LID, WEBSITE WHERE Gebruikersnaam = ? AND Hyperlink = ?";
+            //invullen van parameters met username en hyperlink
+            Param1.Value = OphalenUsern();
+            Param2.Value = txt_Hyperlink.Text;
+            Query.Parameters.Clear();
+            Query.Parameters.Add(Param1);
+            Query.Parameters.Add(Param2);
+
+            try
+            {
+                Conn.Open();
+                Query.ExecuteNonQuery();
+                lbl_error.Text = "Je website is toegevoegd!";
+            }
+            catch
+            {
+                lbl_error.Text = "Oeps, er is iets misgegaan!";
+            }
+            finally
+            {
+                Conn.Close();
+            }
+
 
 
 

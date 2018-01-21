@@ -8,6 +8,8 @@
             <asp:Label ID="lbl_Kiezen" runat="server" Text="Je kan ook 1 website kiezen van deze dropdownlist:"></asp:Label>
             <br />
             <asp:DropDownList ID="ddl_Voorbeeldlinkjes" runat="server" AutoPostBack="True" DataSourceID="AccdbSourceWebsites" DataTextField="W_Omschrijving" DataValueField="Webnr" OnSelectedIndexChanged="ddl_Voorbeeldlinkjes_SelectedIndexChanged"></asp:DropDownList>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btn_VoegToeConn" runat="server" OnClick="btn_VoegToeConn_Click" Text="Voeg deze website toe" CssClass="Button" />
             <br />
             <br />
             <asp:Label ID="lbl_Hyperlink"  runat="server" Text="Hyperlink: "></asp:Label><br /><asp:TextBox ID="txt_Hyperlink" runat="server"></asp:TextBox>
@@ -25,9 +27,9 @@
             <asp:ValidationSummary ID="vldtnsmmr_ErrorAddSite" runat="server" EnableTheming="True" HeaderText="  " />
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btn_Home" runat="server" Text="Terug" CausesValidation="False" OnClick="btn_terug_Click" />
+            <asp:Button ID="btn_Home" runat="server" Text="Terug" CausesValidation="False" OnClick="btn_terug_Click" CssClass="Button" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btn_VoegToe" runat="server" Text="Voeg toe" OnClick="btn_VoegToe_Click" />
+            <asp:Button ID="btn_VoegToe" runat="server" Text="Voeg toe" OnClick="btn_VoegToe_Click" CssClass="Button" />
             <br />
             <br />
 <br />
@@ -43,7 +45,7 @@
             <br />
             <br />
             <br />
-            <asp:Button ID="btn_terug" runat="server" OnClick="btn_terug_Click" Text="Terug naar het webdashboard" />
+            <asp:Button ID="btn_terug" runat="server" OnClick="btn_terug_Click" Text="Terug naar het webdashboard" CssClass="Button" />
             <br />
             <br />
             <br />

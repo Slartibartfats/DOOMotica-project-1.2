@@ -49,6 +49,15 @@ namespace DOOMotica_1._2.MEMBERS {
         protected global::System.Web.UI.WebControls.DropDownList ddl_Voorbeeldlinkjes;
         
         /// <summary>
+        /// btn_VoegToeConn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_VoegToeConn;
+        
+        /// <summary>
         /// lbl_Hyperlink control.
         /// </summary>
         /// <remarks>

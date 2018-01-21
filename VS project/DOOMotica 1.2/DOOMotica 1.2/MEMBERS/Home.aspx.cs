@@ -154,23 +154,19 @@ namespace DOOMotica_1._2.MEMBERS
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+
+            if (Request.Cookies["AuthenticationCookie"] == null)
             {
-                //Dit stukje code wordt ook uitgevoerd door de <authentication> in het Web.config bestand.
-                // Gebruiker uitlezen van Cookie
-                if (Request.Cookies["AuthenticationCookie"] == null)
-                {
-                    Server.Transfer("~/Login.aspx");
-                }
-                else
-                {
-                    string Username = OphalenUsern();
-
-                    Aanmaken_Tegeltjes(Username);
-                }
-                //Checktegels(); <-- hoeft niet meer gebruikt te worden ivm dat er geen onnodige tegels meer ingeladen worden.
-
+                Server.Transfer("~/Login.aspx");
             }
+            else
+            {
+                string Username = OphalenUsern();
+
+                Aanmaken_Tegeltjes(Username);
+            }
+            //Checktegels(); <-- hoeft niet meer gebruikt te worden ivm dat er geen onnodige tegels meer ingeladen worden.
+
         }
     }
 }
