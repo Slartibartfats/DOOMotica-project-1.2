@@ -85,7 +85,7 @@ namespace DOOMotica_1._2
                 int Rol = OphalenRol();
                 //opzetten splitsing
                 Doorverwijzen(Rol);
-                
+
             }
 
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
@@ -160,7 +160,7 @@ namespace DOOMotica_1._2
 
             //nu nog de salthasharray converteren naar een string
             string SavedHash = Convert.ToBase64String(hashBytes);
-            
+
             //opzetten query
             Query.CommandText = "INSERT INTO LID (Gebruikersnaam, Wachtwoord, E_mail,Rolnr) VALUES (?,?,?,2)";
             //parameters invoeren
@@ -369,80 +369,9 @@ namespace DOOMotica_1._2
             {
                 txt_Username.Text = "FUCK YEAH HET LUKTE!";
             }
-
-            
-               
-
-
-
-
         }
 
-        protected void btn_TerugLogin_Click(object sender, EventArgs e)
-        {
 
-
-            string Wachtwoord = "";
-            int Lidnr = 0, Rolnr = 0;
-
-            Connectie.ConnectionString = ConfigurationManager.ConnectionStrings["Harry"].ToString();
-            Query.Connection = Connectie;
-
-            Query.CommandText = "SELECT Wachtwoord, Lidnr, Rolnr FROM LID WHERE Gebruikersnaam = ? ";
-            OleDbParameter Param1 = new OleDbParameter();
-            Param1.Value = txt_Username.Text;
-            Query.Parameters.Add(Param1);
-
-            try
-            {
-                Connectie.Open();
-                OleDbDataReader Leesding = Query.ExecuteReader();
-                while (Leesding.Read())
-                {
-                    Wachtwoord = Leesding["Wachtwoord"].ToString();
-                    Lidnr = Convert.ToInt32(Leesding["Lidnr"]);
-                    Rolnr = Convert.ToInt32(Leesding["Rolnr"]);
-                }
-            }
-            catch (Exception exc)
-            {
-                lbl_gelukt.Text = exc.ToString();
-            }
-            finally { Connectie.Close(); }
-
-            //converteren string naar bytes
-            byte[] DBhash = Convert.FromBase64String(Wachtwoord);
-
-
-            //AANMAKEN SALT VAN DBHASH
-            byte[] DBsalt = new byte[16];
-            Array.Copy(DBhash, 0, DBsalt, 0, 16);
-            //Aanmaken en converten hash uit ww
-            byte[] Controle_DBhash = new byte[20];
-            Array.Copy(DBhash, 16, Controle_DBhash, 0, 20);
-            string DBww = Convert.ToBase64String(Controle_DBhash);
-
-            //HASHEN
-            var pbkdf2 = new Rfc2898DeriveBytes(txt_Password.Text, DBsalt, 10000);
-            byte[] CtHash = pbkdf2.GetBytes(20);
-            string ControlePass = Convert.ToBase64String(CtHash);
-
-            if (ControlePass == DBww)
-            {
-                //toevoegen cookie met username + lidnr
-                HttpCookie Koekje = new HttpCookie("AuthenticationCookie");
-                Koekje.Values.Add("Username", txt_Username.Text);
-                Koekje.Values.Add("Lidnr", Lidnr.ToString());
-                Koekje.Expires = DateTime.Now.AddMinutes(20);
-                Response.Cookies.Add(Koekje);
-
-                Doorverwijzen(Rolnr);
-                //doorsturen naar naar juiste homepage gebeurd in de page_load
-                //Server.Transfer("~/MEMBERS/Home.aspx");
-            }
-
-
-        }
 
         protected void btn_TerugLogin_Click(object sender, EventArgs e)
         {

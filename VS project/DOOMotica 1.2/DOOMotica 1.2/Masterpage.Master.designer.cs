@@ -49,15 +49,6 @@ namespace DOOMotica_1._2 {
         protected global::System.Web.UI.WebControls.ImageButton mgbtn_Hlogo;
         
         /// <summary>
-        /// lbl_GebruikerNaam control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_GebruikerNaam;
-        
-        /// <summary>
         /// lbl_welkom control.
         /// </summary>
         /// <remarks>
@@ -74,6 +65,15 @@ namespace DOOMotica_1._2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_Username;
+        
+        /// <summary>
+        /// lbl_GebruikerNaam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_GebruikerNaam;
         
         /// <summary>
         /// lbl_Titel control.

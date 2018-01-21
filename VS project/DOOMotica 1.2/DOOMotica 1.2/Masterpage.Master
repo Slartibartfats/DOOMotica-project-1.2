@@ -52,10 +52,11 @@
            </script>
         </div>
 
-            <asp:Label ID="lbl_GebruikerNaam" runat="server"></asp:Label>
-
             <asp:Label ID="lbl_welkom" runat="server" Text="Welkom, "></asp:Label>
             <asp:Label ID="lbl_Username" runat="server" Text=" "></asp:Label>
+
+            <asp:Label ID="lbl_GebruikerNaam" runat="server"></asp:Label>
+
             <asp:Label ID="lbl_Titel" runat="server" Text="bezoeker"></asp:Label>
 
    </div> 
