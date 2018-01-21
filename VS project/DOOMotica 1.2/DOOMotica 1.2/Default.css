@@ -3,22 +3,26 @@
 
 /*Opzetten Header, lint bovenaan de pagina*/
 .header {
+    display: block;
     padding: 20px;
     margin: 20px;
     font-size: 40px;
     text-align: center;
     background: space;
     width: 90%;
-    height: 1em;
+    height: 100%;
 }
 
 .Hlogo { /*logo locatie aanpassen + hoogte en breedte vastzetten*/
-    height: 40px;
     display: inline;
     float: left;
     border-style: solid;
     border-width: 5px;
     border-color: white;
+    width: 15%;
+    height: 15%;
+    max-height: 50px;
+    max-width: 50px;
 }
 
 .Datum {
@@ -55,23 +59,45 @@
         text-decoration: none;
     }
 
-        .topnavigation a:hover {
+    .topnavigation .Hyperlink {
+        float: none;
+        display: block;
+        background-color: lightslategray;
+        color: white;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+    }
+
+        .topnavigation .Hyperlink:hover {
             background-color: #ddd;
             color: black;
         }
 
-        .topnavigation a:active {
-            background-color: lime;
-            color: white;
-        }
+    .topnavigation a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .topnavigation .Hyperlink:active {
+        background-color: lime;
+        color: white;
+    }
+
+    .topnavigation a:active {
+        background-color: lime;
+        color: white;
+    }
+
 
 /*box rechtsbovenin met Inlognaam + uitlogknop*/
 
 /*Footer met disclaimer, contact enz.*/
 .footer {
+    color: white;
     padding: 20px;
     text-align: center;
-    background: #ddd;
+    background-color: slategray;
     margin-top: 20px;
     position: relative;
     margin-bottom: 0px;
@@ -83,34 +109,55 @@
 /*Algemene input txtbox + passwordbox*/
 input[type=text], input[type=password] {
     outline: none;
-    width: 60%;
+    width: 30%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-    -webkit-transition: width 1.0s ease-in-out;
-    transition: width 1.0s ease-in-out;
+    -webkit-transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out;
 }
 
     input[type=text]:focus, input[type=password]:focus {
         border: 4px solid #111;
-        width: 90%;
+        width: 40%;
     }
 
 /*Opmaak van alle hokjes met links*/
 .Tegelwerk {
     display: grid;
     grid-template-columns: auto auto auto;
-    grid-column-gap: 50px;
-    grid-row-gap: 50px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    padding: 10px;
 }
 
-.tegeltje .imagebutton {
-    background-color: rgba(59, 106, 187,0.5);
-    height: 130px;
+.tegeltje .Imagebutton {
+    display: block;
+    height: 100%;
     width: 100%;
+    background-size: 100%;
 }
 
+.Imagebutton:hover {
+    opacity: 0.5;
+}
 
+/* Test Test TEst*/
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #2196F3;
+    padding: 10px;
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+/* Test Test TEst*/
 
 .tegeltje a {
     float: none;
@@ -125,21 +172,21 @@ input[type=text], input[type=password] {
 /*Opmaak pagina*/
 .LeftColumn { /*<-- deze is leeg maar bestaat wel zodat het inlogscherm in het midden komt.*/
     display: inline-block;
-    width: 20%;
+    width: 5%;
     visibility: hidden;
     margin: 10px;
 }
 
 .MiddleColumn {
     display: inline-block;
-    width: 50%;
+    width: 90%;
     margin: 10px;
     background-color: rgba(0,0,0,0.5);
 }
 
-.RightColumn {
+.RightColumn { /*<-- deze is leeg maar bestaat wel zodat het inlogscherm in het midden komt.*/
     display: inline-block;
-    width: 20%;
+    width: 5%;
     visibility: hidden;
     margin: 10px;
 }
@@ -152,15 +199,54 @@ body {
     background-attachment: fixed;
     /* En een beetje text opmaak*/
     font-family: 'Times New Roman';
+    font-size: 1em;
     font-variant-caps: unicase;
     color: white;
+}
+
+.Listbox {
+    display: block;
+    color: white;
+    background-color: darkslategrey;
+    font-size: 1em;
+    width: 25%;
+}
+
+.Button {
+    padding: 10px;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(255,255,255,0.4);
 }
 
 
 
 
+/*Opmaak veranderen als het scherm minder groot is dan 600px*/
+@media only screen and (max-width: 600px) {
+    * {
+        width: 100%;
+        font-family: 'Comic Sans MS';
+    }
 
-/*Opmaak veranderen als het scherm minder groot is dan 800px*/
+    .Tegelwerk {
+        display: table;
+    }
 
-/*Opmaak veranderen als het scherm kleiner is dan 400px*/
+    .Listbox {
+        width: 100%;
+    }
 
+    input[type=text], input[type=password] {
+        width: 100%;
+    }
+
+        input[type=text]:focus, input[type=password]:focus {
+            width: 100%;
+        }
+
+    .topnavigation ul {
+        padding: 0px;
+    }
+}

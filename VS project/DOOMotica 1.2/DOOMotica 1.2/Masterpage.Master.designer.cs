@@ -31,6 +31,15 @@ namespace DOOMotica_1._2 {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// Header control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Header;
+        
+        /// <summary>
         /// mgbtn_Hlogo control.
         /// </summary>
         /// <remarks>
@@ -40,13 +49,39 @@ namespace DOOMotica_1._2 {
         protected global::System.Web.UI.WebControls.ImageButton mgbtn_Hlogo;
         
         /// <summary>
+<<<<<<< HEAD
         /// lbl_GebruikerNaam control.
+=======
+        /// lbl_welkom control.
+>>>>>>> Timo's-kutdingen
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Label lbl_GebruikerNaam;
+=======
+        protected global::System.Web.UI.WebControls.Label lbl_welkom;
+        
+        /// <summary>
+        /// lbl_Username control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_Username;
+        
+        /// <summary>
+        /// lbl_Titel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_Titel;
+>>>>>>> Timo's-kutdingen
         
         /// <summary>
         /// Navigatie control.
@@ -58,6 +93,60 @@ namespace DOOMotica_1._2 {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Navigatie;
         
         /// <summary>
+        /// HomeKnop control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor HomeKnop;
+        
+        /// <summary>
+        /// AddSite control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor AddSite;
+        
+        /// <summary>
+        /// DeleteSite control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor DeleteSite;
+        
+        /// <summary>
+        /// AdminDeleteSite control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor AdminDeleteSite;
+        
+        /// <summary>
+        /// CreateAdmin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor CreateAdmin;
+        
+        /// <summary>
+        /// lnkbtn_Logout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkbtn_Logout;
+        
+        /// <summary>
         /// cntnt_Body control.
         /// </summary>
         /// <remarks>
@@ -65,5 +154,23 @@ namespace DOOMotica_1._2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder cntnt_Body;
+        
+        /// <summary>
+        /// footer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl footer;
+        
+        /// <summary>
+        /// lbl_error control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_error;
     }
 }

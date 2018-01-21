@@ -59,14 +59,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ADMIN\AdminHome.aspx" />
+    <Content Include="ADMIN\DBDelSite.aspx" />
+    <Content Include="ADMIN\AddAdmin.aspx" />
     <Content Include="App_Data\Web-Applicatie Database.accdb" />
+    <Content Include="Global.asax" />
     <Content Include="MEMBERS\App_LocalResources\thee-spelletjes.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Login.aspx" />
-    <Content Include="MEMBERS\BounceBall.aspx" />
     <Content Include="MEMBERS\Home.aspx" />
     <Content Include="Default.css" />
+    <Content Include="MEMBERS\AddWebsite.aspx" />
+    <Content Include="MEMBERS\DeleteSite.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +80,23 @@
     </Compile>
     <Compile Include="ADMIN\AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\DBDelSite.aspx.cs">
+      <DependentUpon>DBDelSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMIN\DBDelSite.aspx.designer.cs">
+      <DependentUpon>DBDelSite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\AddAdmin.aspx.cs">
+      <DependentUpon>AddAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMIN\AddAdmin.aspx.designer.cs">
+      <DependentUpon>AddAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -91,19 +112,26 @@
     <Compile Include="Masterpage.Master.designer.cs">
       <DependentUpon>Masterpage.Master</DependentUpon>
     </Compile>
-    <Compile Include="MEMBERS\BounceBall.aspx.cs">
-      <DependentUpon>BounceBall.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MEMBERS\BounceBall.aspx.designer.cs">
-      <DependentUpon>BounceBall.aspx</DependentUpon>
-    </Compile>
     <Compile Include="MEMBERS\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MEMBERS\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MEMBERS\AddWebsite.aspx.cs">
+      <DependentUpon>AddWebsite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MEMBERS\AddWebsite.aspx.designer.cs">
+      <DependentUpon>AddWebsite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MEMBERS\DeleteSite.aspx.cs">
+      <DependentUpon>DeleteSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MEMBERS\DeleteSite.aspx.designer.cs">
+      <DependentUpon>DeleteSite.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

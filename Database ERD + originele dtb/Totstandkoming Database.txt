@@ -78,7 +78,7 @@ ANTWOORD: het kan, maar hoeft niet. Voor het overzicht doen we het wel. De ADMIN
 GEBRUIKER tabellen zullen dan alleen cijfers bevatten en geen namen en dat levert weer 
 een ruimtebesparing op.
 - De tabel websites bestaat nu uit een URL, kunnen we nog dingen toevoegen?
-ANTWOORD: Ja, we kunnen kolommen toevoegen. De projectgroep moet dan wel goed opletten hoe dit 
+ANTWOORD: Ja, we kunnen nog omschrijving en logo toevoegen. De projectgroep moet dan wel goed opletten hoe dit 
 ook geïmplementeerd gaat worden in de web-applicatie. 
 
 --------------------------------------------------------------------------------------------------------------------------------
@@ -158,6 +158,7 @@ NOTITIE: In deze SQL's zijn de 'ON CASCADE' en 'ON DELETE' constraints nog niet 
 een werkende database nodig om de web-applicatie te kunnen testen.
 
 
+<<<<<<< HEAD
 ---------------------------------------------------------------------------------------------------------------------------
 VERSIE 0.7
 ---------------------------------------------------------------------------------------------------------------------------
@@ -173,6 +174,83 @@ De projectgroep probeert de relaties in te voegen, maar dat lukt niet met de CRE
 https://stackoverflow.com/questions/23028884/syntax-error-when-defining-table-with-on-delete-cascade?answertab=active#tab-top
 )
 Dus de projectgroep probeert het met de ALTER TABLE-statement.
+=======
+
+--------------------------------------------------------------------------------------------------------------------------------
+VERSIE 1.0
+--------------------------------------------------------------------------------------------------------------------------------
+
+<ZIE ERD Versie 1.0>
+entiteiten + attributen
+LID: Usern, WW(salt+hash), e-mail
+WEBSITE:hyperlink, logo_url, websiteNaam   
+SPEL: Spelnaam, BronUrl, Omschrijving
+ROL: Rolnr, omschrijving
+
+Toevoegen relaties + sleutels (!x! = primaire sleutel, %x% = verwijssleutel)
+
+ROL: !Rolnr!, Omschrijving
+LID: !Lidnr!, Usern, Password, E-mail, %Rolnr%
+WEBSITE: !Webnr!, Hyperlink, Logo_URL, W_Omschr
+SPEL: !Spelnr!, Spelnaam, BronUrl, Omschrijving
+heeft: %Lidnr%, %Spelnr%
+Toegevoegd: %Webnr%, %Lidnr%
+
+SQLS -----------------------------------------------------------------------------------------------------------------
+
+TABEL ROL SQL:
+CREATE TABLE ROL (
+Rolnr AUTOINCREMENT PRIMARY KEY,
+Omschrijving VARCHAR(255)
+);
+
+TABEL LID SQL
+CREATE TABLE LID
+(
+Lidnr AUTOINCREMENT PRIMARY KEY,
+Gebruikersnaam VARCHAR(20) UNIQUE,
+Wachtwoord VARCHAR(255) UNIQUE,
+E_mail VARCHAR(255) UNIQUE,
+Rolnr INT,
+FOREIGN KEY (Rolnr) REFERENCES ROL(Rolnr)
+);
+
+TABEL WEBSITE SQL
+CREATE TABLE WEBSITE (
+Webnr AUTOINCREMENT PRIMARY KEY,
+Hyperlink VARCHAR(255) NOT NULL,
+Logo_URL VARCHAR(255), 
+W_Omschrijving VARCHAR(255)
+);
+
+TABEL SPEL SQL
+CREATE TABLE SPEL (
+Spelnr AUTOINCREMENT PRIMARY KEY,
+SpelNaam VARCHAR(50) NOT NULL,
+Omschrijving VARCHAR (255),
+BronURL VARCHAR(255) NOT NULL
+);
+
+TABEL heeft SQL
+CREATE TABLE heeft (
+Lidnr int,
+Spelnr int,
+FOREIGN KEY (Lidnr) REFERENCES LID(Lidnr),
+FOREIGN KEY (Spelnr) REFERENCES SPEL(Spelnr)
+);
+
+TABEL toegevoegd SQL
+CREATE TABLE toegevoegd (
+Webnr int, 
+Lidnr int,
+FOREIGN KEY (Webnr) REFERENCES WEBSITE(Webnr),
+FOREIGN KEY (Lidnr) REFERENCES LID(Lidnr)
+);
+
+Veranderingen: 
+- Rollen onderverdeeld in Rolnr en LID.Rolnr verwijst nu naar een rol in de tabel Rol.
+- Verschillende namen veranderd.
+>>>>>>> Timo's-kutdingen
 
 
 

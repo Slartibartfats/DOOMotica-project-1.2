@@ -5,7 +5,11 @@
 <html>
 <head runat="server">
     <!-- De regel hieronder is een referentie naar de algemene stylesheet -->
+<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="default.css"> 
+=======
+    <link rel="stylesheet" type="text/css" href="Default.css">
+>>>>>>> Timo's-kutdingen
     <title></title>   
     <!-- Script voor het plaatsen van de huidige datum en tijd-->
             <script lang="JavaScript">
@@ -14,7 +18,7 @@
                     var thisDate = new Date();
 
                     document.write("<p>The current date is: ");
-                    document.write(thisDate.toDateString());
+                    document.write(thisDate.toGMTString());
                     document.write("</p>");
                 }
 
@@ -32,26 +36,40 @@
 </head>
 <body>   
     <form id="form1" runat="server">
+<<<<<<< HEAD
 
         
 
 
         <div class="header" runat="server">
+=======
+        <div id="Header" class="header" runat="server">
+>>>>>>> Timo's-kutdingen
        <asp:ImageButton ID="mgbtn_Hlogo" runat="server" Imageurl="/images/Hlogo.jpg" BackColor="Black" BorderStyle="None" CausesValidation="False" PostBackUrl="~/Login.aspx" CssClass="Hlogo" />
 <div class="Datum">
         <script  lang="JavaScript">
             GrabTheDateFunction();
            </script>
         </div>
+<<<<<<< HEAD
             <asp:Label ID="lbl_GebruikerNaam" runat="server"></asp:Label>
+=======
+            <asp:Label ID="lbl_welkom" runat="server" Text="Welkom, "></asp:Label>
+            <asp:Label ID="lbl_Username" runat="server" Text=" "></asp:Label>
+            <asp:Label ID="lbl_Titel" runat="server" Text="bezoeker"></asp:Label>
+>>>>>>> Timo's-kutdingen
    </div> 
         
     <!-- Hieronder volgt de algemene opbouw van de webpagina. -->
         
-        <div class="topnavigation" runat="server" id="Navigatie">
+        <div class="topnavigation" runat="server" id="Navigatie" >
             <ul>
-                <li ><a href="/MEMBERS/Home.aspx">Home</a></li>
-                
+                <li ><a href="~/Login.aspx" runat="server" id="HomeKnop">Home</a></li>
+                <li ><a href="~/MEMBERS/AddWebsite.aspx" runat="server" id ="AddSite" visible="False">Tegeltje maken</a></li>
+                <li ><a href="~/MEMBERS/DeleteSite.aspx" runat="server" id="DeleteSite" visible="False">Tegeltje verwijderen</a></li>
+                <li ><a href="~/ADMIN/DBDelSite.aspx" runat="server" id="AdminDeleteSite" visible="False">Website verwijderen(admin)</a></li>
+                <li ><a href="~/ADMIN/AddAdmin.aspx" runat="server" id="CreateAdmin" visible="False">Admin toevoegen(admin)</a></li>   
+                <li ><asp:LinkButton ID="lnkbtn_Logout" runat="server" Enabled="False" OnClick="lnkbtn_Logout_Click" PostBackUrl="~/Login.aspx" Visible="False" CausesValidation="false">Logout</asp:LinkButton></li>
             </ul>
         </div>
 
@@ -60,6 +78,7 @@
     
     <div class="LeftColumn" runat="server"></div>
     <div class="MiddleColumn" runat="server">
+
 <asp:ContentPlaceHolder ID="cntnt_Body" runat="server">
 
             </asp:ContentPlaceHolder>
@@ -68,7 +87,9 @@
 
 
 
-    <div class="footer" runat="server"></div>
+    <div id="footer" class="footer" runat="server">
+        <asp:Label ID="lbl_error" runat="server"></asp:Label>
+        </div>
 
     </form>
 </body>

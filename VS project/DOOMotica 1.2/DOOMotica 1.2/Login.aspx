@@ -18,13 +18,17 @@
             <asp:Label ID="lbl_Foutmelding" runat="server"></asp:Label>
             <br /><asp:TextBox ID="txt_Password" runat="server" TextMode="Password"></asp:TextBox>
             <br />
-            <asp:Button ID="btn_CreateUser" runat="server" Text="Create a new user" OnClick="btn_CreateUser_Click1" /><asp:Button ID="btn_Login" runat="server" Text="Login" OnClick="btn_Login_Click" />
+            <asp:Button ID="btn_CreateUser" runat="server" Text="Create a new user" OnClick="btn_CreateUser_Click1" CssClass="Button" /><asp:Button ID="btn_Login" runat="server" Text="Login" OnClick="btn_Login_Click" CssClass="Button" />
         </asp:View>
 
         <!-- Hier wordt de Create User view geplaats -->
         <asp:View ID="vw_createuser" runat="server">
             <asp:Label ID="lbl_User" runat="server" Text="Username (6-18 tekens)"></asp:Label>
+<<<<<<< HEAD
             <br />            &nbsp;&nbsp;
+=======
+            &nbsp;&nbsp;<br />
+>>>>>>> Timo's-kutdingen
             <asp:TextBox ID="txt_User" runat="server"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rqrdvldtr_User" runat="server" ControlToValidate="txt_User" ErrorMessage="Vul een username in!" Font-Bold="True">*</asp:RequiredFieldValidator>
             <asp:RegularExpressionValidator ID="regex_User" runat="server" ControlToValidate="txt_User" ErrorMessage="  Username invalide (Moet tussen 6-18 letters/cijfers zijn en alleen '_'-teken mag)" Font-Bold="True" ValidationExpression="([A-Z|a-z|0-9|_]{6,18})">*</asp:RegularExpressionValidator>
@@ -36,8 +40,12 @@
             <asp:RegularExpressionValidator ID="regex_Password" runat="server" ControlToValidate="txt_Pass" ErrorMessage="Password invalide (6-15 cijfers/letters waarvan minimaal 1 hoofdletter)" Font-Bold="True" ValidationExpression="^(?=.*\d)(?=.*[A-Z])(.{6,15})$">*</asp:RegularExpressionValidator>
             <br />
             <asp:Label ID="lbl_ConformPass" runat="server" Text="Confirm Password"></asp:Label>
+<<<<<<< HEAD
             <br /> 
             &nbsp;<asp:TextBox ID="txt_ConfirmPass" runat="server" TextMode="Password"></asp:TextBox>
+=======
+            &nbsp;<br /><asp:TextBox ID="txt_ConfirmPass" runat="server" TextMode="Password"></asp:TextBox>
+>>>>>>> Timo's-kutdingen
 &nbsp;
             <asp:CompareValidator ID="cmprvldtr_Pass" runat="server" ControlToCompare="txt_ConfirmPass" ControlToValidate="txt_Pass" ErrorMessage="User did not give equal passwords" Font-Bold="True">*</asp:CompareValidator>
             <br />
@@ -50,13 +58,13 @@
             <asp:ValidationSummary ID="vldtnsmmr_CreateUser" runat="server" DisplayMode="List" Font-Bold="True" />
             <br />
             <br />
-            <asp:Button ID="btn_Create" runat="server" Text="Create" OnClick="btn_Create_Click" /><asp:Button ID="btn_Terug" runat="server" Text="Terug naar het inlogscherm" OnClick="btn_Terug_Click" CausesValidation="False"/><asp:Label ID="lbl_gelukt" runat="server" Text=""></asp:Label>
+            <asp:Button ID="btn_Create" runat="server" Text="Create" OnClick="btn_Create_Click" CssClass="Button" /><asp:Button ID="btn_Terug" runat="server" Text="Terug naar het inlogscherm" OnClick="btn_Terug_Click" CausesValidation="False" CssClass="Button"/><asp:Label ID="lbl_gelukt" runat="server" Text=""></asp:Label>
         </asp:View>
         <asp:View ID="vw_gebruiker" runat="server">
             <asp:Label ID="lbl_Appeltjeeitje" runat="server" Font-Bold="True" Text="Alles is netjes weggeschreven, druk op de knop om verder te gaan met inloggen. :)"></asp:Label>
             <br />
             <br />
-            <asp:Button ID="btn_TerugLogin" runat="server" Text="Terug" OnClick="btn_TerugLogin_Click" Width="133px" />
+            <asp:Button ID="btn_TerugLogin" runat="server" Text="Terug" OnClick="btn_TerugLogin_Click" Width="133px" CssClass="Button" />
 
         </asp:View>
     </asp:MultiView>

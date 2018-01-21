@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="DaHaus.exe" version="1.0.0.1" publicKeyToken="47687aec7c164033" language="neutral" processorArchitecture="x86" type="win32" />
+  <description asmv2:iconFile="dahaus.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="DaHaus" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+    <commandLine file="DaHaus.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DaHaus.exe" size="8350208">
+      <assemblyIdentity name="DaHaus" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>qaOETyQkWPruPI3EBi7xx2xhdbs=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="dahaus.ico" size="326">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>93yhACaT2vuJXoAj8Qjp8Ii207s=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=InhollandLaptop\Sander" issuerKeyHash="63a1e0b5dac85ebb0ef2366efb79d9854d88a79d" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>0/2fUOJFtL+z0cEevQt4SEwZ7oQ=</DigestValue></Reference></SignedInfo><SignatureValue>Gop6GlFqymt/kKTbjYt9f7PPvmUIltg9fp7X+h1D5CWI7LGPlSrrnsoArevQC+8Dv+fHkvJW5dBDLTnMYzn4L85r+A3OpmNUAmJOBjefgk8+4ePptX8fEVViBn5b6ePxR6ne4R6jYNKNUOq8Da7OFYvoXRbOQCuJHKJWBNx4sSU=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>8RKhZOgQ8jjzAarC/c/UXi0z8x5+/aN9HNCDcSHZthuxIt82YRbgCuebM6Fgyz2F6ua12AvsHpeZ59mLRYLsyry7LqgJTp57NyfvbzqTe9hEg5gbM94TKcg7XaDeXtcBshucSvzRrBkLJ4KHSwFnKv6UjcEEX/DWT+EFU+T9tUU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="84ee194c48780bbd1ec1d1b3bfb445e2509ffdd3" Description="" Url=""><as:assemblyIdentity name="DaHaus.exe" version="1.0.0.1" publicKeyToken="47687aec7c164033" language="neutral" processorArchitecture="x86" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=InhollandLaptop\Sander</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>qMcUEOgQrBFtpx9z7kPZ2QBBc0w=</DigestValue></Reference></SignedInfo><SignatureValue>IyPsEcCmPAh4aHBlNlYsq5Xd4yPA0woVzkWgndIjXzo+zvfPcAIOx7jYXGrL2iQzNHyczGau0yddlOAnmwo1D6JopgP0lv/4IHSePUQA9osHjw0kZtLSAfkXFAjpYEHHOqZGhDzJqe7f4///7Zi5Tl3bG/FiLN9NKmKYO6XluIM=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>8RKhZOgQ8jjzAarC/c/UXi0z8x5+/aN9HNCDcSHZthuxIt82YRbgCuebM6Fgyz2F6ua12AvsHpeZ59mLRYLsyry7LqgJTp57NyfvbzqTe9hEg5gbM94TKcg7XaDeXtcBshucSvzRrBkLJ4KHSwFnKv6UjcEEX/DWT+EFU+T9tUU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB8TCCAVqgAwIBAgIQEm0tO/Usg5BK5CbV76rdqDANBgkqhkiG9w0BAQUFADA3MTUwMwYDVQQDHiwASQBuAGgAbwBsAGwAYQBuAGQATABhAHAAdABvAHAAXABTAGEAbgBkAGUAcjAeFw0xNDEyMDkxMzU3MTlaFw0xNTEyMDkxOTU3MTlaMDcxNTAzBgNVBAMeLABJAG4AaABvAGwAbABhAG4AZABMAGEAcAB0AG8AcABcAFMAYQBuAGQAZQByMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDxEqFk6BDyOPMBqsL9z9ReLTPzHn79o30c0INxIdm2G7Ei3zZhFuAK55szoWDLPYXq5rXYC+wel5nn2YtFguzKvLsuqAlOnns3J+9vOpN72ESDmBsz3hMpyDtdoN5e1wGyG5xK/NGsGQsngodLAWcq/pSNwQRf8NZP4QVT5P21RQIDAQABMA0GCSqGSIb3DQEBBQUAA4GBANCZq6PIVkZXd+PsJPyjs5BI8WKJhJomYbTy4CJBlccqxIOrngEPKCEh3p6Wv2AcGrvGWOVAC/PR+IOsfnwe3q2I8AoUj/avPKYrMMmG1ORqKcuZ9YXd7vAjZHR/w/C0JiVXo727FrzFoQF7kdBoYj27dZyleVhkFpZUk9egYE4H</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
