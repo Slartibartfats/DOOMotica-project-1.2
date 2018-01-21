@@ -123,7 +123,7 @@ namespace DOOMotica_1._2
         //  ----------------------https://stackoverflow.com/questions/6635349/how-to-delete-cookies-on-an-asp-net-website door Pixelbits----------------------------------
         protected void lnkbtn_Logout_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
+
             //is het de eerste keer
             if(!IsPostBack)
             {
@@ -139,7 +139,7 @@ namespace DOOMotica_1._2
         
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
         {
-=======
+
             
             if (Request.Cookies["AuthenticationCookie"] != null)
             {
@@ -149,7 +149,7 @@ namespace DOOMotica_1._2
             Session.Abandon();
 
             Response.Redirect("~/Login.aspx");            //   <--    https://stackoverflow.com/questions/19652021/how-to-really-logout-in-asp-net
->>>>>>> Timo's-kutdingen
+
 
         }
         /* protected void Logout_ServerClick(object sender, EventArgs e) //opgeschorte functie

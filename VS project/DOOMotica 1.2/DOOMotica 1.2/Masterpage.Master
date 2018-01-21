@@ -5,11 +5,11 @@
 <html>
 <head runat="server">
     <!-- De regel hieronder is een referentie naar de algemene stylesheet -->
-<<<<<<< HEAD
+
     <link rel="stylesheet" type="text/css" href="default.css"> 
 =======
     <link rel="stylesheet" type="text/css" href="Default.css">
->>>>>>> Timo's-kutdingen
+
     <title></title>   
     <!-- Script voor het plaatsen van de huidige datum en tijd-->
             <script lang="JavaScript">
@@ -36,28 +36,28 @@
 </head>
 <body>   
     <form id="form1" runat="server">
-<<<<<<< HEAD
+
 
         
 
 
         <div class="header" runat="server">
-=======
+
         <div id="Header" class="header" runat="server">
->>>>>>> Timo's-kutdingen
+
        <asp:ImageButton ID="mgbtn_Hlogo" runat="server" Imageurl="/images/Hlogo.jpg" BackColor="Black" BorderStyle="None" CausesValidation="False" PostBackUrl="~/Login.aspx" CssClass="Hlogo" />
 <div class="Datum">
         <script  lang="JavaScript">
             GrabTheDateFunction();
            </script>
         </div>
-<<<<<<< HEAD
+
             <asp:Label ID="lbl_GebruikerNaam" runat="server"></asp:Label>
-=======
+
             <asp:Label ID="lbl_welkom" runat="server" Text="Welkom, "></asp:Label>
             <asp:Label ID="lbl_Username" runat="server" Text=" "></asp:Label>
             <asp:Label ID="lbl_Titel" runat="server" Text="bezoeker"></asp:Label>
->>>>>>> Timo's-kutdingen
+
    </div> 
         
     <!-- Hieronder volgt de algemene opbouw van de webpagina. -->

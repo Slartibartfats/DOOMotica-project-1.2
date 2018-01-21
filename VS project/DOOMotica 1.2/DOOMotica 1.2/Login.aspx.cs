@@ -104,9 +104,6 @@ namespace DOOMotica_1._2
 
         protected void btn_Terug_Click(object sender, EventArgs e)
         {
-
-
-
             mltvw_Login.ActiveViewIndex = 0;
         }
 
@@ -243,7 +240,7 @@ namespace DOOMotica_1._2
         }
         protected void btn_Login_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
+
             /*   //uphalen WW uit DB
                Connectie.ConnectionString = ConfigurationManager.ConnectionStrings["Harry"].ToString();
                cmd.Connection = Connectie;
@@ -384,10 +381,10 @@ namespace DOOMotica_1._2
         protected void btn_TerugLogin_Click(object sender, EventArgs e)
         {
 
-=======
+
             string Wachtwoord = "";
             int Lidnr = 0, Rolnr = 0;
->>>>>>> Timo's-kutdingen
+
             Connectie.ConnectionString = ConfigurationManager.ConnectionStrings["Harry"].ToString();
             Query.Connection = Connectie;
 
