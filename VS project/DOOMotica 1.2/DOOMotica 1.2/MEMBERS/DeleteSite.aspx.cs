@@ -13,5 +13,10 @@ namespace DOOMotica_1._2.MEMBERS
         {
 
         }
+
+        protected void Accesdtsrc_GebuikerSites_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+        {
+
+        }
     }
 }
