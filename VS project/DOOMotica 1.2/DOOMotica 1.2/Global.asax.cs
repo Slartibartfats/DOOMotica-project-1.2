@@ -15,8 +15,8 @@ namespace DOOMotica_1._2
         protected void Application_Start(object sender, EventArgs e)
         {
             
-            p.StartInfo.FileName = "D:/Documents/Technische informatica/Jaar 1/Periode 2/Project Domotica 1.2/Project/DOOMotica-project-1.2/VS project/DOOMotica 1.2/DOOMotica 1.2/DaHaus project/Dahaus.application";
-            p.Start();
+         //   p.StartInfo.FileName = "~/DaHaus project/DaHaus.application";
+           // p.Start();
 
             //-----https://forums.asp.net/post/1679786.aspx---Jessica Cao - MSFT
         }

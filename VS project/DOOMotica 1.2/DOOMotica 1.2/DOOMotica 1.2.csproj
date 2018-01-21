@@ -71,6 +71,11 @@
     <Content Include="Default.css" />
     <Content Include="MEMBERS\AddWebsite.aspx" />
     <Content Include="MEMBERS\DeleteSite.aspx" />
+    <Content Include="MEMBERS\SnakeImpossible.aspx" />
+    <Content Include="MEMBERS\SnakeHard.aspx" />
+    <Content Include="MEMBERS\Breakout.aspx" />
+    <Content Include="MEMBERS\SnakeEasy.aspx" />
+    <Content Include="MEMBERS\SpelPagina.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -132,6 +137,41 @@
     </Compile>
     <Compile Include="MEMBERS\DeleteSite.aspx.designer.cs">
       <DependentUpon>DeleteSite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MEMBERS\SnakeImpossible.aspx.cs">
+      <DependentUpon>SnakeImpossible.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MEMBERS\SnakeImpossible.aspx.designer.cs">
+      <DependentUpon>SnakeImpossible.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MEMBERS\SnakeHard.aspx.cs">
+      <DependentUpon>SnakeHard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MEMBERS\SnakeHard.aspx.designer.cs">
+      <DependentUpon>SnakeHard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MEMBERS\Breakout.aspx.cs">
+      <DependentUpon>Breakout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MEMBERS\Breakout.aspx.designer.cs">
+      <DependentUpon>Breakout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MEMBERS\SnakeEasy.aspx.cs">
+      <DependentUpon>SnakeEasy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MEMBERS\SnakeEasy.aspx.designer.cs">
+      <DependentUpon>SnakeEasy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MEMBERS\SpelPagina.aspx.cs">
+      <DependentUpon>SpelPagina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MEMBERS\SpelPagina.aspx.designer.cs">
+      <DependentUpon>SpelPagina.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
