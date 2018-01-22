@@ -13,57 +13,12 @@ namespace DOOMotica_1._2.MEMBERS {
     public partial class Home {
         
         /// <summary>
-        /// mgbtn_Tegeltje1 control.
+        /// Raamwerk control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton mgbtn_Tegeltje1;
-        
-        /// <summary>
-        /// mgbtn_Tegeltje2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton mgbtn_Tegeltje2;
-        
-        /// <summary>
-        /// mgbtn_Tegeltje3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton mgbtn_Tegeltje3;
-        
-        /// <summary>
-        /// mgbtn_Tegeltje4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton mgbtn_Tegeltje4;
-        
-        /// <summary>
-        /// mgbtn_Tegeltje5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton mgbtn_Tegeltje5;
-        
-        /// <summary>
-        /// mgbtn_Tegeltje6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton mgbtn_Tegeltje6;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Raamwerk;
     }
 }

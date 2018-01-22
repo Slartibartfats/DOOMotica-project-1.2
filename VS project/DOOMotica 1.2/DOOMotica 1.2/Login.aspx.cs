@@ -7,7 +7,6 @@ using System.Web.UI.WebControls;
 using System.Data.OleDb;
 using System.Configuration;
 using System.Security.Cryptography; // --> Deze library wordt gebruikt voor het beveiligen van het wachtwoord
-using System.Text; //voor het omzetten van string naar byte
 
 
 
@@ -20,14 +19,80 @@ namespace DOOMotica_1._2
         //aanmaken connectie object, query opbject en 3 parameters voor het aanmaken account
         OleDbConnection Connectie = new OleDbConnection();
         OleDbCommand Query = new OleDbCommand();
-        OleDbCommand cmd = new OleDbCommand();
         OleDbParameter Param1 = new OleDbParameter();
         OleDbParameter Param2 = new OleDbParameter(); // deze heet express 2, ivm MS-veiligheid enzo
         OleDbParameter Param3 = new OleDbParameter();
-        OleDbParameter Param4 = new OleDbParameter();
+
+
+        public int OphalenRol()
+        {
+            int Rolnr = 0;
+            Connectie.ConnectionString = ConfigurationManager.ConnectionStrings["Harry"].ToString();
+            Query.Connection = Connectie;
+            HttpCookie AutKoekje = Request.Cookies["AuthenticationCookie"];
+
+            OleDbParameter Henk = new OleDbParameter();
+            Henk.Value = AutKoekje["Username"];
+            Query.Parameters.Add(Henk);
+
+
+            Query.CommandText = "SELECT RolNr FROM LID WHERE Gebruikersnaam = ?";
+            try
+            {
+                Connectie.Open();
+                OleDbDataReader Leesding = Query.ExecuteReader();
+                if (Leesding.HasRows)
+                {
+                    while (Leesding.Read())
+                    {
+                        Rolnr = Convert.ToInt32(Leesding["Rolnr"]);
+                    }
+                }
+            }
+            catch (Exception e)
+            { lbl_gelukt.Text = e.ToString(); }
+            finally
+            { Connectie.Close(); }
+
+
+            return Rolnr;
+        }
+        public void Doorverwijzen(int Rol)
+        {
+            switch (Rol)
+            {
+                case 1:
+                    Server.Transfer("~/ADMIN/AdminHome.aspx");
+                    break;
+                case 2:
+                    Server.Transfer("~/MEMBERS/Home.aspx");
+                    break;
+                default:
+                    Server.Transfer("~/Login.aspx");
+                    break;
+            }
+        }
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (Request.Cookies["AuthenticationCookie"] != null)
+            {
+                //opzoeken rolnr in DB
+                int Rol = OphalenRol();
+                //opzetten splitsing
+                Doorverwijzen(Rol);
+
+            }
+
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+            Response.Cache.SetNoStore();
+
+            //voorkomen dat de browser dingen opslaat
+            //https://stackoverflow.com/questions/17186821/asp-net-session-doesnt-work-when-backward-to-login-page-after-redirect    Peter
+
 
         }
         protected void btn_CreateUser_Click1(object sender, EventArgs e)
@@ -37,9 +102,6 @@ namespace DOOMotica_1._2
 
         protected void btn_Terug_Click(object sender, EventArgs e)
         {
-
-
-
             mltvw_Login.ActiveViewIndex = 0;
         }
 
@@ -48,7 +110,8 @@ namespace DOOMotica_1._2
         protected void btn_Create_Click(object sender, EventArgs e)
         {
             string password = txt_Pass.Text;
-
+            const int ITERATIES = 10000, SALTAANTAL = 16, HASHAANTAL = 20, HASHSALTTOTAAL = 36,
+                BEGINARRAY = 0;
             //leegmaken uitkosmt txtbox
             lbl_gelukt.Text = "";
             // connectie aanwijzen
@@ -79,26 +142,25 @@ namespace DOOMotica_1._2
 
             //in deze array komt de salt
             byte[] salt;
-
             // het genereren van de salt, 16 'random' cijfers
-            new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
+            new RNGCryptoServiceProvider().GetBytes(salt = new byte[SALTAANTAL]);
             // hashen van het salt + de inhoud van de textbox
-            var pbkdf2 = new Rfc2898DeriveBytes(txt_Pass.Text, salt, 10000);
+            Rfc2898DeriveBytes pbkdf2 = new Rfc2898DeriveBytes(txt_Pass.Text, salt, ITERATIES);
 
             // bovenstaande hash wordt in een array geplaatst
-            byte[] hash = pbkdf2.GetBytes(20);
+            byte[] hash = pbkdf2.GetBytes(HASHAANTAL);
 
             //Een nieuwe array maken waar de hash + de salt in wordt opgeslagen
-            byte[] hashBytes = new byte[36];
+            byte[] hashBytes = new byte[HASHSALTTOTAAL];
             //De hash en de salt in bovenstaande array plaatsen
-            Array.Copy(salt, 0, hashBytes, 0, 16);
-            Array.Copy(hash, 0, hashBytes, 16, 20); //de laatste 2 getallen geven aan dat de array 'hash' pas geplaatst moet worden vanaf plek 16 (de 17de plek dus) en 20 plaatsen inneemt.
+            Array.Copy(salt, BEGINARRAY, hashBytes, BEGINARRAY, SALTAANTAL);
+            Array.Copy(hash, BEGINARRAY, hashBytes, SALTAANTAL, HASHAANTAL); //de laatste 2 getallen geven aan dat de array 'hash' pas geplaatst moet worden vanaf plek 16 (de 17de plek dus) en 20 plaatsen inneemt.
 
             //nu nog de salthasharray converteren naar een string
             string SavedHash = Convert.ToBase64String(hashBytes);
-            
+            int Lengte = SavedHash.Length;
             //opzetten query
-            Query.CommandText = "INSERT INTO LID (Gebruikersnaam, Wachtwoord, E_mail) VALUES (?,?,?)";
+            Query.CommandText = "INSERT INTO LID (Gebruikersnaam, Wachtwoord, E_mail,Rolnr) VALUES (?,?,?,2)";
             //parameters invoeren
             Param1.Value = txt_User.Text;
             Param2.Value = SavedHash.ToString();
@@ -124,7 +186,7 @@ namespace DOOMotica_1._2
                     lbl_gelukt.Text = "GELUKT!"; //feedback als het gelukt is
                     txt_Username.Text = txt_User.Text; // een aardigheidje, Username wordt onthouden.
 
-                    //uitzetten van Home knop + navigatiebalk
+                    
 
                 }
 
@@ -176,105 +238,25 @@ namespace DOOMotica_1._2
         }
         protected void btn_Login_Click(object sender, EventArgs e)
         {
-            /*   //uphalen WW uit DB
-               Connectie.ConnectionString = ConfigurationManager.ConnectionStrings["Harry"].ToString();
-               cmd.Connection = Connectie;
-               string Username = txt_Username.Text;
-               byte[] Wachtwoord = new byte[36];
-
-               cmd.CommandText = "SELECT Wachtwoord FROM LID WHERE Gebruikersnaam = ? ";
-               cmd.Parameters.Clear(); //verwijderen eerdere parameters
-               Param4.Value = Username;
-               cmd.Parameters.Add(Param4);
-
-               try
-               {
-
-                   Connectie.Open();
-                   OleDbDataReader Reader = cmd.ExecuteReader();
-                   if (Reader.HasRows == false)
-                   {
-                       lbl_Foutmelding.Text = "Er is een fout opgetreden";
-                   }
-                   else
-                   {
-                       while (Reader.Read())
-                       {
-                           Wachtwoord = Encoding.ASCII.GetBytes(Reader["Wachtwoord"].ToString());
-                       }
-                   }
-               }
-               catch (Exception exc)
-               {
-                   lbl_Foutmelding.Text = exc.Message;
-               }
-               finally
-               {
-                   Connectie.Close();
-               }
-
-               //Opsplitsen opgehaalde WW van DB
-               byte[] DBSalt = new byte[16];
-               byte[] DBHash = new byte[20];
-               Array.Copy(Wachtwoord, 0,DBSalt,0,16 );
-               Array.Copy(Wachtwoord, 16, DBHash, 0, 20);
-
-               //Salt en Password aanelkaar zetten
-               string ControleHash = Convert.ToBase64String(DBHash);
-               string ConWachtwoord = DBSalt + txt_Password.Text;
-
-               //Controle wachtwoord hashen
-
-               var pbkdf2 = new Rfc2898DeriveBytes(ConWachtwoord, DBSalt, 10000);
-
-               byte[] hash = pbkdf2.GetBytes(20);
-
-               byte[] hashbytes = new byte[36];
-
-               Array.Copy(DBSalt, 0, hashbytes, 0, 16);
-               Array.Copy(hash, 0, hashbytes, 16, 20);
-
-               string SavedPassWordHash = Convert.ToBase64String(hashbytes);
-               //vergelijken
-
-               if (ControleHash == SavedPassWordHash)
-               {
-                   HttpCookie koekje = new HttpCookie("AuthenticationCookie");
-                   DateTime Now = DateTime.Now;
-
-                   koekje.Values.Add("Time", Now.ToString());
-                   koekje.Values.Add("Username", Username);
-                   Response.Cookies.Add(koekje);
-
-                   Server.Transfer("~/ MEMBERS / Home.aspx");
-               }
-
-               else
-               {
-                   lbl_Foutmelding.Text = "Wachtwoord is niet juist";
-               }
-   */
-
-
-            //ophalen db
-
-
             string Wachtwoord = "";
+            int Lidnr = 0, Rolnr = 0;
             Connectie.ConnectionString = ConfigurationManager.ConnectionStrings["Harry"].ToString();
-            cmd.Connection = Connectie;
+            Query.Connection = Connectie;
 
-            cmd.CommandText = "SELECT Wachtwoord FROM LID WHERE Gebruikersnaam = ? ";
+            Query.CommandText = "SELECT Wachtwoord, Lidnr, Rolnr FROM LID WHERE Gebruikersnaam = ? ";
             OleDbParameter Param1 = new OleDbParameter();
             Param1.Value = txt_Username.Text;
-            cmd.Parameters.Add(Param1);
+            Query.Parameters.Add(Param1);
 
             try
             {
                 Connectie.Open();
-                OleDbDataReader Leesding = cmd.ExecuteReader();
+                OleDbDataReader Leesding = Query.ExecuteReader();
                 while (Leesding.Read())
                 {
                     Wachtwoord = Leesding["Wachtwoord"].ToString();
+                    Lidnr = Convert.ToInt32(Leesding["Lidnr"]);
+                    Rolnr = Convert.ToInt32(Leesding["Rolnr"]);
                 }
             }
             catch (Exception exc)
@@ -302,13 +284,17 @@ namespace DOOMotica_1._2
 
             if (ControlePass == DBww)
             {
-                txt_Username.Text = "FUCK YEAH HET LUKTE!";
+                //toevoegen cookie met username + lidnr
+                HttpCookie Koekje = new HttpCookie("AuthenticationCookie");
+                Koekje.Values.Add("Username", txt_Username.Text);
+                Koekje.Values.Add("Lidnr", Lidnr.ToString());
+                Koekje.Expires = DateTime.Now.AddMinutes(20);
+                Response.Cookies.Add(Koekje);
+
+                Doorverwijzen(Rolnr);
+                //doorsturen naar naar juiste homepage gebeurd in de page_load
+                //Server.Transfer("~/MEMBERS/Home.aspx");
             }
-
-            
-               
-
-
 
 
         }
@@ -316,25 +302,25 @@ namespace DOOMotica_1._2
         protected void btn_TerugLogin_Click(object sender, EventArgs e)
         {
 
-            Connectie.ConnectionString = ConfigurationManager.ConnectionStrings["Harry"].ToString();
-            Query.Connection = Connectie;
+            /*     Connectie.ConnectionString = ConfigurationManager.ConnectionStrings["Harry"].ToString();
+                 Query.Connection = Connectie;
 
-            Query.CommandText = "INSERT INTO Gebruiker SELECT Lidnr FROM LID WHERE Gebruikersnaam = '?'";
-            //parameters invoeren
-            Param1.Value = txt_User.Text;
-            Query.Parameters.Add(Param1);
+                 Query.CommandText = "INSERT INTO Gebruiker SELECT Lidnr FROM LID WHERE Gebruikersnaam = '?'";
+                 //parameters invoeren
+                 Param1.Value = txt_User.Text;
+                 Query.Parameters.Add(Param1);
 
-            try
+                 try                                                             Vanwege het toevoegen van rolnrs is dit niet meer nodig.
 
-            {
-                Connectie.Open();
-                Query.ExecuteNonQuery();
+                 {
+                     Connectie.Open();
+                     Query.ExecuteNonQuery();
 
-            }
+                 }
 
-            catch (Exception exc) { lbl_gelukt.Text = exc.ToString(); }
-            finally { Connectie.Close(); }
-
+                 catch (Exception exc) { lbl_gelukt.Text = exc.ToString(); }
+                 finally { Connectie.Close(); }
+                 */
             mltvw_Login.ActiveViewIndex = 0;
 
         }
