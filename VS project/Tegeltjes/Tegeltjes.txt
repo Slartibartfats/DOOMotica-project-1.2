@@ -1,0 +1,59 @@
+De tegeltjes worden in de vorm van een vaste vierkant op de webpagina gepresenteerd. 
+In het default.css bestand wordt de middenkolom in een 'grid' veranderd van minimaal 3 
+kolommen en die worden elk opgevuld met een standaard plaatje. Op het moment zijn er standaard 
+9 tegeltjes en deze moeten opgevuld worden met een plaatje en een hyperlink op basis van 
+de ingelogde persoon.
+
+===
+
+zie tegeltjes V1 en code css tegeltjes
+
+===
+
+De projectgroep heeft daar de volgende stappen voor bedacht:
+1 de tegeltjes opvullen met een image en een URL on Page_Load
+2 De tegeltjes opvullen met een imageurl vanuit de database, 
+  dan kan de projectgroep websites makkelijk toevoegen (Admins 
+  kunnen dit ook makkelijk doen in de Admin pagina).
+3 De tegelstjes opvullen met een URL vanuit de database die 
+  een defaultwaarde teruggeeft als er nog geen image is ingesteld.
+
+Eerst gaat de projectgroep de imageURLS vullen op de Page_Load door middel van C#.
+De bedoeling hiervan is het plaatsen van tegeltjes op basis van het aantal tegeltjes 
+die de gebruiker op zijn account heeft ingesteld.
+Dus als er 5 verschillende URL's zijn ingesteld dan worden er ook 5 tegeltjes gevuld.
+
+===
+
+zie stap1.code
+zie stap1.resultaat
+
+===
+
+Nu de projectgroep een vast aantal tegeltjes tevoorschijn kan toveren vanuit de Page_Load, 
+is de volgende stap informatie vanuit de database toe te voegen aan de tegeltjes die 
+worden gemaakt. Drie eigenschappen zijn belangrijk: 
+1 ImageURL : Dit is de URL die de web-applicatie kan volgen voor een plaatje, het liefste 
+  	     300px bij 300px, dit is namelijk een veelvoorkomende grootte van iconen en is 
+  	     voor het programma door middel van CSS makkelijk te schalen. 
+2 PostbackURL : De URL waar de imagebutton naartoe moet verwijzen nadat erop gedrukt is.
+3 Tooltip : Als de gebruiker met zijn muis over de knop gaat dan ziet de gebruiker naar 
+ 	    welke website hij/zij gestuurd wordt.
+
+Om ervoor te zorgen dat de ImageURL en PostbackURL ook daadwerkelijk internet links zijn wordt 
+de standaard Regex gebruikt vanuit Visual Studio, deze is ontdekt nadat de projectgroep de 
+volgende Regex heeft gebouwd:
+
+^(http(s)?:\/\/www\.)(\w|\W){2,15}\.([a-z]){2,4}\/(\w|\W){0,20}$
+
+Een goede les: eerst opzoeken of het niet al standaard bestaat in het programma.
+
+Verder wordt er nog een RequiredValidator op de PostbackURL- en Tooltip-textbox
+
+
+
+
+
+
+
+
