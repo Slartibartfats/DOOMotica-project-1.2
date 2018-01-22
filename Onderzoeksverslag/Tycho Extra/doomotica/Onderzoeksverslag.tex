@@ -7,7 +7,7 @@
 \usepackage{graphicx} 		 % Invoegen van plaatjes , ref: https://nl.sharelatex.com/learn/Inserting_Images
 \usepackage{listings}
 \usepackage{wrapfig}
-\graphicspath{ {C:/Users/laker/Documents/onderzoeksverslagen/doomotica/images/} }   % zet het pad voor de plaatjes
+\graphicspath{ {images/} }   % zet het pad voor de plaatjes
 \pagestyle{plain}            % zet alleen paginanummering aan
 % titel en auteur van het document
 \title{Onderzoeks verslag DOOMotica}
@@ -24,28 +24,53 @@
 	\tableofcontents
 	\newpage
 	\section{Domotica}
-	De reden dat we dit project doen is zodat we de domotica in een huis zouden kunnen besturen. Hier voor maken we een webpagina waarop op onder andere de functies van Dahaus, spelletjes, tegeltjes voor je favoriete sites en nog wat andere tegeltjes voor je site geschiedenis.
+	Het doel van dit project is het ontwerpen en realiseren van een werkende webapplicatie die in staat is een backend systeem aan te sturen, welke de fysieke domotica-handelingen verricht.
 	\newline
 	\newline
 	\newline
 	\newline
-	\section{Website bouwen}
+	\section{Web applicatie}
 	
 	De opdracht voor de studenten is het maken van een website waar de gebruiker een account kan aanmaken en op dit account kan inloggen. Na het inloggen moet de gebruiker zijn favorieten site op de pagina kunnen zetten in de daar aangewezen tegels er voor. verder zijn er nog tegels voor de laatst bezochte sites. verder is er nog plek voor simpele spelletjes en als laatst moet de gebruiker Dahaus kunnen gebruiken.
+	
+	De web applicatie heeft een aantal eisen:
+	\begin{itemize}
+		\item Er is een ERD opgesteld voor het Database Management Systeem.
+		\item Voor de volgende functies worden PSD's opgesteld:
+		\begin{itemize}
+			\item Login-functie
+			\item Create User-functie
+			\item Aanmaken tegels-functie
+		\end{itemize}
+		\item Door gebruik te maken van XHTML, CSS en ASP.NET wordt de webapplicatie gerealiseerd
+	\end{itemize}
 	\newpage
 	
 	\section{Hindernissen}
 	
-	\subsection{geen database les}
-	De leraar databases was in het begin van de periode afwezig. Hierdoor hebben we aan het begin van ons project niet goed met de database kunnen werken. Dit hebben we opgelost door zelf onderzoek te doen naar hoe SQL werkt en hoe je een database in elkaar zet. Later in de periode kwam de leraar weer op school en hebben we inhaal lessen gehad. Deze lessen hebben ons geholpen om ons database systeem te verbeteren en om onze comments die we naar de database sturen te verbeteren.
+	\subsection{Afwezigheid docent 'Databases'}
+	In de afgelopen periode is de leraar voor het vak 'Databases' vier weken afwezig geweest. Dit heeft ervoor gezorgd dat de projectgroep tot week 7 geen les heeft gehad in de onderwerpen: Referentiële integriteit en de vragentaal 'SQL.
 	
-	\subsection{hashen}
+	De studenten hebben dit geprobeerd op te vangen door zelf onderwerpen te verdelen van het lesplan en zelf uit te zoeken. Voor het assessment zijn alle lessen ingehaald en toegepast op de database. 
 	
 	
+	\subsection{Hashen}
+	
+	
+	
+	
+	\subsection{Cookies}
+	In de web-applicatie hebben de studenten cookies gebruikt om ervoor te zorgen dat gebruikers ingelogd blijven. Op basis hiervan is ook een Uitlog-knop gebouwd die de cookie moet terugzetten naar de huidige datum -1 dag. Na het drukken op de knop bleef de cookie bestaan en verwijderde de browser deze dus niet. 
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]{imagefile}
+	\end{figure}
+	
+	In de 9de week(!) kwamen de studenten erachter dat het aan de testbrowser lag. Deze verwijderde de cookies niet wanneer ze zijn verlopen, zelfs niet wanneer de gehele browser is afgesloten.
 	\newpage
 	
 	\section{Centrale vraag}
-	In hoe verre zijn De studenten instaat tot het bouwen van een webpagina? Dit houd in een site met inlog systeem die ook gekoppeld is aan een database en werkende functie heeft zoals Dahaus en spelletjes om te spelen voor de gebruiker. Verder wil de opdrachtgever hoe uitgebreid de studenten de webpagina kunnen maken en wat de studenten nog meer verzinnen om als extra dingen er op te zetten. Denk hierbij bijvoorbeeld aan extra functie als een muziek speler. 
+	In hoe verre zijn De studenten instaat tot het bouwen van een webpagina? Dit houd in een site met inlog systeem die ook gekoppeld is aan een database en werkende functie heeft met het backend systeem Dahaus en spelletjes om te spelen voor de gebruiker. Verder wil de opdrachtgever dat de de studenten de webpagina zelf uitgebreid kunnen maken en wat de studenten nog meer verzinnen om als extra dingen er op te zetten. Denk hierbij bijvoorbeeld aan extra functie als een muziek speler. 
 	
 	\newpage
 	
@@ -54,11 +79,17 @@
 	De eerste deelvraag is: Hoe kan er een werkende connectie gemaakt worden met DaHaus vanaf de website en wat is de beste manier om gebruikers een commando te laten sturen naar DaHaus, zonder dat er problemen optreden met DaHaus of het programma? 
 	\subsubsection{Connectie}
 	
-	De connectie met DaHaus is gemaakt met behulp van een TCP client. DaHaus is een TCP listener en om met een listener te connecten moet je een TCP client gebruiken. Er is voor gekozen om de connectie met DaHaus alleen te maken als er een message verstuurd moet worden, nadat de message is verstuurd wordt de connectie ook meteen weer afgesloten. Het lukte namelijk niet om een connectie te openen en open te houden en op die connectie dan meerdere berichten te sturen en de connectie door middel van een button af te sluiten. Het open houden van de connectie gaf ook het probleem dat als de connectie niet goed werd afgesloten, dan crashde DaHaus. Terwijl nu de connectie automatisch wordt afgesloten waardoor er dus haast geen kans is op een crash van DaHaus.
+	De connectie met DaHaus is gemaakt met behulp van een TCP client. DaHaus is een TCP listener en om met een listener te verbinden moet je een TCP client gebruiken. Er is voor gekozen om de connectie met DaHaus alleen te maken als er een message verstuurd moet worden.
+	
+	Nadat het bericht is verstuurd wordt de connectie ook meteen weer afgesloten. Het lukte namelijk niet om een connectie te openen en open te houden en op die connectie dan meerdere berichten te sturen en de connectie door middel van een event af te sluiten. Het open houden van de connectie gaf ook het probleem dat als de connectie niet goed werd afgesloten, dan crashde DaHaus. Terwijl nu de connectie automatisch wordt afgesloten waardoor er dus haast geen kans is op een crash van DaHaus.
 	\\
 	\\
-	Om de message naar DaHaus te sturen is er een NetworkStream nodig.
-	Deze NetworkStream is aangemaakt door via de aangemaakt TCP client een stream te openen. Op deze stream is het mogelijk om een message naar plain text te encoden in ASCII en naar DaHaus te sturen in de vorm van Bytes. Als deze bytes zijn verstuurd moet het programma de reactie van DaHaus opvangen. De reactie van DaHaus is ook in plain text en wordt op de zelfde stream terug gestuurd. Om deze reactie te lezen resetten we de bytes die we gebruikten voor de message, deze worden dan gevuld met wat er van de stream gelezen wordt. Deze bytes worden dan weer terug gezet naar text. Deze text wordt dan in een string gezet en in de response textbox geprint. De stream en client worden daarna nog niet gesloten. Eerst wordt de "exit" message naar DaHaus gestuurd. Hierdoor sluit DaHaus de connectie zelf. Daarna wordt de client en de stream geclosed. Deze exit message wordt dan niet geprint, anders komt er na elk commando "Bye bye"\  geprint in de response textbox wat het alleen maar onnodig opvult. De stream en client worden dus pas geclosed nadat DaHaus zelf is ge\"{e}xit. Als de exit message namelijk niet verstuurd werd dan zou de connectie toch nog blijven openstaan bij DaHaus en zou er even goed nog een nieuwe connectie worden gemaakt bij DaHaus bij een nieuwe message. Hierdoor zou er dan een hele op hoping aan connecties ontstaan bij DaHaus. Dit gaf in kleine tests geen problemen maar is gewoon niet net en zou uiteindelijk te veel stress kunnen veroorzaken bij DaHaus. 
+	Om het bericht naar DaHaus te sturen is er een NetworkStream nodig.
+	Deze NetworkStream is aangemaakt door via de aangemaakte TCP client een stream te openen. Op deze stream is het mogelijk om een bericht naar plain text te encoden in ASCII en naar DaHaus te sturen in de vorm van Bytes. Als deze bytes zijn verstuurd moet het programma de reactie van DaHaus opvangen. De reactie van DaHaus is ook in plain text en wordt op de zelfde stream terug gestuurd.
+	
+	Om deze reactie te lezen resetten de webapplicatie de bytes die de studenten gebruikten voor de message, deze worden dan gevuld met wat er van de stream gelezen wordt. Deze bytes worden dan weer terug gezet naar text. Deze text wordt dan in een string gezet en in de response textbox geprint. 
+	
+	De stream en client worden daarna nog niet gesloten. Eerst wordt de "exit" message naar DaHaus gestuurd. Hierdoor sluit DaHaus de connectie zelf. Daarna wordt de client en de stream geclosed. Deze exit message wordt dan niet geprint, anders komt er na elk commando "Bye bye"\  geprint in de response textbox wat het alleen maar onnodig opvult. De stream en client worden dus pas geclosed nadat DaHaus zelf is ge\"{e}xit. Als de exit message namelijk niet verstuurd werd dan zou de connectie toch nog blijven openstaan bij DaHaus en zou er even goed nog een nieuwe connectie worden gemaakt bij DaHaus bij een nieuwe message. Hierdoor zou er dan een ophoping aan connecties ontstaan bij DaHaus. Dit gaf in kleine tests geen problemen maar bij het opschalen van gebruikers zal het uiteindelijk te veel stress kunnen veroorzaken bij DaHaus. 
 	\subsubsection{Commando's}
 	
 	De commando's die naar DaHaus worden gestuurd kan het best via knoppen worden gedaan. Hierdoor hoeft de gebruiker dan namelijk niet alle commando's uit hun hoofd te kennen of op te zoeken. De makkelijkste optie was om 2 radiobutton lists te maken. \'{E}\'{e}n radiobuttonlist om een object(lamp, window, heater, alle lampen of alle windows) te selecteren. De andere radiobuttonlist zou dan zijn voor de actie die de objecten moeten uitvoeren. Door een lange if else statement te maken is het daarmee mogelijk om voor elke combinatie het bijpassende commando te sturen. Om het commando op te sturen moet de gebruiker dan op de Send button drukken. Als er een ongeldige combinatie wordt gemaakt dan wordt dat in de Response textbox gezet, deze wordt dan niet naar DaHaus gestuurd. De heater wordt van temperatuur veranderd door de Heater en Heater Temp radio buttons te selecteren en in de heater textbox een value te geven. Deze wordt dan gecheckt of het wel een geldig getal is. Als dit getal boven de 35 graden is, dan wordt dit veranderd in 35 graden, dat is namelijk de maximale waarde voor de heater. Zelfde gebeurd met onder de 12 graden, als er een getal onder de 12 ingevuld wordt, dan wordt de heater tot 12 graden gezet. Dat is dus de minimale waarde voor de heater. 
