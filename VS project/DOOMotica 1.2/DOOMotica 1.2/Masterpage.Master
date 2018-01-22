@@ -54,7 +54,8 @@
                 <li ><a href="~/ADMIN/DBDelSite.aspx" runat="server" id="AdminDeleteSite" visible="False">Website verwijderen(admin)</a></li>
                 <li ><a href="~/ADMIN/AddAdmin.aspx" runat="server" id="CreateAdmin" visible="False">Admin toevoegen(admin)</a></li>   
                 <li ><a href="~/MEMBERS/SpelPagina.aspx" runat="server" id="SpelPagina" visible="False">Spelletjes!</a></li> 
-                <li ><asp:LinkButton ID="lnkbtn_Logout" runat="server" Enabled="False" OnClick="lnkbtn_Logout_Click" PostBackUrl="~/Login.aspx" Visible="False" CausesValidation="false">Logout</asp:LinkButton></li>
+                <li ><a href="~/MEMBERS/DaHaus.aspx" runat="server" id="DaHaus" visible="False">DAHAUS</a></li> 
+                                <li ><asp:LinkButton ID="lnkbtn_Logout" runat="server" Enabled="False" OnClick="lnkbtn_Logout_Click" PostBackUrl="~/Login.aspx" Visible="False" CausesValidation="false">Logout</asp:LinkButton></li>
                              
             </ul>
         </div>

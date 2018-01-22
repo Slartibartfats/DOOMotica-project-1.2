@@ -84,6 +84,7 @@ namespace DOOMotica_1._2
                     CreateAdmin.Visible = true; CreateAdmin.Disabled = false;
                     SpelPagina.Visible = true; SpelPagina.Disabled = false;
                     lnkbtn_Logout.Visible = true; lnkbtn_Logout.Enabled = true;
+                    DaHaus.Visible = true; DaHaus.Disabled = true;
 
                     lbl_Titel.Text = ROL1;
                     lbl_Username.Text = Usern;
@@ -93,6 +94,8 @@ namespace DOOMotica_1._2
                     DeleteSite.Visible = true; DeleteSite.Disabled = false;
                     SpelPagina.Visible = true; SpelPagina.Disabled = false;
                     lnkbtn_Logout.Visible = true; lnkbtn_Logout.Enabled = true;
+                    DaHaus.Visible = true; DaHaus.Disabled = true;
+
                     lbl_Titel.Text = ROL2;
                     lbl_Username.Text = Usern;
                     break;
