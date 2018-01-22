@@ -59,9 +59,10 @@
 	\\
 	Om de message naar DaHaus te sturen is er een NetworkStream nodig.
 	Deze NetworkStream is aangemaakt door via de aangemaakt TCP client een stream te openen. Op deze stream is het mogelijk om een message naar plain text te encoden in ASCII en naar DaHaus te sturen in de vorm van Bytes. Als deze bytes zijn verstuurd moet het programma de reactie van DaHaus opvangen. De reactie van DaHaus is ook in plain text en wordt op de zelfde stream terug gestuurd. Om deze reactie te lezen resetten we de bytes die we gebruikten voor de message, deze worden dan gevuld met wat er van de stream gelezen wordt. Deze bytes worden dan weer terug gezet naar text. Deze text wordt dan in een string gezet en in de response textbox geprint. De stream en client worden daarna nog niet gesloten. Eerst wordt de "exit" message naar DaHaus gestuurd. Hierdoor sluit DaHaus de connectie zelf. Daarna wordt de client en de stream geclosed. Deze exit message wordt dan niet geprint, anders komt er na elk commando "Bye bye"\  geprint in de response textbox wat het alleen maar onnodig opvult. De stream en client worden dus pas geclosed nadat DaHaus zelf is ge\"{e}xit. Als de exit message namelijk niet verstuurd werd dan zou de connectie toch nog blijven openstaan bij DaHaus en zou er even goed nog een nieuwe connectie worden gemaakt bij DaHaus bij een nieuwe message. Hierdoor zou er dan een hele op hoping aan connecties ontstaan bij DaHaus. Dit gaf in kleine tests geen problemen maar is gewoon niet net en zou uiteindelijk te veel stress kunnen veroorzaken bij DaHaus. 
+	
 	\subsubsection{Commando's}
 	
-	De commando's die naar DaHaus worden gestuurd kan het best via knoppen worden gedaan. Hierdoor hoeft de gebruiker dan namelijk niet alle commando's uit hun hoofd te kennen of op te zoeken. De makkelijkste optie was om 2 radiobutton lists te maken. \'{E}\'{e}n radiobuttonlist om een object(lamp, window, heater, alle lampen of alle windows) te selecteren. De andere radiobuttonlist zou dan zijn voor de actie die de objecten moeten uitvoeren. Door een lange if else statement te maken is het daarmee mogelijk om voor elke combinatie het bijpassende commando te sturen. Om het commando op te sturen moet de gebruiker dan op de Send button drukken. Als er een ongeldige combinatie wordt gemaakt dan wordt dat in de Response textbox gezet, deze wordt dan niet naar DaHaus gestuurd. De heater wordt van temperatuur veranderd door de Heater en Heater Temp radio buttons te selecteren en in de heater textbox een value te geven. Deze wordt dan gecheckt of het wel een geldig getal is. Als dit getal boven de 35 graden is, dan wordt dit veranderd in 35 graden, dat is namelijk de maximale waarde voor de heater. Zelfde gebeurd met onder de 12 graden, als er een getal onder de 12 ingevuld wordt, dan wordt de heater tot 12 graden gezet. Dat is dus de minimale waarde voor de heater. 
+	De commando's die naar DaHaus worden gestuurd kan het best via knoppen worden gedaan. Hierdoor hoeft de gebruiker dan namelijk niet alle commando's uit hun hoofd te kennen of op te zoeken. De makkelijkste optie was om 2 radiobutton lists te maken. \'{E}\'{e}n radiobuttonlist om een object(lamp, window, heater, alle lampen of alle windows) te selecteren. De andere radiobuttonlist zou dan zijn voor de actie die de objecten moeten uitvoeren. Door een lange if else statement te maken is het daarmee mogelijk om voor elke combinatie het bijpassende commando te sturen. Om het commando op te sturen moet de gebruiker dan op de Send button drukken. Als er een ongeldige combinatie wordt gemaakt dan wordt dat in de Response textbox gezet, deze wordt dan niet naar DaHaus gestuurd. Zie Figuur \ref{ErrorHeater} voor de codeDe heater wordt van temperatuur veranderd door de Heater en Heater Temp radio buttons te selecteren en in de heater textbox een value te geven. Deze wordt dan gecheckt of het wel een geldig getal is. Als dit getal boven de 35 graden is, dan wordt dit veranderd in 35 graden, dat is namelijk de maximale waarde voor de heater. Zelfde gebeurd met onder de 12 graden, als er een getal onder de 12 ingevuld wordt, dan wordt de heater tot 12 graden gezet. Dat is dus de minimale waarde voor de heater. Zie Figuur \ref{SendMessage} voor code van het sturen van de message.
 	\subsubsection{Problemen}
 	
 	Bij de connectie maken met DaHaus zijn veel problemen opgetreden. 
@@ -119,5 +120,28 @@
 		\label{LoginCode}
 	\end{figure}
 	\newpage
-	
+	\begin{figure}[h]
+		\includegraphics[scale=0.5]{SendMessage}
+		\caption{Code van commando versturen}
+		\label{SendMessage}
+	\end{figure}
+\newpage
+\begin{figure}[h]
+	\includegraphics[scale=0.5]{ErrorHeater}
+	\caption{Code voor Heater error}
+	\label{ErrorHeater}
+\end{figure}
+\newpage
+\begin{figure}[h]
+	\includegraphics[scale=0.5]{SendMessagePSD}
+	\caption{Send Message PSD}
+	\label{SendMessagePSD}
+\end{figure}
+\newpage
+\begin{figure}[h]
+	\includegraphics[scale=0.5]{RadioButtonList}
+	\caption{Radio Button List selectie PSD}
+	\label{RadioButtonList}
+\end{figure}
+\newpage
 \end{document}
