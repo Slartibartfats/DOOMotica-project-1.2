@@ -25,6 +25,7 @@ namespace DOOMotica_1._2.MEMBERS
 
         public void Aanmaken_Tegeltjes()
         {
+            const int VASTEPX = 150;
             Conn.ConnectionString = ConfigurationManager.ConnectionStrings["Harry"].ToString();
             Query.Connection = Conn;
 
@@ -44,8 +45,8 @@ namespace DOOMotica_1._2.MEMBERS
                     Aantal++;
                     button.PostBackUrl = "~/MEMBERS/" + Reader["SpelNaam"].ToString()+ ".aspx";
                     button.ToolTip = Reader["SpelNaam"].ToString();
-                    button.Height = 150;
-                    button.Width = 150;
+                    button.Height = VASTEPX;
+                    button.Width = VASTEPX;
 
 
                     Raamwerk.Controls.Add(button);

@@ -83,7 +83,7 @@ namespace DOOMotica_1._2
                 int Rol = OphalenRol();
                 //opzetten splitsing
                 Doorverwijzen(Rol);
-                
+
             }
 
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
@@ -102,9 +102,6 @@ namespace DOOMotica_1._2
 
         protected void btn_Terug_Click(object sender, EventArgs e)
         {
-
-
-
             mltvw_Login.ActiveViewIndex = 0;
         }
 
@@ -113,7 +110,8 @@ namespace DOOMotica_1._2
         protected void btn_Create_Click(object sender, EventArgs e)
         {
             string password = txt_Pass.Text;
-
+            const int ITERATIES = 10000, SALTAANTAL = 16, HASHAANTAL = 20, HASHSALTTOTAAL = 36,
+                BEGINARRAY = 0;
             //leegmaken uitkosmt txtbox
             lbl_gelukt.Text = "";
             // connectie aanwijzen
@@ -145,18 +143,18 @@ namespace DOOMotica_1._2
             //in deze array komt de salt
             byte[] salt;
             // het genereren van de salt, 16 'random' cijfers
-            new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
+            new RNGCryptoServiceProvider().GetBytes(salt = new byte[SALTAANTAL]);
             // hashen van het salt + de inhoud van de textbox
-            Rfc2898DeriveBytes pbkdf2 = new Rfc2898DeriveBytes(txt_Pass.Text, salt, 10000);
+            Rfc2898DeriveBytes pbkdf2 = new Rfc2898DeriveBytes(txt_Pass.Text, salt, ITERATIES);
 
             // bovenstaande hash wordt in een array geplaatst
-            byte[] hash = pbkdf2.GetBytes(20);
+            byte[] hash = pbkdf2.GetBytes(HASHAANTAL);
 
             //Een nieuwe array maken waar de hash + de salt in wordt opgeslagen
-            byte[] hashBytes = new byte[36];
+            byte[] hashBytes = new byte[HASHSALTTOTAAL];
             //De hash en de salt in bovenstaande array plaatsen
-            Array.Copy(salt, 0, hashBytes, 0, 16);
-            Array.Copy(hash, 0, hashBytes, 16, 20); //de laatste 2 getallen geven aan dat de array 'hash' pas geplaatst moet worden vanaf plek 16 (de 17de plek dus) en 20 plaatsen inneemt.
+            Array.Copy(salt, BEGINARRAY, hashBytes, BEGINARRAY, SALTAANTAL);
+            Array.Copy(hash, BEGINARRAY, hashBytes, SALTAANTAL, HASHAANTAL); //de laatste 2 getallen geven aan dat de array 'hash' pas geplaatst moet worden vanaf plek 16 (de 17de plek dus) en 20 plaatsen inneemt.
 
             //nu nog de salthasharray converteren naar een string
             string SavedHash = Convert.ToBase64String(hashBytes);
@@ -188,7 +186,7 @@ namespace DOOMotica_1._2
                     lbl_gelukt.Text = "GELUKT!"; //feedback als het gelukt is
                     txt_Username.Text = txt_User.Text; // een aardigheidje, Username wordt onthouden.
 
-                    //uitzetten van Home knop + navigatiebalk
+                    
 
                 }
 
